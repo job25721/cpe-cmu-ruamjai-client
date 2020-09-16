@@ -1,23 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { home, homeOutline } from "ionicons/icons";
-import { IonIcon } from "@ionic/react";
-const HomeIcon = ({ size }) => {
-  const [toggle, setToggle] = React.useState(false);
-  return (
-    <div
-      onMouseEnter={() => setToggle(true)}
-      onMouseLeave={() => setToggle(false)}
-      style={{ cursor: "pointer" }}
-    >
-      {!toggle ? (
-        <IonIcon icon={homeOutline} style={{ fontSize: size }} />
-      ) : (
-        <IonIcon icon={home} style={{ fontSize: size }} color="primary" />
-      )}
-    </div>
-  );
-};
+import HomeIcon from "../components/icons/HomeIcon";
+
 const App = (props) => {
   const counter = useSelector((state) => state.counter.counter);
   return (
