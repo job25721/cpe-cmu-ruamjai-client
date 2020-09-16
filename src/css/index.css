@@ -1,0 +1,24 @@
+@font-face {
+  font-family: mitr-light;
+  src: url("/fonts/mitr/Mitr-Light.ttf");
+}
+
+@font-face {
+  font-family: mitr-regular;
+  src: url("/fonts/mitr/Mitr-Regular.ttf");
+}
+
+@font-face {
+  font-family: montserrat-light;
+  src: url("/fonts/montserrat/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: monserrat-regular;
+  src: url("/fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+body {
+  margin: 0;
+  font-family: monserrat-regular !important;
+}
