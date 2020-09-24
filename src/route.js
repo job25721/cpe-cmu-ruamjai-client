@@ -4,7 +4,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 
 import App from "./pages/App.jsx";
-import Test from "./pages/Test";
+import Index from "./pages/Index";
 
 export default () => {
   store.subscribe(() => {
@@ -14,7 +14,7 @@ export default () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/" component={Test} exact={true} />
+          <Route path="/" component={Index} exact={true} />
           <Route path="/app" component={App} exact={true} />
         </Switch>
       </Router>
