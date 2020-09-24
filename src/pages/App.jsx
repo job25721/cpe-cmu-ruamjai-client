@@ -21,7 +21,7 @@ const App = (props) => {
       </div>
       <p
         style={{
-          fontFamily: "mitr-regular",
+          fontFamily: "s-light",
           fontSize: 50,
         }}
       >

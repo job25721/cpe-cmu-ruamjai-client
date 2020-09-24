@@ -18,6 +18,20 @@
   src: url("/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: s-light;
+  src: url("/fonts/sukhumvit-set/SukhumvitSet-Light.ttf");
+}
+
+@font-face {
+  font-family: s-medium;
+  src: url("/fonts/sukhumvit-set/SukhumvitSet-Medium.ttf");
+}
+@font-face {
+  font-family: s-bold;
+  src: url("/fonts/sukhumvit-set/SukhumvitSet-Bold.ttf");
+}
+
 body {
   margin: 0;
   font-family: monserrat-regular !important;
