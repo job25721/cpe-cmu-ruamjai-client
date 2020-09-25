@@ -57,12 +57,17 @@ body {
   }
 }
 
+/************* Card *************/
+
+
+/* --- Card --- */
 .cus-card {
   display: grid;
   grid-template-columns: repeat(20,1fr);
   background-color: white;
   width: 100%;
   padding: 30px;
+  padding-bottom: 45px;
 }
 
 .cus-card .image{
@@ -93,7 +98,7 @@ body {
 
 .cus-card .content .content-row{
   display: grid;
-  grid-template-rows: repeat(5 , calc(2rem));
+  grid-template-rows: 2rem 1fr;
   color: #623688;
 }
 
@@ -121,7 +126,7 @@ body {
   .cus-card{
     grid-template-rows: repeat(2);
     grid-template-columns: 1;
-    padding: 7%;
+    padding: 6%;
   }
 
   .cus-card .image{
@@ -131,9 +136,51 @@ body {
   }
 
   .cus-card .content{
+    padding: 5px;
     grid-row: 2;
     grid-column: span 20;
   }
 
 }
+/* --- Card --- */
 
+
+/* --- AbstractCard --- */
+.cus-abstract-card{
+  padding: 30px;
+  display: grid;
+  grid-template-rows: 2;
+  background-color: white;
+  width: 100%;
+  padding-bottom: 45px;
+  color: #623688;
+}
+
+.cus-abstract-card .image{
+  width: 100%;
+  height: calc(15rem - 60px);
+  background-color: #ECCEF3;
+}
+.cus-abstract-card .content{
+  padding: 5px;
+  display: grid;
+  grid-template-rows: 2rem 8rem 1.5rem;
+}
+
+.cus-abstract-card .header{
+  font-size: 1.5rem;
+  line-height: 30px;
+  overflow: hidden;
+}
+.cus-abstract-card .detail {
+  padding-top:  0.5rem ;
+  font-size: 1rem;
+  overflow: hidden;
+  line-height: 25px;
+  color: #623688;
+}
+
+/* --- AbstractCard --- */
+
+
+/************* Card *************/

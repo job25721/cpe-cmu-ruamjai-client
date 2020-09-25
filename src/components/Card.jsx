@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 
 export function Card(props) {
-  useEffect(() => {
-    
-  },[]);
   return (
     <div className="cus-card">
       <div className="image"></div>
@@ -20,4 +17,22 @@ export function Card(props) {
       </div>
     </div>
   );
+}
+
+export function AbstractCard(props) {
+    return (
+        <div className="cus-abstract-card">
+            <div className="image">
+            </div>
+            <div className="content">
+                <div className="header">
+                    {props.header}
+                </div>
+                <div className="detail">
+                    {props.detail}
+                </div>
+            </div>
+        </div>
+        
+    )
 }
