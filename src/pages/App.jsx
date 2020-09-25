@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Card, AbstractCard } from "../components/Card";
 import HomeIcon from "../components/icons/HomeIcon";
 
+
+
 const App = (props) => {
   const counter = useSelector((state) => state.counter.counter);
   return (
@@ -38,78 +40,10 @@ const App = (props) => {
     //   </button>
     // </>
     <>
-      <div
-        style={{
-          // display:'flex',
-          textAlign: "start",
-          height: "100vh",
-          backgroundColor: "coral",
-          paddingLeft: "10%",
-          paddingRight: "10%",
-          overflow: "scroll",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4,1fr)",
-          }}
-        >
-          <div
-            style={{
-              gridColumn: "span 1",
-            }}
-          >
-            <AbstractCard
-              header="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi mollitia aliquid, accusamus aspernatur doloribus, voluptate molestias dolor quos iusto maxime ullam ea alias nostrum consectetur iste consequuntur, illum minus soluta!"
-              detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            />
-          </div>
-          <div
-            style={{
-              gridColumn: "span 1",
-            }}
-          >
-            <AbstractCard
-              header="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi mollitia aliquid, accusamus aspernatur doloribus, voluptate molestias dolor quos iusto maxime ullam ea alias nostrum consectetur iste consequuntur, illum minus soluta!"
-              detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            />
-          </div>
-          <div
-            style={{
-              gridColumn: "span 1",
-            }}
-          >
-            <AbstractCard
-              header="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi mollitia aliquid, accusamus aspernatur doloribus, voluptate molestias dolor quos iusto maxime ullam ea alias nostrum consectetur iste consequuntur, illum minus soluta!"
-              detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            />
-          </div>
-          <div
-            style={{
-              gridColumn: "span 1",
-            }}
-          >
-            <AbstractCard
-              header="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi mollitia aliquid, accusamus aspernatur doloribus, voluptate molestias dolor quos iusto maxime ullam ea alias nostrum consectetur iste consequuntur, illum minus soluta!"
-              detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            />
-          </div>
-
-          {/* <Card
-            header="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            detail=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-          />
-          <Card
-            header="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            detail=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-          />
-          <Card
-            header="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-            detail=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus voluptatem consequuntur est, quis facere, animi sunt maiores expedita aspernatur, qui placeat exercitationem adipisci saepe deleniti recusandae? Nam, eaque repudiandae."
-          /> */}
-        </div>
-      </div>
+      <Card 
+        header="หัวข้อ"
+        detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti alias ratione corporis eum enim porro fugit et ad, incidunt possimus unde provident itaque beatae similique pariatur, distinctio veniam error quisquam?"
+      />
     </>
   );
 };
