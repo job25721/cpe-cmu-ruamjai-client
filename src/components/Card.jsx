@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import { flash } from "ionicons/icons";
 
 export function Card(props) {
+  const status = props.status ? true : false;
   return (
     <div className="cus-card">
       <div className="image">
@@ -18,10 +20,13 @@ export function Card(props) {
           <div className="detail">
             <span>{props.detail}</span>
           </div>
-          <div className="status">
+          { status ? (<div className="status">
             <div className="circle"></div>
             <span>{props.status}</span>
-          </div>
+          </div>)
+          :
+          <div/>
+          }
         </div>
       </div>
     </div>
