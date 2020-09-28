@@ -1,32 +1,30 @@
-import React, { useEffect } from "react";
-import { flash } from "ionicons/icons";
+import React from "react";
 
-export function Card(props) {
-  const status = props.status ? true : false;
+export function Card({ header, detail, voting, status }) {
   return (
     <div className="cus-card">
       <div className="image">
         <div className="voting">
-          {/* <ion-icon name="thumbs-up-outline"></ion-icon> */}
-          <span>{props.voting}</span>
+          <span>{voting}</span>
         </div>
       </div>
       <div className="v-line"></div>
       <div className="content">
         <div className="content-row">
           <div className="header">
-            <p>{props.header}</p>
+            <p>{header}</p>
           </div>
           <div className="detail">
-            <span>{props.detail}</span>
+            <span>{detail}</span>
           </div>
-          { status ? (<div className="status">
-            <div className="circle"></div>
-            <span>{props.status}</span>
-          </div>)
-          :
-          <div/>
-          }
+          {status ? (
+            <div className="status">
+              <div className="circle"></div>
+              <span>{status}</span>
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </div>

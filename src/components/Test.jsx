@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { addCounter, decreseCounter } from "../store/actions/counter";
 
 const mapStateToProps = (state) => ({
