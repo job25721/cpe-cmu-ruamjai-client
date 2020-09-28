@@ -9,22 +9,18 @@ export default () => {
         <h1>CPE CMU</h1>
         <h1>RUAMJAI</h1>
       </div>
-      {!isOpen ? (
-        <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>DASHBOARD</li>
-          <li>คำร้องทั้งหมด</li>
-          <li>คำร้องของฉัน</li>
+
+      <ul className={isOpen ? "nav-link open" : "nav-link"}>
+        <li>DASHBOARD</li>
+        <li>คำร้องทั้งหมด</li>
+        <li>คำร้องของฉัน</li>
+        {!isOpen ? (
           <li>
             <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
           </li>
-        </ul>
-      ) : (
-        <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>DASHBOARD</li>
-          <li>คำร้องทั้งหมด</li>
-          <li>คำร้องของฉัน</li>
-        </ul>
-      )}
+        ) : null}
+      </ul>
+
       <div
         className="hamburger"
         onClick={() => {

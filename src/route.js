@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import App from "./pages/App.jsx";
 import Index from "./pages/Index";
 import Requests from "./pages/Requests";
+import RequestById from "./pages/RequestDetail";
 
 export default () => {
   store.subscribe(() => {
@@ -17,6 +18,7 @@ export default () => {
         <Switch>
           <Route path="/" component={Index} exact={true} />
           <Route path="/requests" component={Requests} exact={true} />
+          <Route path="/req/:reqId" component={RequestById} />
           <Route path="/app" component={App} exact={true} />
         </Switch>
       </Router>
