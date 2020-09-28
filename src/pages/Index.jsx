@@ -9,7 +9,7 @@ const Index = (props) => {
       <Nav />
       <div className="container">
         <div className="columns">
-          <div className="column is-one-third">
+          <div className="column is-2">
             <button
               className="button is-text"
               style={{ textDecoration: "none" }}
@@ -19,7 +19,7 @@ const Index = (props) => {
                 style={{
                   fontFamily: "s-medium",
                   fontSize: 30,
-                  color: "#623688",
+                  color: "var(--deepPurple)",
                 }}
               >
                 เพิ่มคำร้อง
@@ -27,7 +27,24 @@ const Index = (props) => {
             </button>
           </div>
           <div className="column">
-            <Card header="lorem" detail="" />
+            <h1
+              className="has-padding-left-30 subtitle is-1"
+              style={{ fontFamily: "monserrat-medium" }}
+            >
+              TRENDING
+            </h1>
+
+            <div style={{ overflow: "auto", height: "80vh" }}>
+              {[1, 2, 3, 4, 6, 7, 5, 3, 2].map((each) => (
+                <Card
+                  header="หัวข้อ"
+                  detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id modi ipsa blanditiis, nobis repudiandae iure dignissimos earum culpa nesciunt dolore pariatur dolor accusamus saepe tempore esse nisi consequuntur voluptatum maiores."
+                  status="รวบรวมผลโหวต"
+                  voting={20}
+                  key={each}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

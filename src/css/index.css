@@ -59,29 +59,28 @@ body {
 
 /************* Card *************/
 
-
 /* --- Card --- */
 
 :root {
-  --red : #E27979;
-  --deepPurple : #623688;
-  --lightPurple : #ECCEF3;
-  --green : #57C56D;
-  --yellow : #F8E987;
-  --darkYellow : #ddc84e;
-  --grey : #bdbdbd;
+  --red: #e27979;
+  --deepPurple: #623688;
+  --lightPurple: #eccef3;
+  --green: #57c56d;
+  --yellow: #f8e987;
+  --darkYellow: #ddc84e;
+  --grey: #bdbdbd;
 }
 
 .cus-card {
   display: grid;
-  grid-template-columns: repeat(20,1fr);
+  grid-template-columns: repeat(20, 1fr);
   background-color: white;
   width: 100%;
   padding: 30px;
   padding-bottom: 45px;
 }
 
-.cus-card .image{
+.cus-card .image {
   position: relative;
   grid-column: span 6;
   background-color: var(--lightPurple);
@@ -90,7 +89,7 @@ body {
   width: 100%;
 }
 
-.cus-card .image .voting{
+.cus-card .image .voting {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -106,7 +105,7 @@ body {
   color: white;
 }
 
-.cus-card .v-line{
+.cus-card .v-line {
   grid-column: span 1;
   justify-content: center;
   width: 0.5px;
@@ -114,17 +113,16 @@ body {
   background-color: #bdbdbd;
   margin-left: 10px;
   margin-right: 10px;
-  
 }
 
-.cus-card .content{
+.cus-card .content {
   grid-column: span 13;
   background-color: white;
   display: flex;
   flex-direction: column;
 }
 
-.cus-card .content .content-row{
+.cus-card .content .content-row {
   display: grid;
   grid-template-rows: 2rem 5rem 1.5rem;
   color: #623688;
@@ -135,20 +133,20 @@ body {
   background-color: white;
   font-size: 1.5rem;
   overflow: hidden;
-  font-family: s-bold ;
+  font-family: s-bold;
 }
 
-.cus-card .content .content-row .detail{
+.cus-card .content .content-row .detail {
   grid-row: 2;
   background-color: white;
   font-size: 1rem;
   overflow: hidden;
-  line-height: 1.5rem ;
+  line-height: 1.5rem;
   padding-top: 0.5rem;
   font-family: s-medium;
 }
 
-.cus-card .content .content-row .status{
+.cus-card .content .content-row .status {
   grid-row: 3;
   color: var(--darkYellow);
   display: flex;
@@ -157,7 +155,7 @@ body {
   align-items: center;
 }
 
-.cus-card .content .content-row .status .circle{
+.cus-card .content .content-row .status .circle {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 1rem;
@@ -165,41 +163,37 @@ body {
   margin-right: 5px;
 }
 
-
 @media (max-width: 768px) {
-  .cus-card .v-line{
+  .cus-card .v-line {
     display: none;
   }
 
-  .cus-card{
+  .cus-card {
     grid-template-rows: repeat(2);
     grid-template-columns: 1;
     padding: 6%;
   }
 
-  .cus-card .image{
+  .cus-card .image {
     grid-row: 1;
-    grid-column:span 20 ;
+    grid-column: span 20;
     height: calc(15rem - 60px);
   }
 
-
-  .cus-card .content{
+  .cus-card .content {
     padding: 5px;
     grid-row: 2;
     grid-column: span 20;
   }
 
-  .cus-card .content .content-row{
-    grid-template-rows: 2rem 5rem 1.5rem ;
+  .cus-card .content .content-row {
+    grid-template-rows: 2rem 5rem 1.5rem;
   }
-
 }
 /* --- Card --- */
 
-
 /* --- AbstractCard --- */
-.cus-abstract-card{
+.cus-abstract-card {
   padding: 30px;
   display: grid;
   grid-template-rows: 2;
@@ -209,35 +203,32 @@ body {
   color: #623688;
 }
 
-.cus-abstract-card .image{
+.cus-abstract-card .image {
   width: 100%;
   height: calc(15rem - 60px);
-  background-color: #ECCEF3;
+  background-color: #eccef3;
 }
-.cus-abstract-card .content{
+.cus-abstract-card .content {
   padding: 5px;
   display: grid;
   grid-template-rows: 2rem 8rem 1.5rem;
 }
 
-.cus-abstract-card .header{
+.cus-abstract-card .header {
   font-size: 1.5rem;
   line-height: 30px;
   overflow: hidden;
-  font-family: s-bold ;
-
+  font-family: s-bold;
 }
 .cus-abstract-card .detail {
-  padding-top:  0.5rem ;
+  padding-top: 0.5rem;
   font-size: 1rem;
   overflow: hidden;
   line-height: 25px;
   color: #623688;
-  font-family: s-medium ;
-
+  font-family: s-medium;
 }
 
 /* --- AbstractCard --- */
-
 
 /************* Card *************/
