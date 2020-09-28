@@ -9,17 +9,17 @@
 }
 
 @font-face {
-  font-family: montserrat-light;
+  font-family: m-light;
   src: url("/fonts/montserrat/Montserrat-Light.ttf");
 }
 
 @font-face {
-  font-family: monserrat-regular;
+  font-family: m-reg;
   src: url("/fonts/montserrat/Montserrat-Regular.ttf");
 }
 
 @font-face {
-  font-family: monserrat-medium;
+  font-family: m-med;
   src: url("/fonts/montserrat/Montserrat-Medium.ttf");
 }
 
@@ -39,23 +39,102 @@
 
 body {
   margin: 0;
-  font-family: monserrat-medium !important;
+  font-family: m-med !important;
 }
 
 .primary-color {
   color: #623688 !important;
 }
 
-.cus-container {
+/* .cus-container {
   padding-left: 100px;
   padding-right: 100px;
+} */
+
+
+/************** Nav **************/
+.cus-navbar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--deepPurple);
+  justify-content: space-between;
+  height: 100px;
+  /* background-color: khaki; */
 }
 
-@media (max-width: 768px) {
-  .cus-container {
-    padding: 0 !important;
-  }
+.cus-navbar .brand{
+  font-family: m-med;
 }
+
+.cus-navbar .nav-link{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  
+}
+
+.cus-navbar .hamburger{
+  display: none ;
+}
+@keyframes fade{
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+@media (max-width: 960px) {
+
+  .cus-navbar .hamburger{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    z-index: 2;
+  }
+
+  .hamburger-line{
+    width: 30px;
+    height: 2px;
+    margin-top: 5px;
+    background-color: var(--deepPurple);
+  }
+
+  .cus-navbar .nav-link{
+    display: none;
+  }
+  .cus-navbar .nav-link.open {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    left: 0;
+    top: 0;
+    background-color: var(--lightPurple);
+    z-index: 1;
+    animation: fade 0.5s;
+    
+    /* transition: ease all 1s; */
+  }
+
+  .cus-navbar .nav-link li{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+/************** Nav **************/
+
 
 /************* Card *************/
 
@@ -164,6 +243,11 @@ body {
 }
 
 @media (max-width: 768px) {
+  .cus-navbar{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
   .cus-card .v-line {
     display: none;
   }
@@ -232,3 +316,91 @@ body {
 /* --- AbstractCard --- */
 
 /************* Card *************/
+
+
+/************* Layout *************/
+.cus-container{
+  display: grid;
+  grid-template-rows: 120px 80px calc(100vh - 200px) ;
+  height: 100vh;
+  padding-left: 7%;
+  padding-right: 7%;
+
+}
+
+.cus-container .nav{
+  /* font-size: 3.5rem; */
+  
+  grid-row: 1;
+}
+
+.cus-container .header{
+  /* font-size: 3.5rem; */
+  grid-row:  2;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.cus-container .header .header-text{
+  grid-column: 2;
+  font-family: m-med;
+  display: flex;
+  align-items: flex-end;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: var(--deepPurple);
+  padding-left: 30px;
+}
+
+.cus-container .container-content{
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 300px 1fr ;
+}
+
+.cus-container .container-content .container-menu{
+  padding-top: 30px;
+  grid-column: 1;
+}
+
+.cus-container .container-content .container-cards{
+  grid-column: 2;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .cus-container {
+    grid-template-rows: 100px 80px calc(100vh - 180px) ;
+    padding: 0 !important;
+  }
+
+  .cus-container .container-content{
+    grid-template-rows: 100px 1fr;
+  }
+
+  .cus-container .container-content .container-menu{
+    padding-top: 30px;
+    padding-left: 30px;
+    grid-column: span 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cus-container .container-content .container-cards{
+    grid-column: span 2;
+    grid-row: 2;
+    overflow: auto;
+    /* background-color: deeppink; */
+  }
+  .cus-container .header .header-text{
+    grid-column: span 2;
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+  }
+
+}
+
+
+/************* Layout *************/
