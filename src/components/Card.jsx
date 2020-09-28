@@ -20,19 +20,13 @@ export function Card(props) {
 }
 
 export function AbstractCard(props) {
-    return (
-        <div className="cus-abstract-card">
-            <div className="image">
-            </div>
-            <div className="content">
-                <div className="header">
-                    {props.header}
-                </div>
-                <div className="detail">
-                    {props.detail}
-                </div>
-            </div>
-        </div>
-        
-    )
+  return (
+    <div className="cus-abstract-card">
+      <div className="image"></div>
+      <div className="content">
+        <div className="header">{props.header}</div>
+        <div className="detail">{props.detail}</div>
+      </div>
+    </div>
+  );
 }

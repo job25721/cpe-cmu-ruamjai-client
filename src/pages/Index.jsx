@@ -1,19 +1,35 @@
 import React from "react";
 import Nav from "../components/Navbar";
-import Test from "../components/Test";
+import { Card } from "../components/Card";
+import { add } from "ionicons/icons";
+import { IonIcon } from "@ionic/react";
 const Index = (props) => {
   return (
     <div className="cus-container">
       <Nav />
       <div className="container">
-        <h1 className="subtitle is-4">Index Page</h1>
-        <Test />
-        <button
-          className="button is-primary"
-          onClick={() => props.history.push("/app")}
-        >
-          Click
-        </button>
+        <div className="columns">
+          <div className="column is-one-third">
+            <button
+              className="button is-text"
+              style={{ textDecoration: "none" }}
+            >
+              <IonIcon icon={add} style={{ fontSize: 30 }} />
+              <p
+                style={{
+                  fontFamily: "s-medium",
+                  fontSize: 30,
+                  color: "#623688",
+                }}
+              >
+                เพิ่มคำร้อง
+              </p>
+            </button>
+          </div>
+          <div className="column">
+            <Card header="lorem" detail="" />
+          </div>
+        </div>
       </div>
     </div>
   );
