@@ -13,6 +13,7 @@ const Index = (props) => {
             <button
               className="button is-text"
               style={{ textDecoration: "none" }}
+              onClick={() => props.history.push("/requests")}
             >
               <IonIcon icon={add} style={{ fontSize: 30 }} />
               <p
