@@ -1,18 +1,30 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-export function Card(props) {
+export function Card({ header, detail, voting, status }) {
   return (
     <div className="cus-card">
-      <div className="image"></div>
+      <div className="image">
+        <div className="voting">
+          <span>{voting}</span>
+        </div>
+      </div>
       <div className="v-line"></div>
       <div className="content">
         <div className="content-row">
           <div className="header">
-            <p>{props.header}</p>
+            <p>{header}</p>
           </div>
           <div className="detail">
-            <span>{props.detail}</span>
+            <span>{detail}</span>
           </div>
+          {status ? (
+            <div className="status">
+              <div className="circle"></div>
+              <span>{status}</span>
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </div>
