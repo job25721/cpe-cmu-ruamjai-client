@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 const RequestById = ({ match }) => {
   const data = {
     type: "การเรียน",
-    topic: "HEAD",
+    topic: `HEAD ${match.params.reqId}`,
     description:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At vero eos et accusam et justo duo dolores et earebum. Stet clita kasd gubergren, no sea takimata sanctus est Loremipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetursadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etdolore magna aliquyam erat, sed diam.",
     sub_detail: [
@@ -38,7 +38,7 @@ const RequestById = ({ match }) => {
           จำนวนผลโหวต 4
         </div>
         <div className="header-text" style={{ fontSize: "2rem" }}>
-          HEAD
+          {data.topic}
         </div>
         <span
           style={{
@@ -53,7 +53,26 @@ const RequestById = ({ match }) => {
         </span>
       </div>
       <div className="container-content">
-        <div className="container-menu"></div>
+        <div
+          className="container-menu"
+          style={{ fontFamily: "s-medium", color: "var(--deepPurple)" }}
+        >
+          <div
+            className="box"
+            style={{ height: 217, background: "var(--lightPurple)" }}
+          ></div>
+          <p>รหัสนักศึกษา 600610749</p>
+          <p>ปริญญา สีตะวัน</p>
+          <button
+            className="button is-success is-light has-margin-top-10"
+            onClick={(e) => {
+              e.currentTarget.disabled = true;
+              e.currentTarget.textContent = "VOTED";
+            }}
+          >
+            VOTE
+          </button>
+        </div>
         <div className="content has-padding-40" style={{ lineHeight: 2 }}>
           {data.description}
           {data.sub_detail.map((ct, idx) => (
@@ -64,7 +83,6 @@ const RequestById = ({ match }) => {
           ))}
         </div>
       </div>
-      {/* {match.params.reqId} */}
     </div>
   );
 };
