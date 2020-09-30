@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-
+import { IonIcon } from "@ionic/react";
+import { checkmarkOutline, closeOutline } from "ionicons/icons";
 const RequestById = ({ match }) => {
   const data = {
     type: "การเรียน",
@@ -58,21 +59,49 @@ const RequestById = ({ match }) => {
           className="container-menu"
           style={{ fontFamily: "s-medium", color: "var(--deepPurple)" }}
         >
-          <div
-            className="box"
-            style={{ height: 217, background: "var(--lightPurple)" }}
-          ></div>
-          <p>รหัสนักศึกษา 600610749</p>
-          <p>ปริญญา สีตะวัน</p>
-          <button
-            className="button is-success is-light has-margin-top-10"
-            onClick={(e) => {
-              e.currentTarget.disabled = true;
-              e.currentTarget.textContent = "VOTED";
-            }}
-          >
-            VOTE
-          </button>
+          <div>
+            <div
+              className="box"
+              style={{ height: 217, background: "var(--lightPurple)" }}
+            ></div>
+            <p>รหัสนักศึกษา 600610749</p>
+            <p>ปริญญา สีตะวัน</p>
+          </div>
+          <div className="flex-column">
+            <button
+              className="button is-success is-light has-margin-top-10"
+              onClick={(e) => {
+                e.currentTarget.disabled = true;
+                e.currentTarget.textContent = "VOTED";
+              }}
+            >
+              VOTE
+            </button>
+            <div className="buttons has-margin-10 justify-center">
+              <div className="has-margin-20">
+                <button
+                  className="button is-success"
+                  style={{
+                    borderRadius: "50%",
+                    width: 50,
+                    height: 50,
+                  }}
+                >
+                  <IonIcon icon={checkmarkOutline} style={{}} />
+                </button>
+                <p>Approve</p>
+              </div>
+              <div className="has-margin-20">
+                <button
+                  className="button is-danger"
+                  style={{ borderRadius: "50%", width: 50, height: 50 }}
+                >
+                  <IonIcon icon={closeOutline} />
+                </button>
+                <p>Reject</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="content has-padding-40" style={{ lineHeight: 2 }}>
           {data.description}
