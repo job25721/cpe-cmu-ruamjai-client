@@ -2,6 +2,24 @@ import React from "react";
 import Navbar from "../components/Navbar";
 
 const RequestById = ({ match }) => {
+  const data = {
+    type: "การเรียน",
+    topic: "HEAD",
+    description:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At vero eos et accusam et justo duo dolores et earebum. Stet clita kasd gubergren, no sea takimata sanctus est Loremipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetursadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etdolore magna aliquyam erat, sed diam.",
+    sub_detail: [
+      {
+        topic: "SUB HEAD 1",
+        description:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At vero eos et accusam et justo duo dolores et earebum. Stet clita kasd gubergren, no sea takimata sanctus est Loremipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetursadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etdolore magna aliquyam erat, sed diam.",
+      },
+      {
+        topic: "SUB HEAD 2",
+        description:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,sed diam voluptua. At vero eos et accusam et justo duo dolores et earebum. Stet clita kasd gubergren, no sea takimata sanctus est Loremipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetursadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etdolore magna aliquyam erat, sed diam.",
+      },
+    ],
+  };
   return (
     <div className="cus-container">
       <div className="nav">
@@ -31,30 +49,19 @@ const RequestById = ({ match }) => {
             fontSize: "1.5rem",
           }}
         >
-          ประเภทข้อเสนอ
+          ประเภทข้อเสนอ : {data.type}
         </span>
       </div>
       <div className="container-content">
         <div className="container-menu"></div>
         <div className="content has-padding-40" style={{ lineHeight: 2 }}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam.
-          <div>
-            <div style={{ fontSize: "2rem" }}>SUB HEAD</div>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste
-            dolore at, nemo deserunt doloribus architecto necessitatibus
-            consequatur exercitationem rerum recusandae vitae dolor, officiis id
-            quidem cumque. Ut molestiae amet obcaecati! Lorem ipsum dolor sit
-            amet consectetur, adipisicing elit. Id hic, ipsum alias dolores
-            accusantium nemo voluptas unde est possimus impedit minus.
-            Praesentium aspernatur explicabo architecto tempora unde aliquam
-            corporis eius.
-          </div>
+          {data.description}
+          {data.sub_detail.map((ct, idx) => (
+            <div className="sub-content" key={idx}>
+              <div style={{ fontSize: "2rem" }}>{ct.topic}</div>
+              {ct.description}
+            </div>
+          ))}
         </div>
       </div>
       {/* {match.params.reqId} */}
