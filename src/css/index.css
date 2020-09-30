@@ -51,9 +51,8 @@ body {
   padding-right: 100px;
 } */
 
-
 /************** Nav **************/
-.cus-navbar{
+.cus-navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,34 +62,33 @@ body {
   /* background-color: khaki; */
 }
 
-.cus-navbar .brand{
+.cus-navbar .brand {
   font-family: m-med;
 }
 
-.cus-navbar .nav-link{
+.cus-navbar .nav-link {
   display: flex;
   justify-content: space-between;
   width: 50%;
   flex-direction: row;
   text-decoration: none;
   align-items: center;
-  
 }
 
-.cus-navbar .hamburger{
-  display: none ;
+.cus-navbar .hamburger {
+  display: none;
 }
-@keyframes fade{
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
 @media (max-width: 960px) {
-
-  .cus-navbar .hamburger{
+  .cus-navbar .hamburger {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -98,14 +96,14 @@ body {
     z-index: 2;
   }
 
-  .hamburger-line{
+  .hamburger-line {
     width: 30px;
     height: 2px;
     margin-top: 5px;
     background-color: var(--deepPurple);
   }
 
-  .cus-navbar .nav-link{
+  .cus-navbar .nav-link {
     display: none;
   }
   .cus-navbar .nav-link.open {
@@ -119,22 +117,18 @@ body {
     top: 0;
     background-color: var(--lightPurple);
     z-index: 1;
-    animation: fade 0.5s;
-    
-    /* transition: ease all 1s; */
+    animation: fade 350ms;
   }
 
-  .cus-navbar .nav-link li{
+  .cus-navbar .nav-link li {
     display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
     justify-content: center;
   }
-
 }
 /************** Nav **************/
-
 
 /************* Card *************/
 
@@ -243,7 +237,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .cus-navbar{
+  .cus-navbar {
     padding-left: 6%;
     padding-right: 6%;
   }
@@ -317,31 +311,29 @@ body {
 
 /************* Card *************/
 
-
 /************* Layout *************/
-.cus-container{
+.cus-container {
   display: grid;
-  grid-template-rows: 120px 80px calc(100vh - 200px) ;
+  grid-template-rows: 120px 80px calc(100vh - 200px);
   height: 100vh;
   padding-left: 7%;
   padding-right: 7%;
-
 }
 
-.cus-container .nav{
+.cus-container .nav {
   /* font-size: 3.5rem; */
-  
+
   grid-row: 1;
 }
 
-.cus-container .header{
+.cus-container .header {
   /* font-size: 3.5rem; */
-  grid-row:  2;
+  grid-row: 2;
   display: grid;
   grid-template-columns: 300px 1fr;
 }
 
-.cus-container .header .header-text{
+.cus-container .header .header-text {
   grid-column: 2;
   font-family: m-med;
   display: flex;
@@ -352,33 +344,33 @@ body {
   padding-left: 30px;
 }
 
-.cus-container .container-content{
+.cus-container .container-content {
   grid-row: 3;
   display: grid;
-  grid-template-columns: 300px 1fr ;
+  grid-template-columns: 300px 1fr;
 }
 
-.cus-container .container-content .container-menu{
+.cus-container .container-content .container-menu {
   padding-top: 30px;
   grid-column: 1;
 }
 
-.cus-container .container-content .container-cards{
+.cus-container .container-content .container-cards {
   grid-column: 2;
   overflow: auto;
 }
 
 @media (max-width: 768px) {
   .cus-container {
-    grid-template-rows: 100px 80px calc(100vh - 180px) ;
+    grid-template-rows: 100px 80px calc(100vh - 180px);
     padding: 0 !important;
   }
 
-  .cus-container .container-content{
+  .cus-container .container-content {
     grid-template-rows: 100px 1fr;
   }
 
-  .cus-container .container-content .container-menu{
+  .cus-container .container-content .container-menu {
     padding-top: 30px;
     padding-left: 30px;
     grid-column: span 2;
@@ -386,21 +378,19 @@ body {
     display: flex;
     justify-content: center;
   }
-  
-  .cus-container .container-content .container-cards{
+
+  .cus-container .container-content .container-cards {
     grid-column: span 2;
     grid-row: 2;
     overflow: auto;
     /* background-color: deeppink; */
   }
-  .cus-container .header .header-text{
+  .cus-container .header .header-text {
     grid-column: span 2;
     display: flex;
     font-size: 2.5rem;
     justify-content: center;
   }
-
 }
-
 
 /************* Layout *************/
