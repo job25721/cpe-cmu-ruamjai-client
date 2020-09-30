@@ -86,6 +86,7 @@ const RequestById = ({ match }) => {
                     width: 50,
                     height: 50,
                   }}
+                  onClick={() => alert("Accepted")}
                 >
                   <IonIcon icon={checkmarkOutline} style={{}} />
                 </button>
@@ -95,6 +96,7 @@ const RequestById = ({ match }) => {
                 <button
                   className="button is-danger"
                   style={{ borderRadius: "50%", width: 50, height: 50 }}
+                  onClick={() => alert("rejected")}
                 >
                   <IonIcon icon={closeOutline} />
                 </button>
