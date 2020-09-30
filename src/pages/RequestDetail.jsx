@@ -33,6 +33,7 @@ const RequestById = ({ match }) => {
             alignSelf: "flex-end",
             fontFamily: "s-medium",
             fontSize: "1.5rem",
+            color: "var(--deepPurple)",
           }}
         >
           จำนวนผลโหวต 4
@@ -42,7 +43,7 @@ const RequestById = ({ match }) => {
         </div>
         <span
           style={{
-            color: "#bcbcbc",
+            color: "var(--grey)",
             gridColumn: "3",
             alignSelf: "flex-end",
             fontFamily: "s-medium",
