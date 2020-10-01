@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { personCircleOutline, refresh } from "ionicons/icons";
+import React from "react";
+import { personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 export default () => {
   const [isOpen, setOpen] = React.useState(false);
@@ -11,9 +11,7 @@ export default () => {
       </div>
       {!isOpen ? (
         <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>
-            DASHBOARD
-          </li>
+          <li>DASHBOARD</li>
           <li>คำร้องทั้งหมด</li>
           <li>คำร้องของฉัน</li>
           <li>
@@ -22,9 +20,7 @@ export default () => {
         </ul>
       ) : (
         <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>
-            DASHBOARD
-          </li>
+          <li>DASHBOARD</li>
           <li>คำร้องทั้งหมด</li>
           <li>คำร้องของฉัน</li>
         </ul>
