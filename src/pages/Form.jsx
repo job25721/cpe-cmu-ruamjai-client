@@ -1,9 +1,12 @@
 import React from "react";
 import Nav from "../components/Navbar";
+import { IonIcon } from "@ionic/react";
+import { checkmark } from "ionicons/icons";
+import { addCircleOutline } from "ionicons/icons";
 
 const Form = () => {
   return (
-    <div className="cus-container Set-font-family">
+    <div className="cus-container" style={{ fontFamily: "s-medium" }}>
       <div className="nav">
         <Nav className="is-fixed-top" />
       </div>
@@ -39,7 +42,12 @@ const Form = () => {
           <div className="columns">
             <div className="column is-half">
               <div className="flex-column"></div>
-              <h1 className="has-text-left Set-font">ผู้เสนอ</h1>
+              <h1
+                className="has-text-left"
+                style={{ color: "623688", fontSize: "24px" }}
+              >
+                ผู้เสนอ
+              </h1>
             </div>
             <div className="column">
               <fieldset disabled>
@@ -58,7 +66,12 @@ const Form = () => {
           <div className="columns">
             <div className="column is-half">
               <div className="flex-column"></div>
-              <h1 className="has-text-left Set-font">ประเภทข้อเสนอ</h1>
+              <h1
+                className="has-text-left"
+                style={{ color: "623688", fontSize: "24px" }}
+              >
+                ประเภทข้อเสนอ
+              </h1>
             </div>
             <div className="column">
               <div className="control">
@@ -79,7 +92,12 @@ const Form = () => {
           <div className="columns" style={{ marginTop: -35 }}>
             <div className="column is-half">
               <div className="flex-column"></div>
-              <h1 className="has-text-left Set-font">รหัสนักศึกษา</h1>
+              <h1
+                className="has-text-left"
+                style={{ color: "623688", fontSize: "24px" }}
+              >
+                รหัสนักศึกษา
+              </h1>
             </div>
             <div className="column">
               <fieldset disabled>
@@ -94,10 +112,32 @@ const Form = () => {
               </fieldset>
             </div>
           </div>
-          <hr />
+          <div className="columns">
+            <div className="column is-4">
+              <hr />
+            </div>
+            <div className="column is-4">
+              <div
+                className="has-text-centered 
+              mt-2 
+              is-size-4 
+              has-text-weight-bold"
+              >
+                <span>รายละเอียดข้อเสนอ</span>
+              </div>
+            </div>
+            <div className="column is-4">
+              <hr />
+            </div>
+          </div>
 
           <div>
-            <h2 className="has-text-left Set-font">เรื่องที่จะเสนอ *</h2>
+            <h2
+              className="has-text-left"
+              style={{ color: "623688", fontSize: "24px" }}
+            >
+              เรื่องที่จะเสนอ *
+            </h2>
             <div className="columns">
               <div className="column is-two-fifths">
                 <input
@@ -113,7 +153,12 @@ const Form = () => {
               style={{ height: 200, marginBottom: 20 }}
               placeholder="รายละเอียด..."
             />
-            <h2 className="has-text-left Set-font">รายละเอียดปลีกย่อย</h2>
+            <h2
+              className="has-text-left"
+              style={{ color: "623688", fontSize: "24px" }}
+            >
+              รายละเอียดปลีกย่อย
+            </h2>
             <div className="columns">
               <div className="column is-two-fifths">
                 <input
@@ -129,8 +174,13 @@ const Form = () => {
               style={{ height: 200, marginBottom: 20 }}
               placeholder="รายละเอียด..."
             />
-            <div className="has-text-right">
-              <button className="button">เพิ่มหัวข้อย่อย</button>
+            <div className="has-text-right ">
+              <button className="button is-danger">
+                <span className="icon">
+                  <IonIcon icon={addCircleOutline} style={{ fontSize: 50 }} />
+                </span>
+                <span> เพิ่มหัวข้อย่อย</span>
+              </button>
             </div>
             <div
               className="has-text-centered"
@@ -138,7 +188,12 @@ const Form = () => {
                 marginBottom: 20,
               }}
             >
-              <button className="button is-success">ส่งแบบฟอร์ม</button>
+              <button className="button is-success">
+                <span className="icon">
+                  <IonIcon icon={checkmark} style={{ fontSize: 50 }} />
+                </span>
+                <span>ส่งแบบฟอร์ม</span>
+              </button>
             </div>
           </div>
         </div>

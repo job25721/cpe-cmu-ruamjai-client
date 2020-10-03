@@ -4,7 +4,7 @@ import { personCircleOutline } from "ionicons/icons";
 
 const Home = () => {
   return (
-    <div className="columns Set-font-family">
+    <div className="columns" style={{ fontFamily: "s-medium" }}>
       <div
         className="column is-half"
         style={{ marginTop: 100, paddingLeft: 150 }}
@@ -17,14 +17,14 @@ const Home = () => {
                   color: "var(--deepPurple)",
                   fontSize: 48,
                   fontWeight: "bold",
-                  fontFamily: "s-bold"
+                  fontFamily: "s-bold",
                 }}
               >
                 CPE CMU RUAMJAI
               </h1>
               <div
                 style={{
-                  color: "var(--lightpurple)",
+                  color: "var(--grey)",
                   fontSize: 22,
                 }}
               >
@@ -35,17 +35,18 @@ const Home = () => {
               <div style={{ marginTop: 15 }}>
                 <button
                   className="button"
-                  style={{ backgroundColor: "#ECCEF3" }}
+                  style={{ backgroundColor: "var(--lightPurple)" }}
                 >
                   <span className="icon">
                     <IonIcon
                       icon={personCircleOutline}
-                      style={{ fontSize: 50 }}
+                      style={{ fontSize: 50, color: "var(--deepPurple)" }}
                     />
                   </span>
                   <span
                     style={{
-                      color: "var(--deeppurple])"
+                      color: "var(--deepPurple)",
+                      fontWeight: "bold",
                     }}
                   >
                     Sign in with CMU Account
@@ -57,7 +58,10 @@ const Home = () => {
         </div>
       </div>
       <div className="column">
-        <div class="hero is-medium Home-Color">
+        <div
+          class="hero is-medium"
+          style={{ backgroundColor: "var(--lightPurple)", height: "100vh" }}
+        >
           <div class="hero-body">
             <div class="container"></div>
           </div>

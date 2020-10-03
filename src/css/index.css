@@ -493,23 +493,3 @@ body {
 /* -------- My Requests --------- */
 
 /************* Layout *************/
-
-/***************  Home  ******************/
-.Home-Color {
-  background-color: #eccef3;
-  height: 100vh;
-}
-.Set-font-family {
-  font-family: s-medium;
-}
-
-/*********** Form ************/
-.Set-font {
-  color: #623688;
-  font-size: 24px;
-}
-
-.Set-form {
-  margin: 10px auto 0 auto;
-  width: 50%;
-}
