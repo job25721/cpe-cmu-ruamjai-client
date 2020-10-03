@@ -7,6 +7,7 @@ import App from "./pages/App.jsx";
 import Index from "./pages/Index";
 import MyRequests from "./pages/MyRequests";
 import Requests from "./pages/Requests";
+import Home from './pages/Home';
 
 export default () => {
   store.subscribe(() => {
@@ -20,6 +21,7 @@ export default () => {
           <Route path="/requests" component={Requests} exact={true} />
           <Route path="/app" component={App} exact={true} />
           <Route path="/mine" component={MyRequests} exact={true} />
+          <Route path="/Home" component={Home} exact={true} />
         </Switch>
       </Router>
     </Provider>
