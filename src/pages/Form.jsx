@@ -3,16 +3,39 @@ import Nav from "../components/Navbar";
 
 const Form = () => {
   return (
-    <div className="cus-container">
+    <div className="cus-container Set-font-family">
       <div className="nav">
         <Nav className="is-fixed-top" />
       </div>
-
-      <div className="has-text-centered Set-form">
-        <h2 className="Set-color-head" style={{ marginBottom: 50 }}>
-          New Form
-        </h2>
-        <div>
+      <div className="header">
+        <div
+          className="header-text"
+          style={{
+            gridColumn: "span 2",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <span>New Form</span>
+        </div>
+      </div>
+      <div
+        className="container-content"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            gridColumn: "span 2",
+            overflow: "auto",
+            width: "60%",
+            marginTop: 20,
+            paddingLeft: 30,
+            paddingRight: 30,
+          }}
+        >
           <div className="columns">
             <div className="column is-half">
               <div className="flex-column"></div>
@@ -23,8 +46,9 @@ const Form = () => {
                 <div className="field">
                   <input
                     type="text"
-                    className="input"
+                    className="input has-text-centered"
                     style={{ backgroundColor: "#eccef3" }}
+                    placeholder="อาจารย์แดง กีต้าร์"
                   />
                 </div>
               </fieldset>
@@ -70,7 +94,53 @@ const Form = () => {
               </fieldset>
             </div>
           </div>
-          <hr/>
+          <hr />
+
+          <div>
+            <h2 className="has-text-left Set-font">เรื่องที่จะเสนอ *</h2>
+            <div className="columns">
+              <div className="column is-two-fifths">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="พิมพ์หัวเรื่อง..."
+                />
+              </div>
+            </div>
+            <textarea
+              type="textarea"
+              className="input"
+              style={{ height: 200, marginBottom: 20 }}
+              placeholder="รายละเอียด..."
+            />
+            <h2 className="has-text-left Set-font">รายละเอียดปลีกย่อย</h2>
+            <div className="columns">
+              <div className="column is-two-fifths">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="พิมพ์หัวเรื่อง..."
+                />
+              </div>
+            </div>
+            <textarea
+              type="textarea"
+              className="input"
+              style={{ height: 200, marginBottom: 20 }}
+              placeholder="รายละเอียด..."
+            />
+            <div className="has-text-right">
+              <button className="button">เพิ่มหัวข้อย่อย</button>
+            </div>
+            <div
+              className="has-text-centered"
+              style={{
+                marginBottom: 20,
+              }}
+            >
+              <button className="button is-success">ส่งแบบฟอร์ม</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

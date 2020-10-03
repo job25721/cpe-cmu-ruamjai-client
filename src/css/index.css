@@ -499,21 +499,8 @@ body {
   background-color: #eccef3;
   height: 100vh;
 }
-
-.Set-color-head {
-  color: #623688;
-  font-size: 48px;
-  font-weight: bold;
-}
-
-.Set-color-sub {
-  color: #717171;
-  font-size: 22px;
-}
-
-.Set-Button-submit {
-  color: #623688;
-  font-weight: bold;
+.Set-font-family {
+  font-family: s-medium;
 }
 
 /*********** Form ************/

@@ -4,7 +4,7 @@ import { personCircleOutline } from "ionicons/icons";
 
 const Home = () => {
   return (
-    <div className="columns">
+    <div className="columns Set-font-family">
       <div
         className="column is-half"
         style={{ marginTop: 100, paddingLeft: 150 }}
@@ -12,13 +12,26 @@ const Home = () => {
         <div class="hero is-medium">
           <div class="hero-body">
             <div class="container">
-              <h1 class="Set-color-head">CPE CMU RUAMJAI</h1>
-              <h2 class="Set-color-sub" style={{ margin: 0 }}>
-                ระบบรับเสนอเรื่องทั่วไปของ
-              </h2>
-              <h2 class="Set-color-sub">
-                ภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเชียงใหม่
-              </h2>
+              <h1
+                style={{
+                  color: "var(--deepPurple)",
+                  fontSize: 48,
+                  fontWeight: "bold",
+                  fontFamily: "s-bold"
+                }}
+              >
+                CPE CMU RUAMJAI
+              </h1>
+              <div
+                style={{
+                  color: "var(--lightpurple)",
+                  fontSize: 22,
+                }}
+              >
+                <h2 style={{ margin: 0 }}>ระบบรับเสนอเรื่องทั่วไปของ</h2>
+                <h2>ภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเชียงใหม่</h2>
+              </div>
+
               <div style={{ marginTop: 15 }}>
                 <button
                   className="button"
@@ -30,7 +43,11 @@ const Home = () => {
                       style={{ fontSize: 50 }}
                     />
                   </span>
-                  <span className="Set-Button-submit">
+                  <span
+                    style={{
+                      color: "var(--deeppurple])"
+                    }}
+                  >
                     Sign in with CMU Account
                   </span>
                 </button>
