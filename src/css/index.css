@@ -523,5 +523,6 @@ body {
 }
 
 .Set-form {
-  max-width: 70vw;
+  margin: 10px auto 0 auto;
+  width: 50%;
 }

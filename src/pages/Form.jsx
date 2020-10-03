@@ -7,18 +7,18 @@ const Form = () => {
       <div className="nav">
         <Nav className="is-fixed-top" />
       </div>
-      <div className="has-text-centered">
+
+      <div className="has-text-centered Set-form">
         <h2 className="Set-color-head" style={{ marginBottom: 50 }}>
           New Form
         </h2>
         <div>
           <div className="columns">
-            <div className="column is-3"></div>
-            <div className="column is-3">
+            <div className="column is-half">
               <div className="flex-column"></div>
               <h1 className="has-text-left Set-font">ผู้เสนอ</h1>
             </div>
-            <div className="column is-3">
+            <div className="column">
               <fieldset disabled>
                 <div className="field">
                   <input
@@ -29,16 +29,14 @@ const Form = () => {
                 </div>
               </fieldset>
             </div>
-            <div className="column is-3"></div>
           </div>
 
           <div className="columns">
-            <div className="column is-3"></div>
-            <div className="column is-3">
+            <div className="column is-half">
               <div className="flex-column"></div>
               <h1 className="has-text-left Set-font">ประเภทข้อเสนอ</h1>
             </div>
-            <div className="column is-3">
+            <div className="column">
               <div className="control">
                 <div className="select is-fullwidth">
                   <select>
@@ -52,18 +50,16 @@ const Form = () => {
                 </span>
               </div>
             </div>
-            <div className="column is-3"></div>
           </div>
 
           <div className="columns" style={{ marginTop: -35 }}>
-            <div className="column is-3"></div>
-            <div className="column is-3">
+            <div className="column is-half">
               <div className="flex-column"></div>
               <h1 className="has-text-left Set-font">รหัสนักศึกษา</h1>
             </div>
-            <div className="column is-3">
+            <div className="column">
               <fieldset disabled>
-                <div className="field">
+                <div className="field ">
                   <input
                     type="text"
                     className="input has-text-centered"
@@ -73,8 +69,8 @@ const Form = () => {
                 </div>
               </fieldset>
             </div>
-            <div className="column is-3"></div>
           </div>
+          <hr/>
         </div>
       </div>
     </div>
