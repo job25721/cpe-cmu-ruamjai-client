@@ -496,7 +496,7 @@ body {
 
 /***************  Home  ******************/
 .Home-Color {
-  background-color: #ECCEF3;
+  background-color: #eccef3;
   height: 100vh;
 }
 
@@ -514,4 +514,14 @@ body {
 .Set-Button-submit {
   color: #623688;
   font-weight: bold;
+}
+
+/*********** Form ************/
+.Set-font {
+  color: #623688;
+  font-size: 24px;
+}
+
+.Set-form {
+  max-width: 70vw;
 }
