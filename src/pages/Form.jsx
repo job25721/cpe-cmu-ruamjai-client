@@ -8,7 +8,7 @@ const Form = () => {
   return (
     <div className="cus-container" style={{ fontFamily: "s-medium" }}>
       <div className="nav">
-        <Nav className="is-fixed-top" />
+        <Nav />
       </div>
       <div className="header">
         <div
@@ -30,13 +30,13 @@ const Form = () => {
         }}
       >
         <div
+          className="has-margin-top-20"
           style={{
             gridColumn: "span 2",
             overflow: "auto",
             width: "60%",
-            marginTop: 20,
-            paddingLeft: 30,
-            paddingRight: 30,
+
+            padding: "0px 30px",
           }}
         >
           <div className="columns">
