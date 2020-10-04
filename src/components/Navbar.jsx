@@ -11,14 +11,12 @@ export default () => {
       </div>
 
       <ul className={isOpen ? "nav-link open" : "nav-link"}>
-        <li>DASHBOARD</li>
+        <li>HOME</li>
         <li>คำร้องทั้งหมด</li>
         <li>คำร้องของฉัน</li>
-        {!isOpen ? (
-          <li>
-            <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
-          </li>
-        ) : null}
+        <li>
+          <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
+        </li>
       </ul>
 
       <div

@@ -49,8 +49,10 @@ const RequestById = ({ match }) => {
           <div className="detail-vote-button">
             <button
               className="button-agree"
+              style={{ cursor: "pointer" }}
               onClick={(e) => {
                 e.currentTarget.disabled = true;
+                e.currentTarget.classList.add("disabled");
                 e.currentTarget.textContent = "VOTED";
               }}
             >
@@ -64,14 +66,16 @@ const RequestById = ({ match }) => {
         >
           <div
             style={{
-              marginBottom:15
+              marginBottom: 15,
             }}
           >
             <span>{data.description}</span>
           </div>
           {data.sub_detail.map((ct, idx) => (
             <div className="sub-content" style={{ paddingLeft: 15 }} key={idx}>
-              <div style={{ fontSize: "1rem", color: "#623688",marginTop:15 }}>
+              <div
+                style={{ fontSize: "1rem", color: "#623688", marginTop: 15 }}
+              >
                 {ct.topic}
               </div>
               {ct.description}
