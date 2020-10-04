@@ -42,10 +42,7 @@ const Form = () => {
           <div className="columns">
             <div className="column is-half">
               <div className="flex-column"></div>
-              <h1
-                className="has-text-left"
-                style={{ color: "623688", fontSize: "24px" }}
-              >
+              <h1 className="has-text-left" style={{ fontSize: "24px" }}>
                 ผู้เสนอ
               </h1>
             </div>
@@ -55,7 +52,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="input has-text-centered"
-                    style={{ backgroundColor: "#eccef3" }}
+                    style={{ backgroundColor: "var(--lightPurple)" }}
                     placeholder="อาจารย์แดง กีต้าร์"
                   />
                 </div>
@@ -65,11 +62,7 @@ const Form = () => {
 
           <div className="columns">
             <div className="column is-half">
-              <div className="flex-column"></div>
-              <h1
-                className="has-text-left"
-                style={{ color: "623688", fontSize: "24px" }}
-              >
+              <h1 className="has-text-left" style={{ fontSize: "24px" }}>
                 ประเภทข้อเสนอ
               </h1>
             </div>
@@ -82,20 +75,14 @@ const Form = () => {
                     <option>ขอแบบเบิ้มๆ คือลือๆน่ะ</option>
                   </select>
                 </div>
-                <span class="icon is-small is-left">
-                  <i class="fas fa-globe"></i>
-                </span>
               </div>
             </div>
           </div>
 
-          <div className="columns" style={{ marginTop: -35 }}>
+          <div className="columns">
             <div className="column is-half">
               <div className="flex-column"></div>
-              <h1
-                className="has-text-left"
-                style={{ color: "623688", fontSize: "24px" }}
-              >
+              <h1 className="has-text-left" style={{ fontSize: "24px" }}>
                 รหัสนักศึกษา
               </h1>
             </div>
@@ -105,7 +92,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="input has-text-centered"
-                    style={{ backgroundColor: "#eccef3" }}
+                    style={{ backgroundColor: "var(--lightPurple)" }}
                     placeholder="600612166"
                   />
                 </div>
@@ -120,7 +107,7 @@ const Form = () => {
               <div
                 className="has-text-centered 
               mt-2 
-              is-size-4 
+              is-size-5 
               has-text-weight-bold"
               >
                 <span>รายละเอียดข้อเสนอ</span>
@@ -132,10 +119,7 @@ const Form = () => {
           </div>
 
           <div>
-            <h2
-              className="has-text-left"
-              style={{ color: "623688", fontSize: "24px" }}
-            >
+            <h2 className="has-text-left" style={{ fontSize: "24px" }}>
               เรื่องที่จะเสนอ *
             </h2>
             <div className="columns">
@@ -153,10 +137,7 @@ const Form = () => {
               style={{ height: 200, marginBottom: 20 }}
               placeholder="รายละเอียด..."
             />
-            <h2
-              className="has-text-left"
-              style={{ color: "623688", fontSize: "24px" }}
-            >
+            <h2 className="has-text-left" style={{ fontSize: "24px" }}>
               รายละเอียดปลีกย่อย
             </h2>
             <div className="columns">
