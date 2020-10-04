@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { IonIcon } from "@ionic/react";
-import { checkmarkOutline, closeOutline } from "ionicons/icons";
+// import { IonIcon } from "@ionic/react";
+// import { checkmarkOutline, closeOutline } from "ionicons/icons";
 const RequestById = ({ match }) => {
   const data = {
     type: "การเรียน",

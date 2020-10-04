@@ -1,3 +1,14 @@
+:root {
+  --red: #e27979;
+  --deepPurple: #623688;
+  --lightPurple: #eccef3;
+  --green: #57c56d;
+  --yellow: #f8e987;
+  --darkYellow: #ddc84e;
+  --grey: #bdbdbd;
+  --blue: #363b88;
+}
+
 @font-face {
   font-family: mitr-light;
   src: url("/fonts/mitr/Mitr-Light.ttf");
@@ -509,31 +520,103 @@ body {
     display: grid;
     grid-template-rows: auto auto;
   }
-
-  .cus-container
-    .container-content
-    .detail-menu-container
-    .detail-personal-info {
-    grid-row: 1;
-    grid-column: span 2;
-    display: flex;
-    padding: 30px;
-    flex-direction: column;
-    color: var(--deepPurple);
-    text-align: center;
-  }
-
-  .cus-container .container-content .detail-menu-container .detail-vote-button {
-    grid-row: 2;
-    grid-column: span 2;
-    grid-row: span 2;
-    display: flex;
-    padding: 0 30px 0 30px;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
-/************* Detail *************/
+/* -------- My Requests --------- */
+
+.cus-container .header-mine {
+  display: flex;
+  justify-content: center;
+  font-family: m-med;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: var(--deepPurple);
+}
+
+.cus-container .container-content-mine {
+  display: grid;
+  grid-row: 3;
+  grid-template-rows: 100px 1fr;
+  padding-top: 1rem;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.cus-container .container-content-mine .tab-bar {
+  padding-left: 30px;
+  padding-right: 30px;
+  grid-row: 1;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  flex-direction: row;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link li {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: m-light;
+  font-size: 1.6rem;
+  color: var(--deepPurple);
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .voting:hover {
+  background-color: var(--blue);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .voting:focus {
+  background-color: var(--blue);
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .approved:hover {
+  background-color: var(--green);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .approved:focus {
+  color: #fff;
+  background-color: var(--green);
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .waiting:hover {
+  background-color: var(--yellow);
+  color: #363b88;
+  cursor: pointer;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .waiting:focus {
+  background-color: var(--yellow);
+  color: #363b88;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .rejected:hover {
+  background-color: var(--red);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .rejected:focus {
+  background-color: var(--red);
+  color: #fff;
+}
+
+.cus-container .container-content-mine .content-area {
+  grid-row: 2;
+  overflow: auto;
+  /* background-color: darkred; */
+}
+
+/* -------- My Requests --------- */
 
 /************* Layout *************/
