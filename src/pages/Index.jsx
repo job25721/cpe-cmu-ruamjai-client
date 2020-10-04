@@ -10,7 +10,7 @@ const Index = (props) => {
         <Nav />
       </div>
       <div className="header">
-        <div className="header-text">DASHBOARD</div>
+        <div className="header-text">TRENDING</div>
       </div>
       <div className="container-content">
         <div className="container-menu">
