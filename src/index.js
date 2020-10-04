@@ -4,6 +4,7 @@ import "./css/index.css";
 import Router from "./route";
 import "bulma/css/bulma.min.css";
 import "bulma-helpers/css/bulma-helpers.min.css";
+
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<Router />, document.getElementById("root"));
