@@ -8,7 +8,17 @@ import Index from "./pages/Index";
 import MyRequests from "./pages/MyRequests";
 import Requests from "./pages/Requests";
 import Login from "./pages/Login";
+import RequestById from "./pages/RequestDetail";
 import Form from "./pages/Form";
+
+export const links = {
+  index: "/",
+  login: "/login",
+  allPetition: "/petitions",
+  myPetitions: "/mine",
+  addPetition: "/petition/add",
+  petitionDetial: (id) => `/petition/${id}`,
+};
 
 export default () => {
   store.subscribe(() => {
@@ -18,12 +28,16 @@ export default () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route path="/" component={Index} exact={true} />
-          <Route path="/requests" component={Requests} exact={true} />
+          <Route path={links.index} component={Index} exact={true} />
+          <Route path={links.allPetition} component={Requests} exact={true} />
+          <Route
+            path={links.petitionDetial(":petitionId")}
+            component={RequestById}
+          />
           <Route path="/app" component={App} exact={true} />
-          <Route path="/mine" component={MyRequests} exact={true} />
-          <Route path="/login" component={Login} exact={true} />
-          <Route path="/Form" component={Form} exact-={true} />
+          <Route path={links.myPetitions} component={MyRequests} exact={true} />
+          <Route path={links.login} component={Login} exact={true} />
+          <Route path={links.addPetition} component={Form} exact-={true} />
         </Switch>
       </Router>
     </Provider>

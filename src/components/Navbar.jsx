@@ -1,6 +1,8 @@
 import React from "react";
 import { personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+import { Link } from "react-router-dom";
+import { links } from "../route";
 export default () => {
   const [isOpen, setOpen] = React.useState(false);
   return (
@@ -9,22 +11,23 @@ export default () => {
         <h1>CPE CMU</h1>
         <h1>RUAMJAI</h1>
       </div>
-      {!isOpen ? (
-        <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>DASHBOARD</li>
+
+      <ul className={isOpen ? "nav-link open" : "nav-link"}>
+        <Link to={links.index}>
+          <li>หน้าแรก</li>
+        </Link>
+        <Link to={links.allPetition}>
           <li>คำร้องทั้งหมด</li>
+        </Link>
+        <Link to={links.myPetitions}>
           <li>คำร้องของฉัน</li>
-          <li>
-            <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
-          </li>
-        </ul>
-      ) : (
-        <ul className={isOpen ? "nav-link open" : "nav-link"}>
-          <li>DASHBOARD</li>
-          <li>คำร้องทั้งหมด</li>
-          <li>คำร้องของฉัน</li>
-        </ul>
-      )}
+        </Link>
+
+        <li>
+          <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
+        </li>
+      </ul>
+
       <div
         className="hamburger"
         onClick={() => {

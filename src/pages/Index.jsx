@@ -3,6 +3,7 @@ import Nav from "../components/Navbar";
 import { Card } from "../components/Card";
 import { add } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
+
 const Index = (props) => {
   return (
     <div className="cus-container">
@@ -10,7 +11,7 @@ const Index = (props) => {
         <Nav />
       </div>
       <div className="header">
-        <div className="header-text">DASHBOARD</div>
+        <div className="header-text">TRENDING</div>
       </div>
       <div className="container-content">
         <div className="container-menu">

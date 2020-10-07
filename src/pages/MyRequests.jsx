@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../components/Navbar";
-import {Card} from "../components/Card";
+import { Card } from "../components/Card";
 const Mine = () => {
   return (
     <>
