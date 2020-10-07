@@ -8,7 +8,9 @@
   --grey: #bdbdbd;
   --blue: #363b88;
 }
-
+a {
+  color: var(--deepPurple) !important;
+}
 @font-face {
   font-family: mitr-light;
   src: url("/fonts/mitr/Mitr-Light.ttf");
