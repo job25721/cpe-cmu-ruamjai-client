@@ -4,6 +4,7 @@ import { Card } from "../components/Card";
 import { add } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
+import { links } from "../route";
 const Index = (props) => {
   return (
     <div className="cus-container">
@@ -15,7 +16,11 @@ const Index = (props) => {
       </div>
       <div className="container-content">
         <div className="container-menu">
-          <button className="button is-text" style={{ textDecoration: "none" }}>
+          <button
+            className="button is-text"
+            style={{ textDecoration: "none" }}
+            onClick={() => props.history.push(links.addPetition)}
+          >
             <IonIcon icon={add} style={{ fontSize: 30 }} />
             <p
               style={{
