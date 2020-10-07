@@ -21,13 +21,14 @@ const Mine = () => {
             </ul>
           </div>
           <div className="content-area">
-            {[1, 2, 3, 4, 6, 7, 5, 3, 2].map((each) => (
+            {[1323, 212, 32, 41, 62, 73, 55, 312, 2231].map((each) => (
               <Card
                 header="หัวข้อ"
                 detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id modi ipsa blanditiis, nobis repudiandae iure dignissimos earum culpa nesciunt dolore pariatur dolor accusamus saepe tempore esse nisi consequuntur voluptatum maiores."
                 status="รวบรวมผลโหวต"
                 voting={20}
                 key={each}
+                petitionId={each}
               />
             ))}
           </div>

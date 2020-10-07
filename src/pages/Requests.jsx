@@ -10,7 +10,7 @@ const Requests = () => {
         <Nav />
       </div>
       <div className="header">
-        <div className="header-text">ALL REQUESTS</div>
+        <div className="header-text">ALL PETITION</div>
       </div>
       <div className="container-content">
         <div className="container-menu">
@@ -39,6 +39,7 @@ const Requests = () => {
               status="รวบรวมผลโหวต"
               voting={20}
               key={each}
+              petitionId={each}
             />
           ))}
         </div>

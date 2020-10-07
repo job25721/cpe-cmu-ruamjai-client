@@ -9,19 +9,24 @@ export default () => {
     <nav className="cus-navbar">
       <div className="brand">
         <h1>CPE CMU</h1>
-        <h1>RUAMJAI</h1>
+        <h1>PETITION LISTENER</h1>
       </div>
 
-      <ul className={isOpen ? "nav-link open" : "nav-link"}>
-        <Link to={links.index}>
-          <li>หน้าแรก</li>
-        </Link>
-        <Link to={links.allPetition}>
-          <li>คำร้องทั้งหมด</li>
-        </Link>
-        <Link to={links.myPetitions}>
-          <li>คำร้องของฉัน</li>
-        </Link>
+      <ul
+        className={isOpen ? "nav-link open" : "nav-link"}
+        style={{ fontFamily: "s-medium" }}
+      >
+        <li>
+          <Link to={links.index}>หน้าแรก</Link>
+        </li>
+
+        <li>
+          <Link to={links.allPetition}>คำร้องทั้งหมด</Link>
+        </li>
+
+        <li>
+          <Link to={links.myPetitions}>คำร้องของฉัน</Link>
+        </li>
 
         <li>
           <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />

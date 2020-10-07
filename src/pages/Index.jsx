@@ -29,13 +29,14 @@ const Index = (props) => {
           </button>
         </div>
         <div className="container-cards">
-          {[1, 2, 3, 4, 6, 7, 5, 3, 2].map((each) => (
+          {[121, 211, 32, 45, 64, 27, 222, 34, 21].map((each) => (
             <Card
               header="หัวข้อ"
               detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id modi ipsa blanditiis, nobis repudiandae iure dignissimos earum culpa nesciunt dolore pariatur dolor accusamus saepe tempore esse nisi consequuntur voluptatum maiores."
               status="รวบรวมผลโหวต"
               voting={20}
               key={each}
+              petitionId={each}
             />
           ))}
         </div>

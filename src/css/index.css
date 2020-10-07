@@ -85,11 +85,15 @@ body {
 
 .cus-navbar .nav-link {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+
   width: 70%;
   flex-direction: row;
   text-decoration: none;
   align-items: center;
+}
+.nav-link > li {
+  padding: 0 30px !important;
 }
 
 .cus-navbar .hamburger {

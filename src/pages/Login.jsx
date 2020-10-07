@@ -2,7 +2,7 @@ import React from "react";
 import { IonIcon } from "@ionic/react";
 import { personCircleOutline } from "ionicons/icons";
 
-const Login = () => {
+const Login = (props) => {
   return (
     <div className="columns" style={{ fontFamily: "s-medium" }}>
       <div className="column flex-column justify-center">
@@ -11,8 +11,6 @@ const Login = () => {
             style={{
               color: "var(--deepPurple)",
               fontSize: 48,
-              fontWeight: "bold",
-              fontFamily: "s-bold",
             }}
           >
             CPE CMU <br /> PETITION LISTENER
@@ -29,6 +27,7 @@ const Login = () => {
           <button
             className="button has-margin-top-15"
             style={{ backgroundColor: "var(--lightPurple)" }}
+            onClick={() => props.history.push("/")}
           >
             <span className="icon">
               <IonIcon
@@ -40,6 +39,7 @@ const Login = () => {
               style={{
                 color: "var(--deepPurple)",
                 fontWeight: "bold",
+                fontFamily: "m-med",
               }}
             >
               Sign in with CMU Account
