@@ -17,7 +17,7 @@ export const links = {
   allPetition: "/petitions",
   myPetitions: "/mine",
   addPetition: "/petition/add",
-  petitionDetial: (id) => `/petition/${id}`,
+  petitionDetail: (id) => `/petition/${id}`,
 };
 
 export default () => {
@@ -31,7 +31,7 @@ export default () => {
           <Route path={links.index} component={Index} exact={true} />
           <Route path={links.allPetition} component={Requests} exact={true} />
           <Route
-            path={links.petitionDetial(":petitionId")}
+            path={links.petitionDetail(":petitionId")}
             component={RequestById}
           />
           <Route path="/app" component={App} exact={true} />

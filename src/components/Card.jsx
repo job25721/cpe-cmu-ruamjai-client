@@ -14,7 +14,7 @@ export function Card({ header, detail, voting, status, petitionId }) {
       <div className="v-line"></div>
 
       <div className="content">
-        <Link to={links.petitionDetial(petitionId)}>
+        <Link to={links.petitionDetail(petitionId)}>
           <div className="content-row">
             <div className="header">
               <p>{header}</p>
