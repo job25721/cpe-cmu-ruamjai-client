@@ -1,8 +1,20 @@
 import React from "react";
 import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
+import { getVotableAllPetition } from "../store/actions/petition";
+import { connect } from "react-redux";
 
-const Requests = () => {
+const mapStateToProps = (state) => ({
+  petitions: state.petition.allPetitions,
+});
+
+const connector = connect(mapStateToProps, {
+  getPetitions: getVotableAllPetition,
+});
+const Requests = ({ getPetitions, petitions }) => {
+  React.useEffect(() => {
+    getPetitions();
+  }, [getPetitions]);
   const [category] = React.useState(["เรียน", "อาจารย์", "สถานที่", "อื่นๆ"]);
   return (
     <div className="cus-container">
@@ -19,7 +31,7 @@ const Requests = () => {
           </h1>
           <div className="flex-column">
             {category.map((cat, idx) => (
-              <label class="checkbox" key={idx}>
+              <label className="checkbox" key={idx}>
                 <input type="checkbox" />
                 <span
                   style={{ fontFamily: "s-medium" }}
@@ -32,14 +44,13 @@ const Requests = () => {
           </div>
         </div>
         <div className="container-cards">
-          {[1, 2, 3, 4, 6, 7, 5, 3, 2].map((each) => (
+          {petitions.map((each) => (
             <Card
-              header="หัวข้อ"
-              detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id modi ipsa blanditiis, nobis repudiandae iure dignissimos earum culpa nesciunt dolore pariatur dolor accusamus saepe tempore esse nisi consequuntur voluptatum maiores."
-              status="รวบรวมผลโหวต"
-              voting={20}
-              key={each}
-              petitionId={each}
+              header={each.detail.topic}
+              detail={each.detail.description}
+              voting={each.voteNum}
+              key={each._id}
+              petitionId={each._id}
             />
           ))}
         </div>
@@ -48,4 +59,4 @@ const Requests = () => {
   );
 };
 
-export default Requests;
+export default connector(Requests);
