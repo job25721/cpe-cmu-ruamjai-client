@@ -44,15 +44,19 @@ const Requests = ({ getPetitions, petitions }) => {
           </div>
         </div>
         <div className="container-cards">
-          {petitions.map((each) => (
-            <Card
-              header={each.detail.topic}
-              detail={each.detail.description}
-              voting={each.voteNum}
-              key={each._id}
-              petitionId={each._id}
-            />
-          ))}
+          {petitions.length > 0 ? (
+            petitions.map((each) => (
+              <Card
+                header={each.detail.topic}
+                detail={each.detail.description}
+                voting={each.voteNum}
+                key={each._id}
+                petitionId={each._id}
+              />
+            ))
+          ) : (
+            <button className="is-loading button is-large"></button>
+          )}
         </div>
       </div>
     </div>
