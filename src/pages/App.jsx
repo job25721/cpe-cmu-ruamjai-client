@@ -1,11 +1,12 @@
 import React from "react";
-// import { Card } from "../components/Card";
+import { AbstractCard } from "../components/Card";
 import Nav from "../components/Navbar";
 
 const App = (props) => {
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
+      <AbstractCard header="หัวข้อ" detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti alias ratione corporis eum enim porro fugit et ad, incidunt possimus unde provident itaque beatae similique pariatur, distinctio veniam error quisquam" />
       {/* <Card
         header="หัวข้อ"
         detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti alias ratione corporis eum enim porro fugit et ad, incidunt possimus unde provident itaque beatae similique pariatur, distinctio veniam error quisquam?"

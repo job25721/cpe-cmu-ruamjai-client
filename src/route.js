@@ -10,6 +10,7 @@ import Requests from "./pages/Requests";
 import Login from "./pages/Login";
 import RequestById from "./pages/RequestDetail";
 import Form from "./pages/Form";
+import Admin from "./pages/Admin";
 
 export const links = {
   index: "/",
@@ -38,6 +39,7 @@ export default () => {
           <Route path={links.myPetitions} component={MyRequests} exact={true} />
           <Route path={links.login} component={Login} exact={true} />
           <Route path={links.addPetition} component={Form} exact-={true} />
+          <Route path='/admin' component={Admin} exact={true} />
         </Switch>
       </Router>
     </Provider>
