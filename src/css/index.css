@@ -166,6 +166,33 @@ body {
   --grey: #bdbdbd;
 }
 
+.cus-btn-check{
+  color: white;
+  background-color: var(--green);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  right: 60px;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cus-btn-x{
+  color: white;
+  background-color: var(--red);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .cus-card {
   display: grid;
   grid-template-columns: repeat(20, 1fr);
@@ -303,24 +330,28 @@ body {
   color: #623688;
 }
 
-.cus-abstract-card .image {
+.cus-abstract-card .image-abs {
   width: 100%;
-  height: calc(15rem - 60px);
+  height: 100px;
   background-color: #eccef3;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
 }
-.cus-abstract-card .content {
+.cus-abstract-card .content-abs {
   padding: 5px;
   display: grid;
   grid-template-rows: 2rem 8rem 1.5rem;
 }
 
-.cus-abstract-card .header {
+.cus-abstract-card .header-abs {
   font-size: 1.5rem;
   line-height: 30px;
   overflow: hidden;
   font-family: s-bold;
 }
-.cus-abstract-card .detail {
+.cus-abstract-card .detail-abs {
   padding-top: 0.5rem;
   font-size: 1rem;
   overflow: hidden;
@@ -542,7 +573,7 @@ body {
 .cus-container .container-content-mine {
   display: grid;
   grid-row: 3;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 60px 1fr;
   padding-top: 1rem;
   padding-left: 10%;
   padding-right: 10%;
@@ -561,6 +592,7 @@ body {
   justify-content: space-around;
   height: 100%;
   flex-direction: row;
+
 }
 
 .cus-container .container-content-mine .tab-bar .tab-link li {
@@ -625,4 +657,42 @@ body {
 
 /* -------- My Requests --------- */
 
+
+/* -------- Admin --------- */
+
+.cus-container .header-admin {
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cus-container .header-admin span {
+  font-size: 3rem;
+  color: var(--deepPurple);
+}
+
+
+.cus-container .container-content-admin {
+  grid-row: 3;
+  overflow: auto;
+}
+
+.cus-container .container-content-admin .rows {
+  height: 370px ;
+  display: grid;
+  grid-template-columns: repeat(12 , 1fr);
+}
+
+.cus-container .container-content-admin .rows .cus-column{
+  grid-column: span 3;
+}
+
+
+/* -------- Admin --------- */
+
+
+
 /************* Layout *************/
+
+

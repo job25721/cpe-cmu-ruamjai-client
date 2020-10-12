@@ -3,6 +3,55 @@ import { personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { links } from "../route";
+
+export const AdminNavbar = () => {
+  const [isOpen, setOpen] = React.useState(false);
+  return (
+    <nav className="cus-navbar">
+      <div className="brand">
+        <h1>CPE CMU</h1>
+        <h1>PETITION LISTENER</h1>
+      </div>
+
+      <ul
+        className={isOpen ? "nav-link open" : "nav-link"}
+        style={{ fontFamily: "s-medium" }}
+      >
+        <li>
+          <Link to={links.index}>หน้าแรก</Link>
+        </li>
+
+        <li>
+          <Link to={links.allPetition}>คำร้องทั้งหมด</Link>
+        </li>
+
+        <li>
+          <Link to={links.myPetitions}>คำร้องของฉัน</Link>
+        </li>
+
+        <li>
+          <Link to={links.myPetitions}>แอดมิน</Link>
+        </li>
+
+        <li>
+          <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
+        </li>
+      </ul>
+
+      <div
+        className="hamburger"
+        onClick={() => {
+          setOpen(!isOpen);
+        }}
+      >
+        <div className="hamburger-line"></div>
+        <div className="hamburger-line"></div>
+        <div className="hamburger-line"></div>
+      </div>
+    </nav>
+  );
+};
+
 export default () => {
   const [isOpen, setOpen] = React.useState(false);
   return (
