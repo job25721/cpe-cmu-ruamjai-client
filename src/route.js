@@ -17,7 +17,7 @@ export const links = {
   allPetition: "/petitions",
   myPetitions: "/mine",
   addPetition: "/petition/add",
-  petitionDetail: (id) => `/petition/${id}`,
+  petitionDetail: (id) => `/petitions/${id}`,
 };
 
 export default () => {
