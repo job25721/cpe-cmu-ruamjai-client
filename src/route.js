@@ -27,7 +27,7 @@ export const links = {
 
 export default () => {
   store.subscribe(() => {
-    console.log(store.getState());
+    // console.log(store.getState());
   });
   return (
     <Provider store={store}>
