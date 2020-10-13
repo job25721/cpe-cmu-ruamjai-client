@@ -13,6 +13,7 @@ import Form from "./pages/Form";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 
+import Protect from "./middleware/auth";
 export const links = {
   index: "/",
   login: "/login",
@@ -32,18 +33,24 @@ export default () => {
     <Provider store={store}>
       <Router>
         <Switch>
+          <Protect path="/app" component={App} exact={true} />
+
           <Route path={links.index} component={Index} exact={true} />
           <Route path={links.allPetition} component={Requests} exact={true} />
           <Route
             path={links.petitionDetail(":petitionId")}
             component={RequestById}
           />
-          <Route path="/app" component={App} exact={true} />
-          <Route path={links.myPetitions} component={MyRequests} exact={true} />
+
+          <Protect
+            path={links.myPetitions}
+            component={MyRequests}
+            exact={true}
+          />
           <Route path={links.login} component={Login} exact={true} />
           <Route path={links.auth} component={Auth} exact={true} />
-          <Route path={links.addPetition} component={Form} exact-={true} />
-          <Route path={links.admin} component={Admin} exact={true} />
+          <Protect path={links.addPetition} component={Form} exact-={true} />
+          <Protect path={links.admin} component={Admin} exact={true} />
         </Switch>
       </Router>
     </Provider>
