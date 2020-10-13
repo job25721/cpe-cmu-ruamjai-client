@@ -4,13 +4,13 @@ const initialState = {
   newPetiton: {
     type: "",
     detail: {
-      topic: "Hello",
-      description: "main des",
+      topic: "",
+      description: "",
     },
     subDetail: [
       {
-        topic: "123",
-        description: "456",
+        topic: "",
+        description: "",
       },
     ],
   },
@@ -25,6 +25,7 @@ petitionActionTypes.addSubDetail = "ADD_SUB_DETAIL";
 petitionActionTypes.setMainTopic = "SET_TOPIC";
 petitionActionTypes.setMainDescription = "SET_DES";
 petitionActionTypes.setSubDetail = "SET_SUB";
+petitionActionTypes.setType = "SET_TYPE";
 
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
@@ -73,6 +74,7 @@ export default function petitionReducer(state = initialState, action) {
           subDetail: action.payload,
         },
       };
+
     default:
       return state;
   }

@@ -20,6 +20,7 @@ export const links = {
   myPetitions: "/mine",
   addPetition: "/petition/add",
   auth: "/login/auth",
+  admin: "/admin",
   petitionDetail: (id) => `/petitions/${id}`,
 };
 
@@ -42,7 +43,7 @@ export default () => {
           <Route path={links.login} component={Login} exact={true} />
           <Route path={links.auth} component={Auth} exact={true} />
           <Route path={links.addPetition} component={Form} exact-={true} />
-          <Route path="/admin" component={Admin} exact={true} />
+          <Route path={links.admin} component={Admin} exact={true} />
         </Switch>
       </Router>
     </Provider>

@@ -16,6 +16,7 @@ import api from "../api";
 
 const mapStateToProps = (state) => ({
   newPetiton: state.petition.newPetiton,
+  user: state.user.user,
 });
 
 const connector = connect(mapStateToProps, {
@@ -26,6 +27,7 @@ const Form = ({
   newPetiton,
   onSubDetailTopicChange,
   onSubDetailDescriptionChange,
+  user,
 }) => {
   const dispatch = useDispatch();
   const [types, setTypes] = useState([]);
@@ -86,7 +88,7 @@ const Form = ({
                     type="text"
                     className="input has-text-centered"
                     style={{ backgroundColor: "var(--lightPurple)" }}
-                    placeholder="อาจารย์แดง กีต้าร์"
+                    placeholder={`${user.firstName} ${user.lastName}`}
                   />
                 </div>
               </fieldset>
@@ -109,10 +111,7 @@ const Form = ({
                             {item}
                           </option>
                         ))
-                      : null}
-                    {/* <option selected>ทั่วไป</option>
-                    <option>สวัสดีค๊าบบ ท่านผู้เจริญ</option>
-                    <option>ขอแบบเบิ้มๆ คือลือๆน่ะ</option> */}
+                      : ""}
                   </select>
                 </div>
               </div>
@@ -133,7 +132,7 @@ const Form = ({
                     type="text"
                     className="input has-text-centered"
                     style={{ backgroundColor: "var(--lightPurple)" }}
-                    placeholder="600612166"
+                    placeholder={user.code}
                   />
                 </div>
               </fieldset>
