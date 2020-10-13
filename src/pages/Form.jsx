@@ -4,15 +4,39 @@ import { IonIcon } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
 import { addCircleOutline } from "ionicons/icons";
 
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+import { petitionActionTypes } from "../store/reducers/petition";
+import {
+  onSubDetailTopicChange,
+  onSubDetailDescriptionChange,
+} from "../store/actions/petition";
+import { useState } from "react";
+import { useEffect } from "react";
+import api from "../api";
 
 const mapStateToProps = (state) => ({
   newPetiton: state.petition.newPetiton,
 });
 
-const connector = connect(mapStateToProps, {});
-const Form = ({ newPetiton }) => {
-  React.useEffect(() => {
+const connector = connect(mapStateToProps, {
+  onSubDetailTopicChange,
+  onSubDetailDescriptionChange,
+});
+const Form = ({
+  newPetiton,
+  onSubDetailTopicChange,
+  onSubDetailDescriptionChange,
+}) => {
+  const dispatch = useDispatch();
+  const [types, setTypes] = useState([]);
+
+  const getAllTypes = async () => {
+    let res = await (await api.get("/petitions/type")).data;
+    console.log(res);
+  };
+
+  useEffect(() => {
+    getAllTypes();
     console.log(newPetiton);
   }, []);
   return (
@@ -138,6 +162,13 @@ const Form = ({ newPetiton }) => {
                   type="text"
                   className="input"
                   placeholder="พิมพ์หัวเรื่อง..."
+                  value={newPetiton.detail.topic}
+                  onChange={({ target }) =>
+                    dispatch({
+                      type: petitionActionTypes.setMainTopic,
+                      payload: target.value,
+                    })
+                  }
                 />
               </div>
             </div>
@@ -146,37 +177,65 @@ const Form = ({ newPetiton }) => {
               className="input"
               style={{ height: 200, marginBottom: 20 }}
               placeholder="รายละเอียด..."
+              value={newPetiton.detail.description}
+              onChange={({ target }) =>
+                dispatch({
+                  type: petitionActionTypes.setMainDescription,
+                  payload: target.value,
+                })
+              }
             />
-            <div>
-              <h2 className="has-text-left" style={{ fontSize: "24px" }}>
-                รายละเอียดปลีกย่อย
-              </h2>
-              <div className="columns">
-                <div className="column">
-                  <div className="columns">
-                    <div className="column is-1 flex-row justify-center align-items-center">
-                      <h1 className="subtitle is-5 has-margin-right-10">1.</h1>
+            <h2 className="has-text-left" style={{ fontSize: "24px" }}>
+              รายละเอียดปลีกย่อย
+            </h2>
+            <div style={{ overflow: "auto", maxHeight: 500, width: "100%" }}>
+              {newPetiton.subDetail.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div className="columns">
+                      <div className="column">
+                        <div className="columns">
+                          <div className="column is-1 flex-row justify-center align-items-center">
+                            <h1 className="subtitle is-5 has-margin-right-10">
+                              {index + 1}.
+                            </h1>
+                          </div>
+                          <div className="column">
+                            <input
+                              type="text"
+                              className="input"
+                              placeholder="พิมพ์หัวเรื่อง..."
+                              value={item.topic}
+                              onChange={({ target }) =>
+                                onSubDetailTopicChange(index, target.value)
+                              }
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="column">
-                      <input
-                        type="text"
-                        className="input"
-                        placeholder="พิมพ์หัวเรื่อง..."
-                      />
-                    </div>
+                    <textarea
+                      type="textarea"
+                      className="input"
+                      style={{ height: 200, marginBottom: 20 }}
+                      placeholder="รายละเอียด..."
+                      value={item.description}
+                      onChange={({ target }) =>
+                        onSubDetailDescriptionChange(index, target.value)
+                      }
+                    />
                   </div>
-                </div>
-              </div>
-              <textarea
-                type="textarea"
-                className="input"
-                style={{ height: 200, marginBottom: 20 }}
-                placeholder="รายละเอียด..."
-              />
+                );
+              })}
             </div>
 
-            <div className="has-text-right ">
-              <button className="button is-danger">
+            <div className="has-text-right">
+              <button
+                onClick={() =>
+                  dispatch({ type: petitionActionTypes.addSubDetail })
+                }
+                className="button is-danger"
+              >
                 <span className="icon">
                   <IonIcon icon={addCircleOutline} style={{ fontSize: 50 }} />
                 </span>
