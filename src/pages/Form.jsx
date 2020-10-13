@@ -4,7 +4,17 @@ import { IonIcon } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
 import { addCircleOutline } from "ionicons/icons";
 
-const Form = () => {
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => ({
+  newPetiton: state.petition.newPetiton,
+});
+
+const connector = connect(mapStateToProps, {});
+const Form = ({ newPetiton }) => {
+  React.useEffect(() => {
+    console.log(newPetiton);
+  }, []);
   return (
     <div className="cus-container" style={{ fontFamily: "s-medium" }}>
       <div className="nav">
@@ -193,4 +203,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default connector(Form);

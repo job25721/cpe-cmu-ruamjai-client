@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import { links } from "../route";
 import { IonIcon } from "@ionic/react";
 import { checkmarkOutline, closeOutline } from "ionicons/icons";
+import { useEffect } from "react";
+
+const petitionStatus = {
+  approved: "อนุมัติ",
+  voting: "กำลังโหวต",
+  waiting_for_approved: "กำลังรอการนำไปสู่การอนุมัติ",
+  waiting_for_voting: "กำลังรอการนำไปสู่การโหวต",
+  reject: "ปฏิเสธ",
+};
 
 export function Card({ header, detail, voting, status, petitionId }) {
   return (
@@ -26,8 +35,34 @@ export function Card({ header, detail, voting, status, petitionId }) {
             </div>
             {status ? (
               <div className="status">
-                <div className="circle"></div>
-                <span>{status}</span>
+                <div
+                  className={
+                    status == petitionStatus.approved
+                      ? "circle bg-green"
+                      : status == petitionStatus.voting
+                      ? "circle bg-blue"
+                      : status == petitionStatus.waiting_for_voting
+                      ? "circle bg-yellow"
+                      : status == petitionStatus.reject
+                      ? "circle bg-red"
+                      : ""
+                  }
+                ></div>
+                <span
+                  className={
+                    status == petitionStatus.approved
+                      ? "text-green"
+                      : status == petitionStatus.voting
+                      ? "text-blue"
+                      : status == petitionStatus.waiting_for_voting
+                      ? "text-yellow"
+                      : status == petitionStatus.reject
+                      ? "text-red"
+                      : ""
+                  }
+                >
+                  {status}
+                </span>
               </div>
             ) : (
               <div />
