@@ -62,15 +62,22 @@ const Requests = ({
         <Nav />
       </div>
       <div className="header">
-        <div className="header-text">ALL PETITION</div>
+        <div className="header-text">คำร้องทั้งหมด</div>
       </div>
       <div className="container-content">
         <div className="container-menu">
-          <h1 style={{ color: "var(--deepPurple)" }} className="subtitle is-4">
-            CATEGORY
-          </h1>
-          <div className="flex-column">
+          <div className="menu-header">
+            <h1
+              style={{ color: "var(--deepPurple)" }}
+              className="subtitle is-4"
+            >
+              หมวดหมู่
+            </h1>
+          </div>
+
+          <div className="menu-content">
             {category.map((cat) => (
+              <div style={{display:'flex'}}>
               <label className="checkbox" key={cat.id}>
                 <input
                   value={cat.id}
@@ -84,6 +91,7 @@ const Requests = ({
                   {cat.name}
                 </span>
               </label>
+              </div>
             ))}
           </div>
         </div>

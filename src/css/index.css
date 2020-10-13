@@ -467,8 +467,17 @@ body {
 }
 
 .cus-container .container-content .container-menu {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
   padding-top: 30px;
   grid-column: 1;
+}
+.cus-container .container-content .container-menu .menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cus-container .container-content .container-cards {
@@ -480,6 +489,14 @@ body {
   .cus-container {
     grid-template-rows: 100px auto auto;
     padding: 0 !important;
+  }
+
+  .cus-container .container-content .container-menu .menu-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .cus-container .container-content {
