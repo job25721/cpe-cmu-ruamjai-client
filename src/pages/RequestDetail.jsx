@@ -62,8 +62,8 @@ const RequestById = (props) => {
                   <p>{data.owner.code}</p>
                 </div>
                 <div className="detail-vote-button">
-                  {props.user.votedPetitoins !== undefined ? (
-                    props.user.votedPetitoins.find(
+                  {props.user.votedPetitions !== undefined ? (
+                    props.user.votedPetitions.find(
                       (item) => item === props.match.params.petitionId
                     ) !== undefined ? (
                       data.canVote === true ? (

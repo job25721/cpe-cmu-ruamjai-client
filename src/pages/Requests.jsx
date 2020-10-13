@@ -3,14 +3,13 @@ import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
 import {
   getVotableAllPetition,
-  getDetail,
   handleCategoryFilter,
 } from "../store/actions/petition";
 import { connect } from "react-redux";
 import NewRequest from "../components/icons/NewRequest";
 import api from "../api";
 import Loading from "../components/Loading";
-
+import Nothing from "../components/Nothing";
 const mapStateToProps = (state) => ({
   petitions: state.petition.allPetitions,
   isFilter: state.petition.filter,
@@ -77,20 +76,20 @@ const Requests = ({
 
           <div className="menu-content">
             {category.map((cat) => (
-              <div style={{display:'flex'}}>
-              <label className="checkbox" key={cat.id}>
-                <input
-                  value={cat.id}
-                  onChange={handleCheckbox}
-                  type="checkbox"
-                />
-                <span
-                  style={{ fontFamily: "s-medium" }}
-                  className="has-padding-left-10"
-                >
-                  {cat.name}
-                </span>
-              </label>
+              <div style={{ display: "flex" }}>
+                <label className="checkbox" key={cat.id}>
+                  <input
+                    value={cat.id}
+                    onChange={handleCheckbox}
+                    type="checkbox"
+                  />
+                  <span
+                    style={{ fontFamily: "s-medium" }}
+                    className="has-padding-left-10"
+                  >
+                    {cat.name}
+                  </span>
+                </label>
               </div>
             ))}
           </div>
@@ -121,7 +120,7 @@ const Requests = ({
             )
           ) : (
             // <button className="is-loading button is-large"></button>
-            <Loading />
+            <Nothing />
           )}
         </div>
       </div>

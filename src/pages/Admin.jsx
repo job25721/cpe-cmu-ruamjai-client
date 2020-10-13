@@ -40,6 +40,8 @@ const List = ({ requests }) => {
                   header={item.detail.topic}
                   detail={item.detail.description}
                   petitionId={item._id}
+                  approveNum={item.approveNum}
+                  rejectNum={item.rejectNum}
                 />
               </div>
             );
