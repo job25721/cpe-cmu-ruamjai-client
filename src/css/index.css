@@ -176,12 +176,13 @@ body {
   width: 50px;
   border-radius: 50%;
   position: absolute;
-  right: 60px;
-  top: 5px;
+  right: 90px;
+  top: 35px;
   display: flex;
   align-items: center;
   transition: all ease 0.2s;
   justify-content: center;
+  z-index: 2;
 }
 
 .cus-btn-check:hover{
@@ -195,12 +196,13 @@ body {
   width: 50px;
   border-radius: 50%;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 35px;
+  top: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all ease 0.2s;
+  z-index: 2;
 }
 
 .cus-btn-x:hover{
@@ -376,6 +378,7 @@ body {
 
 /* --- AbstractCard --- */
 .cus-abstract-card {
+  position: relative;
   padding: 30px;
   display: grid;
   grid-template-rows: 2;
@@ -389,12 +392,14 @@ body {
 .cus-abstract-card .image-abs {
   width: 100%;
   height: 100px;
-  background-color: #eccef3;
+  background-color: var(--lightPurple);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   position: relative;
 }
+
+
 .cus-abstract-card .content-abs {
   padding: 5px;
   display: grid;

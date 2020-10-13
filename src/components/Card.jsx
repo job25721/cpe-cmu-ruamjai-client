@@ -10,6 +10,7 @@ import {
   thumbsUpOutline,
 } from "ionicons/icons";
 import { useSelector } from "react-redux";
+import api from "../api";
 
 const petitionStatus = {
   approved: "อนุมัติ",
@@ -83,34 +84,39 @@ export function Card({ header, detail, voting, status, petitionId }) {
 export function AbstractCard({ header, detail, voting, status, petitionId }) {
   const user = useSelector((state) => state.user.user);
   return (
-    <Link to={links.petitionDetail(petitionId)}>
-      <div className="cus-abstract-card">
-        <div className="image-abs">
-          {user.role === "teacher" ? (
-            <div className="teacher">
-              <div className="cus-btn-check">
-                <IonIcon icon={thumbsUpOutline} style={{ fontSize: 20 }} />
-              </div>
-              <div className="cus-btn-x">
-                <IonIcon icon={thumbsDownOutline} style={{ fontSize: 20 }} />
-              </div>
-            </div>
-          ) : user.role === "admin" ? (
-            <div className="admin">
-              <div className="cus-btn-check">
-                <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
-              </div>
-              <div className="cus-btn-x">
-                <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
-              </div>
-            </div>
-          ) : null}
+    <div className="cus-abstract-card">
+      {user.role === "teacher" ? (
+        <div className="teacher">
+          <div className="cus-btn-check">
+            <IonIcon icon={thumbsUpOutline} style={{ fontSize: 20 }} />
+          </div>
+          <div className="cus-btn-x">
+            <IonIcon icon={thumbsDownOutline} style={{ fontSize: 20 }} />
+          </div>
         </div>
+      ) : user.role === "admin" ? (
+        <div className="admin">
+          <div className="cus-btn-check" onClick={  () => {
+             api.post('/user/approved' , {petitionId : petitionId}).then(
+               ()=> window.location.reload()
+             ).catch(err=>console.log(err))
+          }}>
+            <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
+          </div>
+          <div className="cus-btn-x" onClick={() => {
+
+          }}>
+            <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
+          </div>
+        </div>
+      ) : null}
+      <Link to={links.petitionDetail(petitionId)}>
+        <div className="image-abs"></div>
         <div className="content-abs">
           <div className="header-abs">{header}</div>
           <div className="detail-abs">{detail}</div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
