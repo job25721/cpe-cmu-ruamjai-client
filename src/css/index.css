@@ -139,7 +139,7 @@ body {
     left: 0;
     top: 0;
     background-color: var(--lightPurple);
-    z-index: 1;
+    z-index: 2;
     animation: fade 350ms;
   }
 
@@ -183,7 +183,7 @@ body {
   align-items: center;
   transition: all ease 0.2s;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
 }
 
 .cus-btn-check:hover{
@@ -203,7 +203,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: all ease 0.2s;
-  z-index: 2;
+  z-index: 1;
 }
 
 .cus-btn-x:hover{
@@ -829,7 +829,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   transition: all ease 0.2s;
-  z-index: 2;
+  z-index: 1;
 }
 
 .add-new-request-icon:hover{
