@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { personCircleOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import { Link } from "react-router-dom";
@@ -7,15 +7,17 @@ import {setUser} from '../store/actions/user'
 import {connect} from 'react-redux'
 
 const mapStateToProps =  (state) => ({
-  role: state.user.user.role
+  user: state.user.user
 })
 
 const connector = connect(mapStateToProps,{
-  setUser
 })
 
 const Nav = (props) => {
   const [isOpen, setOpen] = React.useState(false);
+  useEffect(() => {
+    console.log(props.user);
+  })
   return (
     <nav className="cus-navbar">
       <div className="brand">
@@ -39,15 +41,15 @@ const Nav = (props) => {
           <Link to={links.myPetitions}>คำร้องของฉัน</Link>
         </li>
         {
-          props.role === "admin" ? (
-            <li>
-              <Link to={links.myPetitions}>แอดมิน</Link>
-            </li>
-          ) : props.role === "teacher"  ? (
-            <li>
-              <Link to={links.myPetitions}>แอดมิน</Link>
-            </li>
-          ) : null
+          // props.role === "admin" ? (
+          //   <li>
+          //     <Link to={links.myPetitions}>แอดมิน</Link>
+          //   </li>
+          // ) : props.role === "teacher"  ? (
+          //   <li>
+          //     <Link to={links.myPetitions}>แอดมิน</Link>
+          //   </li>
+          // ) : null
         }
         <li>
           <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
