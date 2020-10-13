@@ -163,6 +163,7 @@ body {
   --yellow: #f8e987;
   --darkYellow: #ddc84e;
   --grey: #bdbdbd;
+  --lightRed : #df8f8f;
 }
 
 .cus-btn-check{
@@ -176,8 +177,14 @@ body {
   top: 5px;
   display: flex;
   align-items: center;
+  transition: all ease 0.2s;
   justify-content: center;
 }
+
+.cus-btn-check:hover{
+  background-color: var(--lightGreen);
+}
+
 .cus-btn-x{
   color: white;
   background-color: var(--red);
@@ -190,6 +197,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all ease 0.2s;
+}
+
+.cus-btn-x:hover{
+  background-color: var(--lightRed);
 }
 
 .cus-card {
@@ -327,6 +339,7 @@ body {
   width: 100%;
   padding-bottom: 45px;
   color: #623688;
+  cursor: pointer;
 }
 
 .cus-abstract-card .image-abs {
@@ -694,4 +707,23 @@ body {
 
 /************* Layout *************/
 
+.add-new-request-icon{
+  background-color: var(--lightPurple);
+  color: var(--deepPurple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
 
+.add-new-request-icon:hover{
+  background-color: var(--deepPurple);
+  color: var(--lightPurple);
+}
