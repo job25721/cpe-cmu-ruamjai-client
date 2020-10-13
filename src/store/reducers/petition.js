@@ -16,6 +16,7 @@ const initialState = {
   },
   myPetitions: [],
   isLoading : false,
+  currentPetition : []
 };
 
 export class petitionActionTypes {}
@@ -27,6 +28,7 @@ petitionActionTypes.setMainDescription = "SET_DES";
 petitionActionTypes.setSubDetail = "SET_SUB";
 petitionActionTypes.LOADING = 'LOADING'
 petitionActionTypes.LOADED = 'LOADED'
+petitionActionTypes.SET_CERRENT_PETITION = 'SET_CERRENT_PETITION'
 
 
 export default function petitionReducer(state = initialState, action) {
@@ -85,6 +87,11 @@ export default function petitionReducer(state = initialState, action) {
       return {
         ...state,
         isLoading:false
+      }
+    case petitionActionTypes.SET_CERRENT_PETITION:
+      return {
+        ...state,
+        currentPetition: action.payload
       }
     default:
       return state;

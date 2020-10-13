@@ -1,35 +1,32 @@
 import React, { useEffect } from "react";
 import Nav from "../components/Navbar";
 import { Card } from "../components/Card";
-import { getMyPetition} from "../store/actions/petition";
+import { getMyPetition , setCurrentPetition , Loading , Loaded } from "../store/actions/petition";
 import { connect } from "react-redux";
 import { useState } from "react";
-import Loading from "../components/Loading";
+import Load from "../components/Loading";
 
 const mapStateToProps = (state) => ({
   myPetitions: state.petition.myPetitions,
+  isLoading : state.petition.isLoading,
+  currentPetition : state.petition.currentPetition
 });
 
 const connector = connect(mapStateToProps, {
-  getMyPetition,
+  getMyPetition, setCurrentPetition , Loading , Loaded
 });
 
 const Mine = (props) => {
-  const Curpetition = new Promise((resolve,reject)=>{
-    resolve()
-  })
   useEffect(() => {
     handleSetPetition()
   }, []);
   const handleSetPetition = async () => {
+    await props.Loading()
     await props.getMyPetition();
-    
-    // console.log('petition' , petition);
+    props.Loaded()
   };
 
   const [status, setStatus] = useState("waiting");
-  const [petition, setPetition] = useState([]);
-  const [isLoading , setLoading] = useState(true)
   return (
     <>
       <div className="cus-container">
@@ -48,7 +45,7 @@ const Mine = (props) => {
                 }
                 onClick={() => {
                   setStatus("approved");
-                  setPetition(props.myPetitions.approved);
+                  props.setCurrentPetition(props.myPetitions.approved)
                 }}
               >
                 อนุมัติแล้ว
@@ -59,7 +56,7 @@ const Mine = (props) => {
                 }
                 onClick={() => {
                   setStatus("approving");
-                  setPetition(props.myPetitions.waiting_for_approved);
+                  props.setCurrentPetition(props.myPetitions.waiting_for_approved)
                 }}
               >
                 รอการอนุมัติ
@@ -68,7 +65,7 @@ const Mine = (props) => {
                 className={status === "voting" ? "voting-focus" : "voting"}
                 onClick={() => {
                   setStatus("voting");
-                  setPetition(props.myPetitions.voting);
+                  props.setCurrentPetition(props.myPetitions.voting)
                 }}
               >
                 รอการโหวต
@@ -77,8 +74,7 @@ const Mine = (props) => {
                 className={status === "waiting" ? "waiting-focus" : "waiting"}
                 onClick={() => {
                   setStatus("waiting");
-                  setPetition(props.myPetitions.waiting_for_voting);
-
+                  props.setCurrentPetition(props.myPetitions.waiting_for_voting)
                 }}
               >
                 รอการยืนยัน
@@ -89,8 +85,7 @@ const Mine = (props) => {
                 }
                 onClick={() => {
                   setStatus("rejected");
-                  setPetition(props.myPetitions.reject);
-                  console.log(petition);
+                  props.setCurrentPetition(props.myPetitions.reject)
                 }}
               >
                 ไม่อนุมัติ
@@ -98,9 +93,9 @@ const Mine = (props) => {
             </ul>
           </div>
           <div className="content-area">
-            {!isLoading ? 
-            (petition !== undefined && petition.length !== 0 ? (
-              petition.map(({ _id, detail, voteNum, status }) => {
+            {!props.isLoading ? 
+            (props.currentPetition !== undefined && props.currentPetition.length !== 0 ? (
+              props.currentPetition.map(({ _id, detail, voteNum, status }) => {
                 return (
                   <Card
                     header={detail.topic}
@@ -116,7 +111,7 @@ const Mine = (props) => {
               <span>ไม่มีอะไรเลย</span>
             )
             ):(
-              <Loading />
+              <Load />
             )}
           </div>
         </div>

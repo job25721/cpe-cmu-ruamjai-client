@@ -30,6 +30,10 @@ export function getMyPetition() {
       type: petitionActionTypes.getMyPetition,
       payload: res.data.petitions,
     });
+    dispatch({
+      type : petitionActionTypes.SET_CERRENT_PETITION,
+      payload : res.data.petitions.waiting_for_voting
+    })
   };
 }
 
@@ -63,14 +67,21 @@ export const getDetail = async (petitionId) =>{
 
 }
 
-export const Loading = async () => dispatch => {
+export const Loading =  () => dispatch => {
   dispatch({
     type: petitionActionTypes.LOADING
   })
 }
 
-export const Loaded = async () => dispatch => {
+export const Loaded =  () => dispatch => {
   dispatch({
     type: petitionActionTypes.LOADED
+  })
+}
+
+export const setCurrentPetition =  (petition) => async dispatch => {
+  dispatch({
+    type: petitionActionTypes.SET_CERRENT_PETITION,
+    payload : petition
   })
 }
