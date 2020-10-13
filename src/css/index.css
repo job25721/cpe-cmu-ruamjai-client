@@ -471,6 +471,7 @@ body {
 
 .cus-container .header {
   /* font-size: 3.5rem; */
+  font-family: s-medium !important;
   grid-row: 2;
   display: grid;
   grid-template-columns: calc(25%) 1fr;
@@ -478,7 +479,7 @@ body {
 
 .cus-container .header .header-text {
   grid-column: 2;
-  font-family: m-med;
+  font-family: s-medium;
   display: flex;
   align-items: flex-end;
   font-size: 3rem;
@@ -670,6 +671,7 @@ body {
 
 /* -------- My Requests --------- */
 .cus-container-mine {
+  font-family: s-medium;
   display: grid;
   grid-template-rows: 120px 80px calc(100vh - 200px);
   height: 100vh;
@@ -680,7 +682,6 @@ body {
 .cus-container-mine .header-mine {
   display: flex;
   justify-content: center;
-  font-family: m-med;
   font-size: 3rem;
   letter-spacing: 3px;
   color: var(--deepPurple);
@@ -717,7 +718,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: m-light;
   font-size: 1.6rem;
   color: var(--deepPurple);
 }
@@ -833,6 +833,7 @@ body {
 .cus-container .header-admin span {
   font-size: 3rem;
   color: var(--deepPurple);
+  font-family: s-medium !important;
 }
 
 

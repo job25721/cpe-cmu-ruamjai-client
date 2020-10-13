@@ -13,7 +13,7 @@ import Loading from "../components/Loading";
 import { connect } from "react-redux";
 import { getTrendingPetiton } from "../store/actions/petition";
 import { useEffect } from "react";
-
+import Nothing from '../components/Nothing'
 const mapStateToProps = (state) => ({
   trendingPetitions: state.petition.allPetitions,
 });
@@ -32,7 +32,7 @@ const Index = (props) => {
           <Nav />
         </div>
         <div className="header">
-          <div className="header-text">TRENDING</div>
+          <div className="header-text">กำลังมาแรง</div>
         </div>
         <div className="container-content">
           <div className="container-menu">
@@ -56,6 +56,9 @@ const Index = (props) => {
 
           <div className="container-cards">
             {props.trendingPetitions !== undefined ? (
+              props.trendingPetitions.length === 0 ? (
+                <Nothing />
+              ) :(
               props.trendingPetitions.map((each) => (
                 <Card
                   header={each.detail.topic}
@@ -64,7 +67,7 @@ const Index = (props) => {
                   key={each._id}
                   petitionId={each._id}
                 />
-              ))
+              )))
             ) : (
               <Loading />
             )}
