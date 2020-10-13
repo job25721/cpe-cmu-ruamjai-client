@@ -4,6 +4,7 @@ import { Card } from "../components/Card";
 import { getMyPetition} from "../store/actions/petition";
 import { connect } from "react-redux";
 import { useState } from "react";
+import Loading from "../components/Loading";
 
 const mapStateToProps = (state) => ({
   myPetitions: state.petition.myPetitions,
@@ -14,14 +15,16 @@ const connector = connect(mapStateToProps, {
 });
 
 const Mine = (props) => {
+  const Curpetition = new Promise((resolve,reject)=>{
+    resolve()
+  })
   useEffect(() => {
     handleSetPetition()
   }, []);
   const handleSetPetition = async () => {
     await props.getMyPetition();
-    await setPetition(props.myPetitions.waiting_for_voting);
-    setLoading(false)
-    console.log('petition' , petition);
+    
+    // console.log('petition' , petition);
   };
 
   const [status, setStatus] = useState("waiting");
@@ -75,6 +78,7 @@ const Mine = (props) => {
                 onClick={() => {
                   setStatus("waiting");
                   setPetition(props.myPetitions.waiting_for_voting);
+
                 }}
               >
                 รอการยืนยัน
@@ -94,7 +98,8 @@ const Mine = (props) => {
             </ul>
           </div>
           <div className="content-area">
-            {!isLoading && petition !== undefined && petition.length !== 0 ? (
+            {!isLoading ? 
+            (petition !== undefined && petition.length !== 0 ? (
               petition.map(({ _id, detail, voteNum, status }) => {
                 return (
                   <Card
@@ -108,7 +113,10 @@ const Mine = (props) => {
                 );
               })
             ) : (
-              <span> ไม่มีอะไรเลย </span>
+              <span>ไม่มีอะไรเลย</span>
+            )
+            ):(
+              <Loading />
             )}
           </div>
         </div>

@@ -1,3 +1,4 @@
+import store from "..";
 import api from "../../api";
 import { petitionActionTypes } from "../reducers/petition";
 
@@ -17,20 +18,35 @@ export function getVotableAllPetition() {
 }
 
 export function getMyPetition() {
-  return async dispatch => {
-    let res = []
-    const token = localStorage.getItem('token')
+  return async (dispatch) => {
+    let res = [];
     try {
-      res = (await api.post("/user/myPetitions" ,{headers:{'Authorization': token}})).data;
+      res = (await api.get("/user/myPetitions")).data;
       console.log(res.data.petitions);
-    }catch (err) {
+    } catch (err) {
       console.log(err);
     }
     dispatch({
       type: petitionActionTypes.getMyPetition,
-      payload: res.data.petitions
-    })
-  }
+      payload: res.data.petitions,
+    });
+  };
+}
+
+export function onSubDetailTopicChange(idx, topic) {
+  let subDetail = store.getState().petition.newPetiton.subDetail;
+  subDetail[idx].topic = topic;
+  return (dispatch) => {
+    dispatch({ type: petitionActionTypes.setSubDetail, payload: subDetail });
+  };
+}
+
+export function onSubDetailDescriptionChange(idx, des) {
+  let subDetail = store.getState().petition.newPetiton.subDetail;
+  subDetail[idx].description = des;
+  return (dispatch) => {
+    dispatch({ type: petitionActionTypes.setSubDetail, payload: subDetail });
+  };
 }
 
 export const getDetail = async (petitionId) =>{
