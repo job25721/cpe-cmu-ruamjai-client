@@ -1,7 +1,21 @@
 import React from "react";
+import api from "../api";
 
-const RejectModal = ({ peitionId }) => {
+const RejectModal = ({ petitionId }) => {
   const [reason, setReason] = React.useState("");
+  async function rejectPetiton() {
+    if (reason === "") {
+      alert("จำเป็นต้องมีเหตุผลในการปฏิเสธ");
+    } else {
+      try {
+        await api.post("/user/reject", { petitionId, Reason: reason });
+        alert("ปฏิเสธแล้ว");
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
   return (
     <div className="modal reject-modal">
       <div className="modal-background"></div>
@@ -19,10 +33,7 @@ const RejectModal = ({ peitionId }) => {
           {reason}
           <button
             className="button is-danger has-margin-top-10"
-            onClick={() => {
-              // eslint-disable-next-line no-restricted-globals
-              if (reason === "") alert("ต้องกรอกเหตุผลก่อน");
-            }}
+            onClick={() => rejectPetiton()}
           >
             ปฏิเสธ
           </button>
