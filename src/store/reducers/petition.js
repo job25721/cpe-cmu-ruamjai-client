@@ -1,7 +1,8 @@
 const initialState = {
   allPetitions: [],
   filterdPetitions: [],
-  myPetitions: []
+  myPetitions: [],
+  isLoading:false
 };
 
 export class petitionActionTypes { }
@@ -18,7 +19,8 @@ export default function petitionReducer(state = initialState, action) {
     case petitionActionTypes.getMyPetition:
       return {
         ...state,
-        myPetitions:action.payload
+        myPetitions:action.payload,
+        isLoading:true
       }
     default:
       return state;

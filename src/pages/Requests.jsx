@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
-import { getVotableAllPetition } from "../store/actions/petition";
+import { getVotableAllPetition , getDetail} from "../store/actions/petition";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
