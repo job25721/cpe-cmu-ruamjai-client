@@ -10,6 +10,8 @@ import {
   onSubDetailTopicChange,
   onSubDetailDescriptionChange,
 } from "../store/actions/petition";
+
+import { addNewPetition } from "../store/actions/user";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../api";
@@ -22,12 +24,14 @@ const mapStateToProps = (state) => ({
 const connector = connect(mapStateToProps, {
   onSubDetailTopicChange,
   onSubDetailDescriptionChange,
+  addNewPetition,
 });
 const Form = ({
   newPetiton,
   onSubDetailTopicChange,
   onSubDetailDescriptionChange,
   user,
+  addNewPetition,
 }) => {
   const dispatch = useDispatch();
   const [types, setTypes] = useState([]);
@@ -104,7 +108,15 @@ const Form = ({
             <div className="column">
               <div className="control">
                 <div className="select is-fullwidth">
-                  <select>
+                  <select
+                    onChange={({ target }) =>
+                      dispatch({
+                        type: petitionActionTypes.setType,
+                        payload: target.value,
+                      })
+                    }
+                    value={newPetiton.type}
+                  >
                     {types.length > 0
                       ? types.map((item, idx) => (
                           <option selected key={idx}>
@@ -253,7 +265,7 @@ const Form = ({
                 marginBottom: 20,
               }}
             >
-              <button className="button is-success">
+              <button onClick={addNewPetition} className="button is-success">
                 <span className="icon">
                   <IonIcon icon={checkmark} style={{ fontSize: 50 }} />
                 </span>
