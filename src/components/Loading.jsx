@@ -9,6 +9,7 @@ const Loading = () => {
         fontFamily: "s-reg",
         alignItems: "center",
         height: "100%",
+        width: '100%',
         fontSize: 50,
         color: "#623688",
       }}
