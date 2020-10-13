@@ -10,6 +10,10 @@ import {
   thumbsUpOutline,
 } from "ionicons/icons";
 import { useSelector } from "react-redux";
+import api from "../api";
+import RejectModal from "./RejectModal";
+import { useState } from "react";
+import MessageModal from "./MessageModal";
 
 const petitionStatus = {
   approved: "อนุมัติ",
@@ -82,35 +86,70 @@ export function Card({ header, detail, voting, status, petitionId }) {
 
 export function AbstractCard({ header, detail, voting, status, petitionId }) {
   const user = useSelector((state) => state.user.user);
+  const [alertMsg, setMsg] = useState("");
   return (
-    <Link to={links.petitionDetail(petitionId)}>
-      <div className="cus-abstract-card">
-        <div className="image-abs">
-          {user.role === "teacher" ? (
-            <div className="teacher">
-              <div className="cus-btn-check">
-                <IonIcon icon={thumbsUpOutline} style={{ fontSize: 20 }} />
-              </div>
-              <div className="cus-btn-x">
-                <IonIcon icon={thumbsDownOutline} style={{ fontSize: 20 }} />
-              </div>
-            </div>
-          ) : user.role === "admin" ? (
-            <div className="admin">
-              <div className="cus-btn-check">
-                <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
-              </div>
-              <div className="cus-btn-x">
-                <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
-              </div>
-            </div>
-          ) : null}
+    <div className="cus-abstract-card">
+      {user.role === "teacher" ? (
+        <div className="teacher">
+          <div
+            className="cus-btn-check"
+            onClick={async () => {
+              try {
+                await api.post("/user/finalApprove", { petitionId });
+                setMsg("คุณได้ลงความเห็นชอบให้คำร้องนี้แล้ว");
+                document.querySelector(".msg-modal").classList.add("is-active");
+              } catch (error) {}
+            }}
+          >
+            <IonIcon icon={thumbsUpOutline} style={{ fontSize: 20 }} />
+          </div>
+          <div
+            className="cus-btn-x"
+            onClick={async () => {
+              try {
+                await api.post("/user/finalReject", { petitionId });
+                setMsg("คุณได้ลงความเห็นคัดค้านให้คำร้องนี้แล้ว");
+                document.querySelector(".msg-modal").classList.add("is-active");
+              } catch (error) {}
+            }}
+          >
+            <IonIcon icon={thumbsDownOutline} style={{ fontSize: 20 }} />
+          </div>
         </div>
+      ) : user.role === "admin" ? (
+        <div className="admin">
+          <div
+            className="cus-btn-check"
+            onClick={() => {
+              api
+                .post("/user/approved", { petitionId: petitionId })
+                .then(() => window.location.reload())
+                .catch((err) => console.log(err));
+            }}
+          >
+            <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
+          </div>
+          <div
+            className="cus-btn-x"
+            onClick={() => {
+              document
+                .querySelector(".reject-modal")
+                .classList.add("is-active");
+            }}
+          >
+            <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
+          </div>
+        </div>
+      ) : null}
+      <RejectModal petitionId={petitionId} />
+      <MessageModal msg={alertMsg} />
+      <Link to={links.petitionDetail(petitionId)}>
+        <div className="image-abs"></div>
         <div className="content-abs">
           <div className="header-abs">{header}</div>
           <div className="detail-abs">{detail}</div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
