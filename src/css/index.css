@@ -478,10 +478,11 @@ body {
 }
 
 .cus-container .header .header-text {
-  grid-column: 2;
+  grid-column: span 2;
   font-family: s-medium;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   font-size: 3rem;
   letter-spacing: 3px;
   color: var(--deepPurple);
@@ -495,6 +496,7 @@ body {
 }
 
 .cus-container .container-content .container-menu {
+  font-family: s-medium !important;
   display: flex;
   flex-direction: column;
   /* justify-content: space-around; */
