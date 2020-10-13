@@ -15,7 +15,6 @@ import { addNewPetition } from "../store/actions/user";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../api";
-import Loading from "../components/Loading";
 
 const mapStateToProps = (state) => ({
   newPetiton: state.petition.newPetiton,
@@ -264,7 +263,10 @@ const Form = ({
                 marginBottom: 20,
               }}
             >
-              <button onClick={addNewPetition} className="button is-success bg-green">
+              <button
+                onClick={addNewPetition}
+                className="button is-success bg-green"
+              >
                 <span className="icon">
                   <IonIcon icon={checkmark} style={{ fontSize: 50 }} />
                 </span>

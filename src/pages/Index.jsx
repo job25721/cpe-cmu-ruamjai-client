@@ -7,7 +7,7 @@ import { IonIcon } from "@ionic/react";
 
 import { links } from "../route";
 import NewRequest from "../components/icons/NewRequest";
-import { useSelector } from "react-redux";
+
 import { Card } from "../components/Card";
 import Loading from "../components/Loading";
 import { connect } from "react-redux";
@@ -22,54 +22,55 @@ const connector = connect(mapStateToProps, { getTrendingPetiton });
 const Index = (props) => {
   useEffect(() => {
     props.getTrendingPetiton();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
       <NewRequest />
-    <div className="cus-container">
-      <div className="nav">
-        <Nav />
-      </div>
-      <div className="header">
-        <div className="header-text">TRENDING</div>
-      </div>
-      <div className="container-content">
-        <div className="container-menu">
-          <button
-            className="button is-text"
-            style={{ textDecoration: "none" }}
-            onClick={() => props.history.push(links.addPetition)}
-          >
-            <IonIcon icon={add} style={{ fontSize: 30 }} />
-            <p
-              style={{
-                fontFamily: "s-medium",
-                fontSize: 30,
-                color: "var(--deepPurple)",
-              }}
+      <div className="cus-container">
+        <div className="nav">
+          <Nav />
+        </div>
+        <div className="header">
+          <div className="header-text">TRENDING</div>
+        </div>
+        <div className="container-content">
+          <div className="container-menu">
+            <button
+              className="button is-text"
+              style={{ textDecoration: "none" }}
+              onClick={() => props.history.push(links.addPetition)}
             >
-              เพิ่มคำร้อง
-            </p>
-          </button>
-        </div>
+              <IonIcon icon={add} style={{ fontSize: 30 }} />
+              <p
+                style={{
+                  fontFamily: "s-medium",
+                  fontSize: 30,
+                  color: "var(--deepPurple)",
+                }}
+              >
+                เพิ่มคำร้อง
+              </p>
+            </button>
+          </div>
 
-        <div className="container-cards">
-          {props.trendingPetitions !== undefined ? (
-            props.trendingPetitions.map((each) => (
-              <Card
-                header={each.detail.topic}
-                detail={each.detail.description}
-                voting={each.voteNum}
-                key={each._id}
-                petitionId={each._id}
-              />
-            ))
-          ) : (
-            <Loading />
-          )}
+          <div className="container-cards">
+            {props.trendingPetitions !== undefined ? (
+              props.trendingPetitions.map((each) => (
+                <Card
+                  header={each.detail.topic}
+                  detail={each.detail.description}
+                  voting={each.voteNum}
+                  key={each._id}
+                  petitionId={each._id}
+                />
+              ))
+            ) : (
+              <Loading />
+            )}
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

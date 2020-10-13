@@ -8,7 +8,7 @@ import {
 import { connect } from "react-redux";
 import NewRequest from "../components/icons/NewRequest";
 import api from "../api";
-import Loading from "../components/Loading";
+
 import Nothing from "../components/Nothing";
 const mapStateToProps = (state) => ({
   petitions: state.petition.allPetitions,

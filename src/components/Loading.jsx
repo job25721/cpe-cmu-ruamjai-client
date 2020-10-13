@@ -13,7 +13,7 @@ const Loading = () => {
         color: "#623688",
       }}
     >
-      <img src="/plane.gif" />
+      <img src="/plane.gif" alt="" />
     </div>
   );
 };

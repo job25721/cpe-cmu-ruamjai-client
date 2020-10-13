@@ -6,7 +6,6 @@ import {
   checkmarkOutline,
   closeOutline,
   thumbsDownOutline,
-  thumbsUp,
   thumbsUpOutline,
 } from "ionicons/icons";
 import { useSelector } from "react-redux";
@@ -38,7 +37,7 @@ export function Card({ header, detail, voting, status, petitionId, reason }) {
         <div className="content">
           <div className="content-row">
             <div className="header">
-              <span style={{gridColumn:'span 2'}}>{header}</span>
+              <span style={{ gridColumn: "span 2" }}>{header}</span>
             </div>
             <div className="detail">
               <span>{detail}</span>

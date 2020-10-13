@@ -23,6 +23,7 @@ const RequestById = (props) => {
   };
   useEffect(() => {
     handleSetData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [data, setData] = useState({});
   return (

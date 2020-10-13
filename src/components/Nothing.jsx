@@ -6,17 +6,17 @@ const Loading = () => {
       style={{
         display: "flex",
         justifyContent: "center",
-        flexDirection: 'column',
+        flexDirection: "column",
         fontFamily: "s-reg",
         alignItems: "center",
         height: "100%",
-        fontSize: '1rem',
+        fontSize: "1rem",
         color: "#623688",
-        position:'relative'
+        position: "relative",
       }}
     >
-      <img width="30%" src="/cloud.gif" />
-      <span style={{position:'absolute' , top : '55%'}}>ไม่พบข้อมูล</span>
+      <img width="30%" src="/cloud.gif" alt="" />
+      <span style={{ position: "absolute", top: "55%" }}>ไม่พบข้อมูล</span>
     </div>
   );
 };

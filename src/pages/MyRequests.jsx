@@ -6,7 +6,6 @@ import {
   setCurrentPetition,
   Loading,
   Loaded,
-  getWaitingPetition,
 } from "../store/actions/petition";
 import { connect } from "react-redux";
 import { useState } from "react";
@@ -29,6 +28,7 @@ const connector = connect(mapStateToProps, {
 const Mine = (props) => {
   useEffect(() => {
     handleSetPetition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSetPetition = async () => {
     await props.Loading();

@@ -11,8 +11,6 @@ import {
   Loaded,
 } from "../store/actions/petition";
 import Load from "../components/Loading";
-import { useState } from "react";
-
 const mapStateToProps = (state) => ({
   adminPetition: state.petition.adminPetition,
   isLoading: state.petition.isLoading,
@@ -25,58 +23,59 @@ const connector = connect(mapStateToProps, {
   Loaded,
 });
 
-const List = ({ requests }) => {
-  useEffect(() => {
-    console.log(requests);
-  });
-  return (
-    <>
-      <div className="rows">
-        {requests.length !== 0 ? (
-          requests.map((item) => {
-            return (
-              <div className="cus-column" key={item._id} id={item._id}>
-                <AbstractCard
-                  header={item.detail.topic}
-                  detail={item.detail.description}
-                  petitionId={item._id}
-                  approveNum={item.approveNum}
-                  rejectNum={item.rejectNum}
-                />
-              </div>
-            );
-          })
-        ) : (
-          <></>
-        )}
-      </div>
-    </>
-  );
-};
+// const List = ({ requests }) => {
+//   useEffect(() => {
+//     console.log(requests);
+//   });
+//   return (
+//     <>
+//       <div className="rows">
+//         {requests.length !== 0 ? (
+//           requests.map((item) => {
+//             return (
+//               <div className="cus-column" key={item._id} id={item._id}>
+//                 <AbstractCard
+//                   header={item.detail.topic}
+//                   detail={item.detail.description}
+//                   petitionId={item._id}
+//                   approveNum={item.approveNum}
+//                   rejectNum={item.rejectNum}
+//                 />
+//               </div>
+//             );
+//           })
+//         ) : (
+//           <></>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
 
 const Admin = (props) => {
   useEffect(() => {
     handleSetCurrentPetition();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleSetCurrentPetition = async () => {
     await props.Loading();
     await props.getWaitingPetition();
     props.Loaded();
   };
-  function split(arr) {
-    var result = [];
-    var temp = [];
-    arr.map((item, index) => {
-      temp.push(item);
-      if (index % 4 === 3) {
-        result.push(temp);
-        temp = [];
-      } else if (arr.length - 1 === index) {
-        result.push(temp);
-      }
-    });
-    return result;
-  }
+  // function split(arr) {
+  //   var result = [];
+  //   var temp = [];
+  //   arr.map((item, index) => {
+  //     temp.push(item);
+  //     if (index % 4 === 3) {
+  //       result.push(temp);
+  //       temp = [];
+  //     } else if (arr.length - 1 === index) {
+  //       result.push(temp);
+  //     }
+  //   });
+  //   return result;
+  // }
   return (
     <>
       <div className="cus-container">
@@ -87,34 +86,33 @@ const Admin = (props) => {
           <span>คำร้องใหม่</span>
         </div>
         <div className="container-content-admin">
-          <div className="columns is-multiline" >
+          <div className="columns is-multiline">
             {!props.isLoading ? (
-            props.adminPetition !== undefined &&
-            props.adminPetition.length !== 0 ? (
-              // split(props.adminPetition).map((item, index) => {
-              //   console.log(item);
-              //   return <List requests={item} key={index} />;
-              // })
-              props.adminPetition.map((item, index) => {
-                return (
-                  <div className="column is-one-quarter">
-                    <AbstractCard
-                    header={item.detail.topic}
-                    detail={item.detail.description}
-                    petitionId={item._id}
-                    key={index}
-                  />
-                  </div>
-                );
-              })
+              props.adminPetition !== undefined &&
+              props.adminPetition.length !== 0 ? (
+                // split(props.adminPetition).map((item, index) => {
+                //   console.log(item);
+                //   return <List requests={item} key={index} />;
+                // })
+                props.adminPetition.map((item, index) => {
+                  return (
+                    <div className="column is-one-quarter">
+                      <AbstractCard
+                        header={item.detail.topic}
+                        detail={item.detail.description}
+                        petitionId={item._id}
+                        key={index}
+                      />
+                    </div>
+                  );
+                })
+              ) : (
+                <></>
+              )
             ) : (
-              <></>
-            )
-          ) : (
-            <Load />
-          )}
+              <Load />
+            )}
           </div>
-          
         </div>
         <NewRequestIcon size={60} />
       </div>
