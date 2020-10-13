@@ -31,7 +31,7 @@ const Form = ({
   const [types, setTypes] = useState([]);
 
   const getAllTypes = async () => {
-    let res = await (await api.get("/petitions/type")).data;
+    let res = await (await api.get("/petitionTypes")).data;
     console.log(res);
   };
 
