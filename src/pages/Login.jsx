@@ -27,7 +27,7 @@ const Login = (props) => {
           <button
             className="button has-margin-top-15"
             style={{ backgroundColor: "var(--lightPurple)" }}
-            onClick={() => props.history.push("/")}
+            onClick={() => props.history.push("/login/auth")}
           >
             <span className="icon">
               <IonIcon
