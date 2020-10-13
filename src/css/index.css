@@ -166,6 +166,7 @@ body {
   --darkYellow: #ddc84e;
   --grey: #bdbdbd;
   --lightRed : #df8f8f;
+  --orange: #dbad56;
 }
 
 .cus-btn-check{
@@ -329,6 +330,15 @@ body {
 .text-blue{
   color: var(--blue) !important;
 }
+
+.bg-orange{
+  background-color: var(--orange);
+}
+
+.text-orange{
+  color: var(--orange);
+}
+
 
 @media (max-width: 768px) {
   .cus-navbar {
@@ -665,6 +675,17 @@ body {
 
 .cus-container .container-content-mine .tab-bar .tab-link .approved:hover {
   background-color: var(--green);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .approving-focus {
+  color: #fff;
+  background-color: var(--orange);
+}
+
+.cus-container .container-content-mine .tab-bar .tab-link .approving:hover {
+  background-color: var(--orange);
   color: #fff;
   cursor: pointer;
 }

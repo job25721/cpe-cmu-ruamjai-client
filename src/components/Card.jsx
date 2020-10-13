@@ -37,26 +37,26 @@ export function Card({ header, detail, voting, status, petitionId }) {
               <div className="status">
                 <div
                   className={
-                    status == petitionStatus.approved
+                    status === petitionStatus.approved
                       ? "circle bg-green"
-                      : status == petitionStatus.voting
+                      : status === petitionStatus.voting
                       ? "circle bg-blue"
-                      : status == petitionStatus.waiting_for_voting
+                      : status === petitionStatus.waiting_for_voting
                       ? "circle bg-yellow"
-                      : status == petitionStatus.reject
+                      : status === petitionStatus.reject
                       ? "circle bg-red"
                       : ""
                   }
                 ></div>
                 <span
                   className={
-                    status == petitionStatus.approved
+                    status === petitionStatus.approved
                       ? "text-green"
-                      : status == petitionStatus.voting
+                      : status === petitionStatus.voting
                       ? "text-blue"
-                      : status == petitionStatus.waiting_for_voting
+                      : status === petitionStatus.waiting_for_voting
                       ? "text-yellow"
-                      : status == petitionStatus.reject
+                      : status === petitionStatus.reject
                       ? "text-red"
                       : ""
                   }
