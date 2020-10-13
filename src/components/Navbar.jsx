@@ -37,8 +37,8 @@ const Nav = (props) => {
   return (
     <nav className="cus-navbar">
       <div className="brand">
-        <h1>CPE CMU</h1>
-        <h1>PETITION LISTENER</h1>
+        <p style={{ fontSize: 30 }}>CPE CMU</p>
+        <p style={{ fontSize: 14 }}>PETITION LISTENER</p>
       </div>
 
       <ul
@@ -52,10 +52,9 @@ const Nav = (props) => {
         <li>
           <Link to={links.allPetition}>คำร้องทั้งหมด</Link>
         </li>
-
-        <li>
-          <Link to={links.myPetitions}>คำร้องของฉัน</Link>
-        </li>
+        <Link to={links.myPetitions}>
+          <li>คำร้องของฉัน</li>
+        </Link>
         {props.user.role === "admin" ? (
           <li>
             <Link to={links.admin}>แอดมิน</Link>

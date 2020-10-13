@@ -5,6 +5,7 @@ import { getMyPetition , setCurrentPetition , Loading , Loaded , getWaitingPetit
 import { connect } from "react-redux";
 import { useState } from "react";
 import Load from "../components/Loading";
+import Nothing from '../components/Nothing'
 
 const mapStateToProps = (state) => ({
   myPetitions: state.petition.myPetitions,
@@ -29,7 +30,7 @@ const Mine = (props) => {
   const [status, setStatus] = useState("waiting");
   return (
     <>
-      <div className="cus-container">
+      <div className="cus-container-mine">
         <div className="nav">
           <Nav />
         </div>
@@ -108,7 +109,7 @@ const Mine = (props) => {
                 );
               })
             ) : (
-              <span>ไม่มีอะไรเลย</span>
+              <Nothing />
             )
             ):(
               <Load />

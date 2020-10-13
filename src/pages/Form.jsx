@@ -250,7 +250,7 @@ const Form = ({
                 onClick={() =>
                   dispatch({ type: petitionActionTypes.addSubDetail })
                 }
-                className="button is-danger"
+                className="button is-danger bg-red"
               >
                 <span className="icon">
                   <IonIcon icon={addCircleOutline} style={{ fontSize: 50 }} />
@@ -264,7 +264,7 @@ const Form = ({
                 marginBottom: 20,
               }}
             >
-              <button onClick={addNewPetition} className="button is-success">
+              <button onClick={addNewPetition} className="button is-success bg-green">
                 <span className="icon">
                   <IonIcon icon={checkmark} style={{ fontSize: 50 }} />
                 </span>

@@ -9,6 +9,7 @@ import {
 import { connect } from "react-redux";
 import NewRequest from "../components/icons/NewRequest";
 import api from "../api";
+import Loading from "../components/Loading";
 
 const mapStateToProps = (state) => ({
   petitions: state.petition.allPetitions,
@@ -111,7 +112,8 @@ const Requests = ({
               ))
             )
           ) : (
-            <button className="is-loading button is-large"></button>
+            // <button className="is-loading button is-large"></button>
+            <Loading />
           )}
         </div>
       </div>

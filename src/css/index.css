@@ -110,6 +110,7 @@ body {
 }
 
 @media (max-width: 768px) {
+  
   .cus-navbar .hamburger {
     display: flex;
     flex-direction: column;
@@ -344,8 +345,9 @@ body {
 
 @media (max-width: 768px) {
   .cus-navbar {
-    padding-left: 6%;
-    padding-right: 6%;
+    width: 100%;
+    padding-left: 7%;
+    padding-right: 7%;
   }
 
   .cus-card .v-line {
@@ -427,6 +429,7 @@ body {
 
 /************* Layout *************/
 .cus-container {
+  position: relative;
   display: grid;
   grid-template-rows: 120px 80px calc(100vh - 200px);
   height: 100vh;
@@ -436,7 +439,6 @@ body {
 
 .cus-container .nav {
   /* font-size: 3.5rem; */
-
   grid-row: 1;
 }
 
@@ -623,8 +625,15 @@ body {
 }
 
 /* -------- My Requests --------- */
+.cus-container-mine {
+  display: grid;
+  grid-template-rows: 120px 80px calc(100vh - 200px);
+  height: 100vh;
+  padding-left: 7%;
+  padding-right: 7%;
+}
 
-.cus-container .header-mine {
+.cus-container-mine .header-mine {
   display: flex;
   justify-content: center;
   font-family: m-med;
@@ -633,7 +642,7 @@ body {
   color: var(--deepPurple);
 }
 
-.cus-container .container-content-mine {
+.cus-container-mine .container-content-mine {
   display: grid;
   grid-row: 3;
   grid-template-rows: 60px 1fr;
@@ -642,13 +651,13 @@ body {
   padding-right: 10%;
 }
 
-.cus-container .container-content-mine .tab-bar {
+.cus-container-mine .container-content-mine .tab-bar {
   padding-left: 30px;
   padding-right: 30px;
   grid-row: 1;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link {
+.cus-container-mine .container-content-mine .tab-bar .tab-link {
   display: flex;
   text-decoration: none;
   align-items: center;
@@ -658,7 +667,7 @@ body {
 
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link li {
+.cus-container-mine .container-content-mine .tab-bar .tab-link li {
   height: 100%;
   width: 100%;
   display: flex;
@@ -669,69 +678,90 @@ body {
   color: var(--deepPurple);
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .voting:hover {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .voting:hover {
   background-color: var(--blue);
   color: #fff;
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .voting-focus {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .voting-focus {
   background-color: var(--blue);
   color: #fff;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .approved:hover {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .approved:hover {
   background-color: var(--green);
   color: #fff;
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .approving-focus {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .approving-focus {
   color: #fff;
   background-color: var(--orange);
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .approving:hover {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .approving:hover {
   background-color: var(--orange);
   color: #fff;
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .approved-focus {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .approved-focus {
   color: #fff;
   background-color: var(--green);
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .waiting:hover {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .waiting:hover {
   background-color: var(--yellow);
   color: #363b88;
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .waiting-focus {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .waiting-focus {
   background-color: var(--yellow);
   color: #363b88;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .rejected:hover {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .rejected:hover {
   background-color: var(--red);
   color: #fff;
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .rejected-focus {
+.cus-container-mine .container-content-mine .tab-bar .tab-link .rejected-focus {
   background-color: var(--red);
   color: #fff;
 }
 
-.cus-container .container-content-mine .content-area {
+.cus-container-mine .container-content-mine .content-area {
   grid-row: 2;
   overflow: auto;
   /* background-color: darkred; */
 }
 
+
+.cus-container-mine .nav {
+  /* font-size: 3.5rem; */
+  display: block;
+  position: relative;
+  grid-row: 1;
+}
+
 @media (max-width: 768px) {
-  .cus-container .container-content-mine {
+  .cus-container-mine .nav .cus-navbar{
+    width: 100%;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .cus-container-mine {
+    display: grid;
+    grid-template-rows: 120px 80px 1fr;
+    height: 100vh;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cus-container-mine .container-content-mine {
     display: grid;
     grid-row: 3;
     grid-template-rows: 40px 1fr;
@@ -739,7 +769,7 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  .cus-container .container-content-mine .tab-bar .tab-link li {
+  .cus-container-mine .container-content-mine .tab-bar .tab-link li {
     font-size: 1rem;
   }
 } 
@@ -786,21 +816,29 @@ body {
 
 .add-new-request-icon{
   background-color: var(--lightPurple);
+  border: 5px solid  #fff;
   color: var(--deepPurple);
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 3%;
   right: 3%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   cursor: pointer;
   transition: all ease 0.2s;
+  z-index: 2;
 }
 
 .add-new-request-icon:hover{
   background-color: var(--deepPurple);
   color: var(--lightPurple);
+}
+
+@media (max-width: 466px) {
+  .container-content-mine .tab-bar .tab-link li{
+    font-size: 0.7rem !important;
+  } 
 }

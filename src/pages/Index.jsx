@@ -24,8 +24,9 @@ const Index = (props) => {
     props.getTrendingPetiton();
   }, []);
   return (
-    <div className="cus-container">
+    <>
       <NewRequest />
+    <div className="cus-container">
       <div className="nav">
         <Nav />
       </div>
@@ -69,6 +70,7 @@ const Index = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

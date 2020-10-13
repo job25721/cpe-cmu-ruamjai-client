@@ -7,7 +7,7 @@ const NewRequest = ({ size }) => {
   return (
     <Link to={links.addPetition}>
       <div className="add-new-request-icon">
-        <IonIcon icon={createOutline} style={{ fontSize: 60 }} />
+        <IonIcon icon={createOutline} style={{ fontSize: 50 }} />
       </div>
     </Link>
   );
