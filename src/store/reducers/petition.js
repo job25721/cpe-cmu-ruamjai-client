@@ -4,23 +4,27 @@ const initialState = {
   newPetiton: {
     type: "",
     detail: {
-      topic: "",
-      description: "",
+      topic: "Hello",
+      description: "main des",
     },
     subDetail: [],
   },
   myPetitions: [],
+  isLoading : false,
+  currentPetition : []
 };
 
 export class petitionActionTypes {}
 petitionActionTypes.getAllPetition = "GET_ALL_PETITIONS";
 petitionActionTypes.getMyPetition = "GET_MY_PETITIONS";
-
 petitionActionTypes.addSubDetail = "ADD_SUB_DETAIL";
 petitionActionTypes.setMainTopic = "SET_TOPIC";
 petitionActionTypes.setMainDescription = "SET_DES";
 petitionActionTypes.setSubDetail = "SET_SUB";
-petitionActionTypes.setType = "SET_TYPE";
+petitionActionTypes.LOADING = 'LOADING'
+petitionActionTypes.LOADED = 'LOADED'
+petitionActionTypes.SET_CERRENT_PETITION = 'SET_CERRENT_PETITION'
+
 
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
@@ -69,6 +73,21 @@ export default function petitionReducer(state = initialState, action) {
           subDetail: action.payload,
         },
       };
+    case petitionActionTypes.LOADING:
+      return {
+        ...state,
+        isLoading:true
+      }
+    case petitionActionTypes.LOADED:
+      return {
+        ...state,
+        isLoading:false
+      }
+    case petitionActionTypes.SET_CERRENT_PETITION:
+      return {
+        ...state,
+        currentPetition: action.payload
+      }
     case petitionActionTypes.setType:
       return {
         ...state,

@@ -30,6 +30,10 @@ export function getMyPetition() {
       type: petitionActionTypes.getMyPetition,
       payload: res.data.petitions,
     });
+    dispatch({
+      type : petitionActionTypes.SET_CERRENT_PETITION,
+      payload : res.data.petitions.waiting_for_voting
+    })
   };
 }
 
@@ -47,4 +51,37 @@ export function onSubDetailDescriptionChange(idx, des) {
   return (dispatch) => {
     dispatch({ type: petitionActionTypes.setSubDetail, payload: subDetail });
   };
+}
+
+export const getDetail = async (petitionId) =>{
+  let res = []
+  try {
+    res = (await api.get(
+      `petitions/${petitionId}`
+    )).data
+  }catch(err){
+    console.log(err);
+  }
+  console.log(res.data.result);
+  return res.data.result
+
+}
+
+export const Loading =  () => dispatch => {
+  dispatch({
+    type: petitionActionTypes.LOADING
+  })
+}
+
+export const Loaded =  () => dispatch => {
+  dispatch({
+    type: petitionActionTypes.LOADED
+  })
+}
+
+export const setCurrentPetition =  (petition) => async dispatch => {
+  dispatch({
+    type: petitionActionTypes.SET_CERRENT_PETITION,
+    payload : petition
+  })
 }
