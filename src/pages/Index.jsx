@@ -6,10 +6,12 @@ import { add } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 
 import { links } from "../route";
+import NewRequest from "../components/icons/NewRequest";
 
 const Index = (props) => {
   return (
     <div className="cus-container">
+      <NewRequest />
       <div className="nav">
         <Nav />
       </div>

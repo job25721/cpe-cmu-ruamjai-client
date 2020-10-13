@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { getDetail } from "../store/actions/petition";
 import { useEffect } from "react";
 import { useState } from "react";
+import NewRequest from "../components/icons/NewRequest";
 // import { IonIcon } from "@ionic/react";
 // import { checkmarkOutline, closeOutline } from "ionicons/icons";
 
@@ -20,6 +21,7 @@ const RequestById = (props) => {
   const [data, setData] = useState({});
   return (
     <>
+      <NewRequest />
       {isLoading ? (
         <div className="cus-container">
           <div className="nav">
@@ -47,7 +49,9 @@ const RequestById = (props) => {
                     minHeight: "250px",
                   }}
                 ></div>
-                <p>{data.owner.firstName} {data.owner.lastName}</p>
+                <p>
+                  {data.owner.firstName} {data.owner.lastName}
+                </p>
                 <p>{data.owner.code}</p>
               </div>
               <div className="detail-vote-button">
@@ -99,13 +103,21 @@ const RequestById = (props) => {
             </div>
           </div>
         </div>
-      )
-      :
-      (
+      ) : (
         <>
-         <div style={{display:'flex' , justifyContent:'center',fontFamily:'s-reg' , alignItems:'center' ,height:'100vh' , fontSize:50 , color:'#623688' }}>
-          <img src='/plane.gif' />
-         </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontFamily: "s-reg",
+              alignItems: "center",
+              height: "100vh",
+              fontSize: 50,
+              color: "#623688",
+            }}
+          >
+            <img src="/plane.gif" />
+          </div>
         </>
       )}
     </>

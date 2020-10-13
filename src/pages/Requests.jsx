@@ -1,8 +1,9 @@
 import React from "react";
 import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
-import { getVotableAllPetition , getDetail} from "../store/actions/petition";
+import { getVotableAllPetition, getDetail } from "../store/actions/petition";
 import { connect } from "react-redux";
+import NewRequest from "../components/icons/NewRequest";
 
 const mapStateToProps = (state) => ({
   petitions: state.petition.allPetitions,
@@ -18,6 +19,7 @@ const Requests = ({ getPetitions, petitions }) => {
   const [category] = React.useState(["เรียน", "อาจารย์", "สถานที่", "อื่นๆ"]);
   return (
     <div className="cus-container">
+      <NewRequest />
       <div className="nav">
         <Nav />
       </div>
