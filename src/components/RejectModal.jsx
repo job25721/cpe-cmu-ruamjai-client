@@ -30,7 +30,7 @@ const RejectModal = ({ petitionId }) => {
             value={reason}
             onChange={({ target }) => setReason(target.value)}
           />
-          {reason}
+          {/* {reason} */}
           <button
             className="button is-danger has-margin-top-10"
             onClick={() => rejectPetiton()}
