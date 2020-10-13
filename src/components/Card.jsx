@@ -38,7 +38,7 @@ export function Card({ header, detail, voting, status, petitionId, reason }) {
         <div className="content">
           <div className="content-row">
             <div className="header">
-              <p>{header}</p>
+              <span style={{gridColumn:'span 2'}}>{header}</span>
             </div>
             <div className="detail">
               <span>{detail}</span>

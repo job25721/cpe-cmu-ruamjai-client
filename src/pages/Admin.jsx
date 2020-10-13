@@ -87,12 +87,25 @@ const Admin = (props) => {
           <span>คำร้องใหม่</span>
         </div>
         <div className="container-content-admin">
-          {!props.isLoading ? (
+          <div className="columns is-multiline" >
+            {!props.isLoading ? (
             props.adminPetition !== undefined &&
             props.adminPetition.length !== 0 ? (
-              split(props.adminPetition).map((item, index) => {
-                console.log(item);
-                return <List requests={item} key={index} />;
+              // split(props.adminPetition).map((item, index) => {
+              //   console.log(item);
+              //   return <List requests={item} key={index} />;
+              // })
+              props.adminPetition.map((item, index) => {
+                return (
+                  <div className="column is-one-quarter">
+                    <AbstractCard
+                    header={item.detail.topic}
+                    detail={item.detail.description}
+                    petitionId={item._id}
+                    key={index}
+                  />
+                  </div>
+                );
               })
             ) : (
               <></>
@@ -100,6 +113,8 @@ const Admin = (props) => {
           ) : (
             <Load />
           )}
+          </div>
+          
         </div>
         <NewRequestIcon size={60} />
       </div>

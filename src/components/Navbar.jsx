@@ -37,8 +37,8 @@ const Nav = (props) => {
   return (
     <nav className="cus-navbar">
       <div className="brand">
-        <h1>CPE CMU</h1>
-        <h1>PETITION LISTENER</h1>
+        <p style={{fontSize:30}}>CPE CMU</p>
+        <p style={{fontSize:14}}>PETITION LISTENER</p>
       </div>
 
       <ul
