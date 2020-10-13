@@ -1,20 +1,8 @@
 import React from "react";
 import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
-import { getVotableAllPetition } from "../store/actions/petition";
-import { connect } from "react-redux";
 
-const mapStateToProps = (state) => ({
-  petitions: state.petition.allPetitions,
-});
-
-const connector = connect(mapStateToProps, {
-  getPetitions: getVotableAllPetition,
-});
-const Requests = ({ getPetitions, petitions }) => {
-  React.useEffect(() => {
-    getPetitions();
-  }, [getPetitions]);
+const Requests = () => {
   const [category] = React.useState(["เรียน", "อาจารย์", "สถานที่", "อื่นๆ"]);
   return (
     <div className="cus-container">
@@ -31,7 +19,7 @@ const Requests = ({ getPetitions, petitions }) => {
           </h1>
           <div className="flex-column">
             {category.map((cat, idx) => (
-              <label className="checkbox" key={idx}>
+              <label class="checkbox" key={idx}>
                 <input type="checkbox" />
                 <span
                   style={{ fontFamily: "s-medium" }}
@@ -44,23 +32,20 @@ const Requests = ({ getPetitions, petitions }) => {
           </div>
         </div>
         <div className="container-cards">
-          {petitions.length > 0 ? (
-            petitions.map((each) => (
-              <Card
-                header={each.detail.topic}
-                detail={each.detail.description}
-                voting={each.voteNum}
-                key={each._id}
-                petitionId={each._id}
-              />
-            ))
-          ) : (
-            <button className="is-loading button is-large"></button>
-          )}
+          {[1, 2, 3, 4, 6, 7, 5, 3, 2].map((each) => (
+            <Card
+              header="หัวข้อ"
+              detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id modi ipsa blanditiis, nobis repudiandae iure dignissimos earum culpa nesciunt dolore pariatur dolor accusamus saepe tempore esse nisi consequuntur voluptatum maiores."
+              status="รวบรวมผลโหวต"
+              voting={20}
+              key={each}
+              petitionId={each}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default connector(Requests);
+export default Requests;

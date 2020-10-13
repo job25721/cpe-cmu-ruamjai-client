@@ -15,3 +15,21 @@ export function getVotableAllPetition() {
     });
   };
 }
+
+export function getMyPetition(uid) {
+  return async dispatch => {
+    let res = []
+    try {
+      res = (await api.post("/petitions" , {
+        userId : uid
+      })).data;
+      console.log(res.data);
+    }catch (err) {
+      console.log(err);
+    }
+    dispatch({
+      type: petitionActionTypes.getMyPetition,
+      payload: res.data.res
+    })
+  }
+}
