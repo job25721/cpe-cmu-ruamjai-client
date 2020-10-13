@@ -31,9 +31,9 @@ export function getMyPetition() {
       payload: res.data.petitions,
     });
     dispatch({
-      type : petitionActionTypes.SET_CERRENT_PETITION,
-      payload : res.data.petitions.waiting_for_voting
-    })
+      type: petitionActionTypes.SET_CERRENT_PETITION,
+      payload: res.data.petitions.waiting_for_voting,
+    });
   };
 }
 
@@ -53,35 +53,65 @@ export function onSubDetailDescriptionChange(idx, des) {
   };
 }
 
-export const getDetail = async (petitionId) =>{
-  let res = []
+export const getDetail = async (petitionId) => {
+  let res = [];
   try {
-    res = (await api.get(
-      `petitions/${petitionId}`
-    )).data
-  }catch(err){
+    res = (await api.get(`petitions/${petitionId}`)).data;
+  } catch (err) {
     console.log(err);
   }
   console.log(res.data.result);
-  return res.data.result
+  return res.data.result;
+};
 
-}
-
-export const Loading =  () => dispatch => {
+export const Loading = () => (dispatch) => {
   dispatch({
-    type: petitionActionTypes.LOADING
-  })
-}
+    type: petitionActionTypes.LOADING,
+  });
+};
 
-export const Loaded =  () => dispatch => {
+export const Loaded = () => (dispatch) => {
   dispatch({
-    type: petitionActionTypes.LOADED
-  })
-}
+    type: petitionActionTypes.LOADED,
+  });
+};
 
-export const setCurrentPetition =  (petition) => async dispatch => {
+export const setCurrentPetition = (petition) => async (dispatch) => {
   dispatch({
     type: petitionActionTypes.SET_CERRENT_PETITION,
-    payload : petition
-  })
+    payload: petition,
+  });
+};
+
+export function handleCategoryFilter(arr) {
+  return async (dispatch) => {
+    const res = arr.map((item) => {
+      if (item.isChecked === true) {
+        return item.name;
+      } else {
+        return null;
+      }
+    });
+    if (res.every((element) => element === null)) {
+      dispatch({
+        type: petitionActionTypes.isFilter,
+        payload: false,
+      });
+    } else {
+      try {
+        let result = await (await api.post("/petitions/filter", { types: res }))
+          .data;
+        dispatch({
+          type: petitionActionTypes.setCategoryFilter,
+          payload: result.data.result,
+        });
+        dispatch({
+          type: petitionActionTypes.isFilter,
+          payload: true,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 }

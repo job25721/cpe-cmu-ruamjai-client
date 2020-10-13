@@ -1,6 +1,7 @@
 const initialState = {
   allPetitions: [],
   filterdPetitions: [],
+
   newPetiton: {
     type: "",
     detail: {
@@ -12,6 +13,7 @@ const initialState = {
   myPetitions: [],
   isLoading: false,
   currentPetition: [],
+  filter: false,
 };
 
 export class petitionActionTypes {}
@@ -25,7 +27,9 @@ petitionActionTypes.LOADING = "LOADING";
 petitionActionTypes.LOADED = "LOADED";
 petitionActionTypes.SET_CERRENT_PETITION = "SET_CERRENT_PETITION";
 petitionActionTypes.resetAddPetitionData = "RESET_ADD_PETITION";
-
+petitionActionTypes.setType = "SET_TYPE";
+petitionActionTypes.setCategoryFilter = "SET_CAT_FIL";
+petitionActionTypes.isFilter = "SET_IS_FILTER";
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
     case petitionActionTypes.getAllPetition:
@@ -100,6 +104,16 @@ export default function petitionReducer(state = initialState, action) {
       return {
         ...state,
         newPetiton: initialState.newPetiton,
+      };
+    case petitionActionTypes.setCategoryFilter:
+      return {
+        ...state,
+        filterdPetitions: action.payload,
+      };
+    case petitionActionTypes.isFilter:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;

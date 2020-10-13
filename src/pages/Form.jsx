@@ -110,21 +110,19 @@ const Form = ({
               <div className="control">
                 <div className="select is-fullwidth">
                   <select
-                    onChange={({ target }) =>
+                    onChange={({ target }) => {
                       dispatch({
                         type: petitionActionTypes.setType,
                         payload: target.value,
-                      })
-                    }
+                      });
+                    }}
                     value={newPetiton.type}
                   >
-                    {types.length > 0
-                      ? types.map((item, idx) => (
-                          <option selected key={idx}>
-                            {item}
-                          </option>
-                        ))
-                      : ""}
+                    {types.map((item, idx) => (
+                      <option selected key={idx}>
+                        {item}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
