@@ -7,12 +7,7 @@ const initialState = {
       topic: "Hello",
       description: "main des",
     },
-    subDetail: [
-      {
-        topic: "123",
-        description: "456",
-      },
-    ],
+    subDetail: [],
   },
   myPetitions: [],
   isLoading : false,
@@ -93,6 +88,14 @@ export default function petitionReducer(state = initialState, action) {
         ...state,
         currentPetition: action.payload
       }
+    case petitionActionTypes.setType:
+      return {
+        ...state,
+        newPetiton: {
+          ...state.newPetiton,
+          type: action.payload,
+        },
+      };
     default:
       return state;
   }

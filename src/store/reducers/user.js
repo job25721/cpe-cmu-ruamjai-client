@@ -2,9 +2,7 @@ export const userType = {}
 userType.SET_USER = "SET_USER"
 
 const initialState = {
-    user : {
-        role: 'admin'
-    }
+    user : {}
 }
 
 export default function userReducer  (state = initialState , action) {
