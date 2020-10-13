@@ -1,42 +1,79 @@
 import React from "react";
 import Nav from "../components/Navbar";
 import { AbstractCard } from "../components/Card";
-import NewRequestIcon from '../components/icons/NewRequest'
+import NewRequestIcon from "../components/icons/NewRequest";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import {setCurrentPetition , getMyPetition} from '../store/actions/petition'
-
+import {
+  setCurrentPetition,
+  getWaitingPetition,
+  Loading,
+  Loaded,
+} from "../store/actions/petition";
+import Load from "../components/Loading";
+import { useState } from "react";
 
 const mapStateToProps = (state) => ({
-  currentPetition : state.petition.currentPetition
-})
+  adminPetition: state.petition.adminPetition,
+  isLoading: state.petition.isLoading,
+});
 
-const connector = connect(mapStateToProps , {
-  setCurrentPetition , getMyPetition
-})
+const connector = connect(mapStateToProps, {
+  setCurrentPetition,
+  getWaitingPetition,
+  Loading,
+  Loaded,
+});
+
+const List = ({ requests }) => {
+  useEffect(() => {
+    console.log(requests);
+  });
+  return (
+    <>
+      <div className="rows">
+        {requests.length !== 0 ? (
+          requests.map((item) => {
+            return (
+              <div className="cus-column" key={item._id} id={item._id}>
+                <AbstractCard
+                  header={item.detail.topic}
+                  detail={item.detail.description}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <></>
+        )}
+      </div>
+    </>
+  );
+};
 
 const Admin = (props) => {
+  useEffect(() => {
+    handleSetCurrentPetition();
+  }, []);
   const handleSetCurrentPetition = async () => {
-    await props.getMyPetition()
+    await props.Loading();
+    await props.getWaitingPetition();
+    props.Loaded();
+  };
+  function split(arr) {
+    var result = [];
+    var temp = [];
+    arr.map((item, index) => {
+      temp.push(item);
+      if (index % 4 === 3) {
+        result.push(temp);
+        temp = [];
+      } else if (arr.length - 1 === index) {
+        result.push(temp);
+      }
+    });
+    return result;
   }
-  useEffect( () => {
-    let res = []
-    let col = []
-    const temp =[1,2,3,4,5,6,7,8,9,10,12]
-    temp.map( (item , index) => {
-      if(index % 4 == 3){
-        col.push(item)
-        res.push(col)
-        col = []
-      }else{
-        col.push(item)
-      }
-      if(temp.length - 1 === index) {
-        res.push(col)
-      }
-    })
-    
-  },[])
   return (
     <>
       <div className="cus-container">
@@ -44,76 +81,25 @@ const Admin = (props) => {
           <Nav />
         </div>
         <div className="header-admin">
-          <span>NEW REQUESTS</span>
+          <span>คำร้องใหม่</span>
         </div>
         <div className="container-content-admin">
-          <div className="rows">
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-          </div>
-          <div className="rows">
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-          </div>
-          <div className="rows">
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-            <div className="cus-column">
-              <AbstractCard
-                header="HEADER"
-                detail="Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem voluptatibus beatae animi, quisquam libero magnam qui illo officiis consequatur ad doloremque consequuntur incidunt non itaque facilis magni totam? Magnam, itaque!"
-              />
-            </div>
-          </div>
+          {!props.isLoading ? (
+            props.adminPetition !== undefined &&
+            props.adminPetition.length !== 0 ? (
+              split(props.adminPetition).map((item , index) => {
+                console.log(item);
+                return <List requests={item} key={index} />;
+              })
+            ) : (
+              <>
+              </>
+            )
+          ) : (
+            <Load />
+          )}
         </div>
+
         <NewRequestIcon size={60} />
       </div>
     </>

@@ -31,8 +31,8 @@ export function getMyPetition() {
       payload: res.data.petitions,
     });
     dispatch({
-      type : petitionActionTypes.SET_CERRENT_PETITION,
-      payload : res.data.petitions.waiting_for_voting
+      type: petitionActionTypes.SET_CERRENT_PETITION,
+      payload: res.data.petitions.waiting_for_voting
     })
   };
 }
@@ -53,13 +53,13 @@ export function onSubDetailDescriptionChange(idx, des) {
   };
 }
 
-export const getDetail = async (petitionId) =>{
+export const getDetail = async (petitionId) => {
   let res = []
   try {
     res = (await api.get(
       `petitions/${petitionId}`
     )).data
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
   console.log(res.data.result);
@@ -67,21 +67,35 @@ export const getDetail = async (petitionId) =>{
 
 }
 
-export const Loading =  () => dispatch => {
+export const Loading = () => dispatch => {
   dispatch({
     type: petitionActionTypes.LOADING
   })
 }
 
-export const Loaded =  () => dispatch => {
+export const Loaded = () => dispatch => {
   dispatch({
     type: petitionActionTypes.LOADED
   })
 }
 
-export const setCurrentPetition =  (petition) => async dispatch => {
+export const setCurrentPetition = (petition) => async dispatch => {
   dispatch({
     type: petitionActionTypes.SET_CERRENT_PETITION,
-    payload : petition
+    payload: petition
   })
+}
+
+export const getWaitingPetition = () => async dispatch => {
+
+  try {
+    const res = await api.get('/user/petitionApprove')
+   
+    dispatch({
+      type: petitionActionTypes.SET_ADMIN_PETITION,
+      payload: res.data.data.result
+    })
+  } catch (err) {
+    console.log(err);
+  }
 }

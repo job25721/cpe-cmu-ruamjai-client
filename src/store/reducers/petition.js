@@ -12,6 +12,7 @@ const initialState = {
   myPetitions: [],
   isLoading: false,
   currentPetition: [],
+  adminPetition : []
 };
 
 export class petitionActionTypes {}
@@ -25,6 +26,7 @@ petitionActionTypes.LOADING = "LOADING";
 petitionActionTypes.LOADED = "LOADED";
 petitionActionTypes.SET_CERRENT_PETITION = "SET_CERRENT_PETITION";
 petitionActionTypes.resetAddPetitionData = "RESET_ADD_PETITION";
+petitionActionTypes.SET_ADMIN_PETITION = 'SET_ADMIN_PETITION'
 
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
@@ -101,6 +103,11 @@ export default function petitionReducer(state = initialState, action) {
         ...state,
         newPetiton: initialState.newPetiton,
       };
+    case petitionActionTypes.SET_ADMIN_PETITION :
+      return {
+        ...state,
+        adminPetition: action.payload
+      }
     default:
       return state;
   }
