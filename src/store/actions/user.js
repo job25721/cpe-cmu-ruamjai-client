@@ -1,5 +1,6 @@
 import store from "..";
 import api from "../../api";
+import { petitionActionTypes } from "../reducers/petition";
 import { userType } from "../reducers/user";
 
 export const login = (username, password, props) => async (dispatch) => {
@@ -33,7 +34,9 @@ export function addNewPetition() {
         await api.post("/user/add", {
           ...store.getState().petition.newPetiton,
         });
+        dispatch({ type: petitionActionTypes.resetAddPetitionData });
         alert("added");
+        window.location.href = "/mine";
       } catch (err) {
         console.log(err);
       }

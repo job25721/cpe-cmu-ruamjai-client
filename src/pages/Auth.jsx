@@ -47,7 +47,13 @@ const Auth = (props) => {
               props.login(uname, pwss, props);
             }}
           >
-            Login
+            ล๊อคอิน
+          </button>
+          <button
+            className="button is-primary is-light"
+            onClick={() => props.history.push("/")}
+          >
+            หน้าแรก
           </button>
         </div>
       </div>
