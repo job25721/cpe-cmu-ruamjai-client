@@ -1,7 +1,6 @@
 const initialState = {
   allPetitions: [],
   filterdPetitions: [],
-
   newPetiton: {
     type: "",
     detail: {

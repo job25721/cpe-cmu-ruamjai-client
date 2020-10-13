@@ -17,6 +17,21 @@ export function getVotableAllPetition() {
   };
 }
 
+export function getTrendingPetiton() {
+  return async (dispatch) => {
+    let res = [];
+    try {
+      res = await (await api.post("/petitions/trending")).data;
+      dispatch({
+        type: petitionActionTypes.getAllPetition,
+        payload: res.data.result,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function getMyPetition() {
   return async (dispatch) => {
     let res = [];

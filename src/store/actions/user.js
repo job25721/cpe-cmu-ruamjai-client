@@ -43,3 +43,15 @@ export function addNewPetition() {
     }
   };
 }
+
+export function votePetition(petitionId) {
+  return async (dispatch) => {
+    try {
+      await api.post("/user/vote", { petitionId });
+      alert(`โหวตสำเร็จ`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
