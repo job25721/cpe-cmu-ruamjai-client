@@ -39,6 +39,7 @@ const List = ({ requests }) => {
                 <AbstractCard
                   header={item.detail.topic}
                   detail={item.detail.description}
+                  petitionId={item._id}
                 />
               </div>
             );
@@ -87,13 +88,12 @@ const Admin = (props) => {
           {!props.isLoading ? (
             props.adminPetition !== undefined &&
             props.adminPetition.length !== 0 ? (
-              split(props.adminPetition).map((item , index) => {
+              split(props.adminPetition).map((item, index) => {
                 console.log(item);
                 return <List requests={item} key={index} />;
               })
             ) : (
-              <>
-              </>
+              <></>
             )
           ) : (
             <Load />

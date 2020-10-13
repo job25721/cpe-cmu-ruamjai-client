@@ -17,6 +17,7 @@ const RequestById = (props) => {
   const [isLoading, setLoading] = useState(false);
   const handleSetData = async () => {
     const temp = await getDetail(props.match.params.petitionId);
+    console.log(temp);
     await setData(temp);
     setLoading(true);
   };
@@ -64,14 +65,16 @@ const RequestById = (props) => {
                   props.user.votedPetitoins.find(
                     (item) => item === props.match.params.petitionId
                   ) !== undefined ? (
-                    <button
-                      className="button-agree"
-                      style={{ cursor: "pointer" }}
-                      disabled
-                    >
-                      VOTED
-                    </button>
-                  ) : (
+                    data.canVote === true ? (
+                      <button
+                        className="button-agree"
+                        style={{ cursor: "pointer" }}
+                        disabled
+                      >
+                        VOTED
+                      </button>
+                    ) : null
+                  ) : data.canVote === true ? (
                     <button
                       className="button-agree"
                       style={{ cursor: "pointer" }}
@@ -84,7 +87,7 @@ const RequestById = (props) => {
                     >
                       VOTE
                     </button>
-                  )
+                  ) : null
                 ) : null}
                 {/* {props.user.votedPetitoins !== undefined ?  props.user.votedPetitoins.find(
                   (item) => item === props.props.match.params.petitionId

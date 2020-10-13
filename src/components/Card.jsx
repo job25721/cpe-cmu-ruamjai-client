@@ -2,7 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { links } from "../route";
 import { IonIcon } from "@ionic/react";
-import { checkmarkOutline, closeOutline } from "ionicons/icons";
+import {
+  checkmarkOutline,
+  closeOutline,
+  thumbsDownOutline,
+  thumbsUp,
+  thumbsUpOutline,
+} from "ionicons/icons";
+import { useSelector } from "react-redux";
 
 const petitionStatus = {
   approved: "อนุมัติ",
@@ -74,20 +81,36 @@ export function Card({ header, detail, voting, status, petitionId }) {
 }
 
 export function AbstractCard({ header, detail, voting, status, petitionId }) {
+  const user = useSelector((state) => state.user.user);
   return (
-    <div className="cus-abstract-card">
-      <div className="image-abs">
-        <div className="cus-btn-check">
-          <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
+    <Link to={links.petitionDetail(petitionId)}>
+      <div className="cus-abstract-card">
+        <div className="image-abs">
+          {user.role === "teacher" ? (
+            <div className="teacher">
+              <div className="cus-btn-check">
+                <IonIcon icon={thumbsUpOutline} style={{ fontSize: 20 }} />
+              </div>
+              <div className="cus-btn-x">
+                <IonIcon icon={thumbsDownOutline} style={{ fontSize: 20 }} />
+              </div>
+            </div>
+          ) : user.role === "admin" ? (
+            <div className="admin">
+              <div className="cus-btn-check">
+                <IonIcon icon={checkmarkOutline} style={{ fontSize: 40 }} />
+              </div>
+              <div className="cus-btn-x">
+                <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
+              </div>
+            </div>
+          ) : null}
         </div>
-        <div className="cus-btn-x">
-          <IonIcon icon={closeOutline} style={{ fontSize: 40 }} />
+        <div className="content-abs">
+          <div className="header-abs">{header}</div>
+          <div className="detail-abs">{detail}</div>
         </div>
       </div>
-      <div className="content-abs">
-        <div className="header-abs">{header}</div>
-        <div className="detail-abs">{detail}</div>
-      </div>
-    </div>
+    </Link>
   );
 }
