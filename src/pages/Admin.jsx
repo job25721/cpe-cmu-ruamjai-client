@@ -96,7 +96,7 @@ const Admin = (props) => {
                 // })
                 props.adminPetition.map((item, index) => {
                   return (
-                    <div className="column is-one-quarter">
+                    <div className="column is-one-third">
                       <AbstractCard
                         header={item.detail.topic}
                         detail={item.detail.description}
