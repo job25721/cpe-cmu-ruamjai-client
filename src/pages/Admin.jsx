@@ -99,7 +99,6 @@ const Admin = (props) => {
             <Load />
           )}
         </div>
-
         <NewRequestIcon size={60} />
       </div>
     </>
