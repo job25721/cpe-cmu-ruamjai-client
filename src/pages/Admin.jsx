@@ -1,5 +1,5 @@
 import React from "react";
-import {AdminNavbar} from "../components/Navbar";
+import Nav from "../components/Navbar";
 import { AbstractCard } from "../components/Card";
 import NewRequestIcon from '../components/icons/NewRequest'
 const Admin = () => {
@@ -7,7 +7,7 @@ const Admin = () => {
     <>
       <div className="cus-container">
         <div className="nav">
-          <AdminNavbar />
+          <Nav />
         </div>
         <div className="header-admin">
           <span>NEW REQUESTS</span>
