@@ -4,14 +4,14 @@ const initialState = {
   newPetiton: {
     type: "",
     detail: {
-      topic: "Hello",
-      description: "main des",
+      topic: "",
+      description: "",
     },
     subDetail: [],
   },
   myPetitions: [],
-  isLoading : false,
-  currentPetition : []
+  isLoading: false,
+  currentPetition: [],
 };
 
 export class petitionActionTypes {}
@@ -21,10 +21,10 @@ petitionActionTypes.addSubDetail = "ADD_SUB_DETAIL";
 petitionActionTypes.setMainTopic = "SET_TOPIC";
 petitionActionTypes.setMainDescription = "SET_DES";
 petitionActionTypes.setSubDetail = "SET_SUB";
-petitionActionTypes.LOADING = 'LOADING'
-petitionActionTypes.LOADED = 'LOADED'
-petitionActionTypes.SET_CERRENT_PETITION = 'SET_CERRENT_PETITION'
-
+petitionActionTypes.LOADING = "LOADING";
+petitionActionTypes.LOADED = "LOADED";
+petitionActionTypes.SET_CERRENT_PETITION = "SET_CERRENT_PETITION";
+petitionActionTypes.resetAddPetitionData = "RESET_ADD_PETITION";
 
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
@@ -76,18 +76,18 @@ export default function petitionReducer(state = initialState, action) {
     case petitionActionTypes.LOADING:
       return {
         ...state,
-        isLoading:true
-      }
+        isLoading: true,
+      };
     case petitionActionTypes.LOADED:
       return {
         ...state,
-        isLoading:false
-      }
+        isLoading: false,
+      };
     case petitionActionTypes.SET_CERRENT_PETITION:
       return {
         ...state,
-        currentPetition: action.payload
-      }
+        currentPetition: action.payload,
+      };
     case petitionActionTypes.setType:
       return {
         ...state,
@@ -95,6 +95,11 @@ export default function petitionReducer(state = initialState, action) {
           ...state.newPetiton,
           type: action.payload,
         },
+      };
+    case petitionActionTypes.resetAddPetitionData:
+      return {
+        ...state,
+        newPetiton: initialState.newPetiton,
       };
     default:
       return state;
