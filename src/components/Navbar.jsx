@@ -37,8 +37,8 @@ const Nav = (props) => {
   return (
     <nav className="cus-navbar">
       <div className="brand">
-        <p style={{fontSize:30}}>CPE CMU</p>
-        <p style={{fontSize:14}}>PETITION LISTENER</p>
+        <p style={{ fontSize: 30 }}>CPE CMU</p>
+        <p style={{ fontSize: 14 }}>PETITION LISTENER</p>
       </div>
 
       <ul
@@ -66,30 +66,42 @@ const Nav = (props) => {
           </li>
         ) : null}
 
-        <li className="flex-row align-items-center">
-          {localStorage.getItem("token") ? (
+        <li className="nav-info">
+          <div className="icons">
             <IonIcon
-              icon={logOutOutline}
-              style={{ fontSize: 30, color: "var(--red)", cursor: "pointer" }}
-              onClick={() => {
-                localStorage.removeItem("token");
-                window.location.href = "/";
-              }}
+              icon={personCircleOutline}
+              style={{ fontSize: 50, marginLeft: 25 }}
             />
-          ) : (
-            <IonIcon
-              icon={logInOutline}
-              style={{ fontSize: 30, color: "var(--green)", cursor: "pointer" }}
-              onClick={() => {
-                window.location.href = "/login/auth";
-              }}
-            />
-          )}
+            {localStorage.getItem("token") ? (
+              <IonIcon
+                icon={logOutOutline}
+                style={{ fontSize: 30, color: "var(--red)", cursor: "pointer" }}
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.href = "/";
+                }}
+              />
+            ) : (
+              <IonIcon
+                icon={logInOutline}
+                style={{
+                  fontSize: 30,
+                  color: "var(--green)",
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  window.location.href = "/login/auth";
+                }}
+              />
+            )}
+          </div>
 
-          <IonIcon
-            icon={personCircleOutline}
-            style={{ fontSize: 50, marginLeft: 25 }}
-          />
+          {props.user.firstName !== undefined &&
+          props.user.lastName !== undefined ? (
+            <span>
+              {props.user.firstName} {props.user.lastName}
+            </span>
+          ) : null}
         </li>
       </ul>
 

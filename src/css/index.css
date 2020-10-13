@@ -97,6 +97,17 @@ body {
   height: 100%;
 }
 
+.nav-link .nav-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link .nav-info .icons{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
 .cus-navbar .hamburger {
   display: none;
 }
@@ -332,6 +343,22 @@ body {
 
 .text-blue{
   color: var(--blue) !important;
+}
+
+.bg-deepPurple{
+  background-color: var(--deepPurple) !important;
+}
+
+.text-deepPurple{
+  color: var(--deepPurple) !important;
+}
+
+.bg-lightPurple{
+  background-color: var(--lightPurple) !important;
+}
+
+.text-lightPurple{
+  color: var(--lightPurple) !important;
 }
 
 .bg-orange{
@@ -858,4 +885,15 @@ body {
   .container-content-mine .tab-bar .tab-link li{
     font-size: 0.7rem !important;
   } 
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+  color: var(--deepPurple);
 }

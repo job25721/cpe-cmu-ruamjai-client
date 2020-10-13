@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { login } from "../store/actions/user";
 import { connect } from "react-redux";
+import { IonIcon } from "@ionic/react";
+import { chevronBackOutline } from "ionicons/icons";
 
 const mapStateToProps = (state) => ({});
 
@@ -17,15 +19,24 @@ const Auth = (props) => {
     console.log(uname, pwss);
   });
   return (
+    <>
+    <div className="backButton"
+     onClick={ () => {
+       props.history.push('/')
+     }}
+    >
+      <IonIcon icon={chevronBackOutline} style={{fontSize : 40}} />
+      <span style={{fontSize:20}}>กลับหน้าหลัก</span>
+    </div>
     <div
       className="container is-fluid flex-column align-items-center justify-center"
       style={{ height: "100vh", background: "whitesmoke" }}
     >
       <div
         className="box"
-        style={{ boxShadow: "1px 1px 10px var(--lightPurple)", maxWidth: 350 }}
+        style={{maxWidth: 350 ,display:'flex' , alignItems:'center' , justifyContent:"center" , flexDirection:'column'}}
       >
-        <h1 className="subtitle is-3">Login</h1>
+        <h1 className="subtitle is-3 text-deepPurple" style={{fontFamily:'m-med'}}>SIGN IN</h1>
         <input
           type="text"
           className="input has-margin-bottom-5"
@@ -42,22 +53,18 @@ const Auth = (props) => {
         />
         <div className="buttons has-margin-top-10">
           <button
-            className="button is-success is-light"
+            className="button bg-deepPurple color-lightPurple"
+            style={{color:'#fff'}}
             onClick={() => {
               props.login(uname, pwss, props);
             }}
           >
-            ล๊อคอิน
-          </button>
-          <button
-            className="button is-primary is-light"
-            onClick={() => props.history.push("/")}
-          >
-            หน้าแรก
+            Sign in
           </button>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
