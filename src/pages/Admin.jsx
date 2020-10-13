@@ -101,6 +101,8 @@ const Admin = (props) => {
                         header={item.detail.topic}
                         detail={item.detail.description}
                         petitionId={item._id}
+                        approveNum={item.approveNum}
+                        rejectNum={item.rejectNum}
                         key={index}
                       />
                     </div>
