@@ -14,16 +14,15 @@ const connector = connect(mapStateToProps, {
 });
 
 const Mine = (props) => {
-  const uid = "5f75b413d6e2bd4e19136a90";
   useEffect(() => {
-    props.getMyPetition(uid);
+    props.getMyPetition();
   }, []);
 
   useEffect(() => {
     setPetition(props.myPetitions.waiting_for_voting);
     console.log(petition);
   }, []);
-  
+
   const [status, setStatus] = useState("waiting");
   const [petition, setPetition] = useState([]);
 
@@ -40,7 +39,9 @@ const Mine = (props) => {
           <div className="tab-bar">
             <ul className="tab-link">
               <li
-                className={status === 'approved' ? "approved-focus" : 'approved' }
+                className={
+                  status === "approved" ? "approved-focus" : "approved"
+                }
                 onClick={() => {
                   setStatus("approved");
                   setPetition(props.myPetitions.approved);
@@ -49,7 +50,9 @@ const Mine = (props) => {
                 อนุมัติแล้ว
               </li>
               <li
-                className={status === 'approving' ? "approving-focus" : 'approving' }
+                className={
+                  status === "approving" ? "approving-focus" : "approving"
+                }
                 onClick={() => {
                   setStatus("approving");
                   setPetition(props.myPetitions.waiting_for_approved);
@@ -58,7 +61,7 @@ const Mine = (props) => {
                 รอการอนุมัติ
               </li>
               <li
-                className={status === 'voting' ? "voting-focus" : 'voting' }
+                className={status === "voting" ? "voting-focus" : "voting"}
                 onClick={() => {
                   setStatus("voting");
                   setPetition(props.myPetitions.voting);
@@ -67,7 +70,7 @@ const Mine = (props) => {
                 รอการโหวต
               </li>
               <li
-                className={status === 'waiting' ? "waiting-focus" : 'waiting' }
+                className={status === "waiting" ? "waiting-focus" : "waiting"}
                 onClick={() => {
                   setStatus("waiting");
                   setPetition(props.myPetitions.waiting_for_voting);
@@ -76,7 +79,9 @@ const Mine = (props) => {
                 รอการยืนยัน
               </li>
               <li
-                className={status === 'rejected' ? "rejected-focus" : 'rejected' }
+                className={
+                  status === "rejected" ? "rejected-focus" : "rejected"
+                }
                 onClick={() => {
                   setStatus("rejected");
                   setPetition(props.myPetitions.reject);
