@@ -39,7 +39,6 @@ const Mine = (props) => {
   return (
     <>
       <div className="cus-container">
-        <NewRequest />
         <div className="nav">
           <Nav />
         </div>
@@ -133,6 +132,7 @@ const Mine = (props) => {
           </div>
         </div>
       </div>
+      <NewRequest />
     </>
   );
 };
