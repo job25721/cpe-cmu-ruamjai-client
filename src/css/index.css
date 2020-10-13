@@ -298,6 +298,38 @@ body {
   margin-right: 5px;
 }
 
+.bg-yellow{
+  background-color: var(--yellow) !important;
+}
+
+.text-yellow{
+  color: var(--darkYellow) !important;
+}
+
+.bg-red{
+  background-color: var(--red) !important;
+}
+
+.text-red{
+  color: var(--red) !important;
+}
+
+.bg-green{
+  background-color: var(--green) !important;
+}
+
+.text-green{
+  color: var(--green) !important;
+}
+
+.bg-blue{
+  background-color: var(--blue) !important;
+}
+
+.text-blue{
+  color: var(--blue) !important;
+}
+
 @media (max-width: 768px) {
   .cus-navbar {
     padding-left: 6%;
@@ -626,8 +658,9 @@ body {
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .voting:focus {
+.cus-container .container-content-mine .tab-bar .tab-link .voting-focus {
   background-color: var(--blue);
+  color: #fff;
 }
 
 .cus-container .container-content-mine .tab-bar .tab-link .approved:hover {
@@ -636,7 +669,7 @@ body {
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .approved:focus {
+.cus-container .container-content-mine .tab-bar .tab-link .approved-focus {
   color: #fff;
   background-color: var(--green);
 }
@@ -647,7 +680,7 @@ body {
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .waiting:focus {
+.cus-container .container-content-mine .tab-bar .tab-link .waiting-focus {
   background-color: var(--yellow);
   color: #363b88;
 }
@@ -658,7 +691,7 @@ body {
   cursor: pointer;
 }
 
-.cus-container .container-content-mine .tab-bar .tab-link .rejected:focus {
+.cus-container .container-content-mine .tab-bar .tab-link .rejected-focus {
   background-color: var(--red);
   color: #fff;
 }
