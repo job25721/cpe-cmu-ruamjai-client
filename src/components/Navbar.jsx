@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { personCircleOutline } from "ionicons/icons";
+import {
+  logInOutline,
+  logOutOutline,
+  personCircleOutline,
+} from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import { Link } from "react-router-dom";
 import { links } from "../route";
@@ -61,8 +65,31 @@ const Nav = (props) => {
             <Link to={links.admin}>อาจารย์</Link>
           </li>
         ) : null}
-        <li>
-          <IonIcon icon={personCircleOutline} style={{ fontSize: 50 }} />
+
+        <li className="flex-row align-items-center">
+          {localStorage.getItem("token") ? (
+            <IonIcon
+              icon={logOutOutline}
+              style={{ fontSize: 30, color: "var(--red)", cursor: "pointer" }}
+              onClick={() => {
+                localStorage.removeItem("token");
+                window.location.href = "/";
+              }}
+            />
+          ) : (
+            <IonIcon
+              icon={logInOutline}
+              style={{ fontSize: 30, color: "var(--green)", cursor: "pointer" }}
+              onClick={() => {
+                window.location.href = "/login/auth";
+              }}
+            />
+          )}
+
+          <IonIcon
+            icon={personCircleOutline}
+            style={{ fontSize: 50, marginLeft: 25 }}
+          />
         </li>
       </ul>
 
