@@ -8,7 +8,7 @@ const RejectModal = ({ petitionId }) => {
       alert("จำเป็นต้องมีเหตุผลในการปฏิเสธ");
     } else {
       try {
-        await api.post("/user/reject", { petitionId, Reason: reason });
+        await api.post("/user/reject", { petitionId, reason });
         alert("ปฏิเสธแล้ว");
         window.location.reload();
       } catch (error) {
