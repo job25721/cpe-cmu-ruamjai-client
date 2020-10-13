@@ -2,7 +2,41 @@ import React from "react";
 import Nav from "../components/Navbar";
 import { AbstractCard } from "../components/Card";
 import NewRequestIcon from '../components/icons/NewRequest'
-const Admin = () => {
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import {setCurrentPetition , getMyPetition} from '../store/actions/petition'
+
+
+const mapStateToProps = (state) => ({
+  currentPetition : state.petition.currentPetition
+})
+
+const connector = connect(mapStateToProps , {
+  setCurrentPetition , getMyPetition
+})
+
+const Admin = (props) => {
+  const handleSetCurrentPetition = async () => {
+    await props.getMyPetition()
+  }
+  useEffect( () => {
+    let res = []
+    let col = []
+    const temp =[1,2,3,4,5,6,7,8,9,10,12]
+    temp.map( (item , index) => {
+      if(index % 4 == 3){
+        col.push(item)
+        res.push(col)
+        col = []
+      }else{
+        col.push(item)
+      }
+      if(temp.length - 1 === index) {
+        res.push(col)
+      }
+    })
+    
+  },[])
   return (
     <>
       <div className="cus-container">
@@ -86,4 +120,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default connector(Admin);
