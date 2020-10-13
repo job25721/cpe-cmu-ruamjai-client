@@ -130,3 +130,16 @@ export function handleCategoryFilter(arr) {
     }
   };
 }
+
+export const getWaitingPetition = () => async (dispatch) => {
+  try {
+    const res = await api.get("/user/petitionApprove");
+
+    dispatch({
+      type: petitionActionTypes.SET_ADMIN_PETITION,
+      payload: res.data.data.result,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
