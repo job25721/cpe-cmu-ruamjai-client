@@ -1,8 +1,10 @@
 import React from "react";
 
 import { AbstractCard } from "../components/Card";
+import RejectModal from "../components/RejectModal";
 
 const App = (props) => {
+  const [openModal, setOpen] = React.useState(false);
   return (
     <>
       {/* <Nav /> */}
@@ -10,6 +12,14 @@ const App = (props) => {
         header="หัวข้อ"
         detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti alias ratione corporis eum enim porro fugit et ad, incidunt possimus unde provident itaque beatae similique pariatur, distinctio veniam error quisquam"
       />
+      <button
+        onClick={() =>
+          document.querySelector(".reject-modal").classList.add("is-active")
+        }
+      >
+        Open
+      </button>
+      <RejectModal isOpen={openModal} />
       {/* <Card
         header="หัวข้อ"
         detail="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti alias ratione corporis eum enim porro fugit et ad, incidunt possimus unde provident itaque beatae similique pariatur, distinctio veniam error quisquam?"
