@@ -32,12 +32,11 @@ const Form = ({
 
   const getAllTypes = async () => {
     let res = await (await api.get("/petitionTypes")).data;
-    console.log(res);
+    setTypes(res.data);
   };
 
   useEffect(() => {
     getAllTypes();
-    console.log(newPetiton);
   }, []);
   return (
     <div className="cus-container" style={{ fontFamily: "s-medium" }}>
@@ -104,9 +103,16 @@ const Form = ({
               <div className="control">
                 <div className="select is-fullwidth">
                   <select>
-                    <option selected>ทั่วไป</option>
+                    {types.length > 0
+                      ? types.map((item, idx) => (
+                          <option selected key={idx}>
+                            {item}
+                          </option>
+                        ))
+                      : null}
+                    {/* <option selected>ทั่วไป</option>
                     <option>สวัสดีค๊าบบ ท่านผู้เจริญ</option>
-                    <option>ขอแบบเบิ้มๆ คือลือๆน่ะ</option>
+                    <option>ขอแบบเบิ้มๆ คือลือๆน่ะ</option> */}
                   </select>
                 </div>
               </div>

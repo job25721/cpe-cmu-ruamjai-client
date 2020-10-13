@@ -1,7 +1,7 @@
 import api from "../../api";
 import { userType } from "../reducers/user";
 
-export const login = (username, password) => async (dispatch) => {
+export const login = (username, password, props) => async (dispatch) => {
   try {
     const res = (
       await api.post("/user/login", {
@@ -14,6 +14,7 @@ export const login = (username, password) => async (dispatch) => {
       type: userType.SET_USER,
       payload: res.data.USER,
     });
+    props.history.push("/");
   } catch (error) {
     console.log(error);
   }
