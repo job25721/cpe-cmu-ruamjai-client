@@ -62,3 +62,15 @@ export const getDetail = async (petitionId) =>{
   return res.data.result
 
 }
+
+export const Loading = async () => dispatch => {
+  dispatch({
+    type: petitionActionTypes.LOADING
+  })
+}
+
+export const Loaded = async () => dispatch => {
+  dispatch({
+    type: petitionActionTypes.LOADED
+  })
+}
