@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { links } from "../route";
 import { IonIcon } from "@ionic/react";
 import { checkmarkOutline, closeOutline } from "ionicons/icons";
-import { useEffect } from "react";
 
 const petitionStatus = {
   approved: "อนุมัติ",

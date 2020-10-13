@@ -1,7 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
+
 import { AbstractCard } from "../components/Card";
-import Nav from "../components/Navbar";
 
 const App = (props) => {
   return (
