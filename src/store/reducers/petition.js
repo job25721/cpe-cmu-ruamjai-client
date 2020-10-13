@@ -1,6 +1,17 @@
 const initialState = {
   allPetitions: [],
   filterdPetitions: [],
+  newPetiton: {
+    type: "",
+    deatil: {
+      topic: "",
+      description: "",
+    },
+    subDetail: {
+      topic: "",
+      description: "",
+    },
+  },
 };
 
 export class petitionActionTypes {}

@@ -137,24 +137,34 @@ const Form = () => {
               style={{ height: 200, marginBottom: 20 }}
               placeholder="รายละเอียด..."
             />
-            <h2 className="has-text-left" style={{ fontSize: "24px" }}>
-              รายละเอียดปลีกย่อย
-            </h2>
-            <div className="columns">
-              <div className="column is-two-fifths">
-                <input
-                  type="text"
-                  className="input"
-                  placeholder="พิมพ์หัวเรื่อง..."
-                />
+            <div>
+              <h2 className="has-text-left" style={{ fontSize: "24px" }}>
+                รายละเอียดปลีกย่อย
+              </h2>
+              <div className="columns">
+                <div className="column">
+                  <div className="columns">
+                    <div className="column is-1 flex-row justify-center align-items-center">
+                      <h1 className="subtitle is-5 has-margin-right-10">1.</h1>
+                    </div>
+                    <div className="column">
+                      <input
+                        type="text"
+                        className="input"
+                        placeholder="พิมพ์หัวเรื่อง..."
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
+              <textarea
+                type="textarea"
+                className="input"
+                style={{ height: 200, marginBottom: 20 }}
+                placeholder="รายละเอียด..."
+              />
             </div>
-            <textarea
-              type="textarea"
-              className="input"
-              style={{ height: 200, marginBottom: 20 }}
-              placeholder="รายละเอียด..."
-            />
+
             <div className="has-text-right ">
               <button className="button is-danger">
                 <span className="icon">
