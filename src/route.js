@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import RequestById from "./pages/RequestDetail";
 import Form from "./pages/Form";
 import Admin from "./pages/Admin";
+import Auth from "./pages/Auth";
 
 export const links = {
   index: "/",
@@ -18,6 +19,7 @@ export const links = {
   allPetition: "/petitions",
   myPetitions: "/mine",
   addPetition: "/petition/add",
+  auth: "/login/auth",
   petitionDetail: (id) => `/petitions/${id}`,
 };
 
@@ -38,8 +40,9 @@ export default () => {
           <Route path="/app" component={App} exact={true} />
           <Route path={links.myPetitions} component={MyRequests} exact={true} />
           <Route path={links.login} component={Login} exact={true} />
+          <Route path={links.auth} component={Auth} exact={true} />
           <Route path={links.addPetition} component={Form} exact-={true} />
-          <Route path='/admin' component={Admin} exact={true} />
+          <Route path="/admin" component={Admin} exact={true} />
         </Switch>
       </Router>
     </Provider>
