@@ -17,6 +17,21 @@ export function getVotableAllPetition() {
   };
 }
 
+export function getTrendingPetiton() {
+  return async (dispatch) => {
+    let res = [];
+    try {
+      res = await (await api.post("/petitions/trending")).data;
+      dispatch({
+        type: petitionActionTypes.getAllPetition,
+        payload: res.data.result,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+}
+
 export function getMyPetition() {
   return async (dispatch) => {
     let res = [];
@@ -32,8 +47,8 @@ export function getMyPetition() {
     });
     dispatch({
       type: petitionActionTypes.SET_CERRENT_PETITION,
-      payload: res.data.petitions.waiting_for_voting
-    })
+      payload: res.data.petitions.waiting_for_voting,
+    });
   };
 }
 
@@ -54,48 +69,77 @@ export function onSubDetailDescriptionChange(idx, des) {
 }
 
 export const getDetail = async (petitionId) => {
-  let res = []
+  let res = [];
   try {
-    res = (await api.get(
-      `petitions/${petitionId}`
-    )).data
+    res = (await api.get(`petitions/${petitionId}`)).data;
   } catch (err) {
     console.log(err);
   }
   console.log(res.data.result);
-  return res.data.result
+  return res.data.result;
+};
 
-}
-
-export const Loading = () => dispatch => {
+export const Loading = () => (dispatch) => {
   dispatch({
-    type: petitionActionTypes.LOADING
-  })
-}
+    type: petitionActionTypes.LOADING,
+  });
+};
 
-export const Loaded = () => dispatch => {
+export const Loaded = () => (dispatch) => {
   dispatch({
-    type: petitionActionTypes.LOADED
-  })
-}
+    type: petitionActionTypes.LOADED,
+  });
+};
 
-export const setCurrentPetition = (petition) => async dispatch => {
+export const setCurrentPetition = (petition) => async (dispatch) => {
   dispatch({
     type: petitionActionTypes.SET_CERRENT_PETITION,
-    payload: petition
-  })
+    payload: petition,
+  });
+};
+
+export function handleCategoryFilter(arr) {
+  return async (dispatch) => {
+    const res = arr.map((item) => {
+      if (item.isChecked === true) {
+        return item.name;
+      } else {
+        return null;
+      }
+    });
+    if (res.every((element) => element === null)) {
+      dispatch({
+        type: petitionActionTypes.isFilter,
+        payload: false,
+      });
+    } else {
+      try {
+        let result = await (await api.post("/petitions/filter", { types: res }))
+          .data;
+        dispatch({
+          type: petitionActionTypes.setCategoryFilter,
+          payload: result.data.result,
+        });
+        dispatch({
+          type: petitionActionTypes.isFilter,
+          payload: true,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 }
 
-export const getWaitingPetition = () => async dispatch => {
-
+export const getWaitingPetition = () => async (dispatch) => {
   try {
-    const res = await api.get('/user/petitionApprove')
-   
+    const res = await api.get("/user/petitionApprove");
+
     dispatch({
       type: petitionActionTypes.SET_ADMIN_PETITION,
-      payload: res.data.data.result
-    })
+      payload: res.data.data.result,
+    });
   } catch (err) {
     console.log(err);
   }
-}
+};

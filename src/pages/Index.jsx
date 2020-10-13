@@ -7,8 +7,22 @@ import { IonIcon } from "@ionic/react";
 
 import { links } from "../route";
 import NewRequest from "../components/icons/NewRequest";
+import { useSelector } from "react-redux";
+import { Card } from "../components/Card";
+import Loading from "../components/Loading";
+import { connect } from "react-redux";
+import { getTrendingPetiton } from "../store/actions/petition";
+import { useEffect } from "react";
 
+const mapStateToProps = (state) => ({
+  trendingPetitions: state.petition.allPetitions,
+});
+
+const connector = connect(mapStateToProps, { getTrendingPetiton });
 const Index = (props) => {
+  useEffect(() => {
+    props.getTrendingPetiton();
+  }, []);
   return (
     <div className="cus-container">
       <NewRequest />
@@ -39,11 +53,23 @@ const Index = (props) => {
         </div>
 
         <div className="container-cards">
-          <button className="button is-loading is-large is-danger"></button>
+          {props.trendingPetitions !== undefined ? (
+            props.trendingPetitions.map((each) => (
+              <Card
+                header={each.detail.topic}
+                detail={each.detail.description}
+                voting={each.voteNum}
+                key={each._id}
+                petitionId={each._id}
+              />
+            ))
+          ) : (
+            <Loading />
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Index;
+export default connector(Index);

@@ -1,22 +1,59 @@
 import React from "react";
 import { Card } from "../components/Card";
 import Nav from "../components/Navbar";
-import { getVotableAllPetition, getDetail } from "../store/actions/petition";
+import {
+  getVotableAllPetition,
+  getDetail,
+  handleCategoryFilter,
+} from "../store/actions/petition";
 import { connect } from "react-redux";
 import NewRequest from "../components/icons/NewRequest";
+import api from "../api";
 
 const mapStateToProps = (state) => ({
   petitions: state.petition.allPetitions,
+  isFilter: state.petition.filter,
+  filterdPetitions: state.petition.filterdPetitions,
 });
 
 const connector = connect(mapStateToProps, {
   getPetitions: getVotableAllPetition,
+  handleCategoryFilter,
 });
-const Requests = ({ getPetitions, petitions }) => {
+const Requests = ({
+  getPetitions,
+  petitions,
+  handleCategoryFilter,
+  isFilter,
+  filterdPetitions,
+}) => {
+  const [category, setCat] = React.useState([]);
+  const getAllTypes = async () => {
+    let res = await (await api.get("/petitionTypes")).data;
+    const result = res.data.map((item, idx) => {
+      return {
+        id: idx,
+        name: item,
+        isChecked: false,
+      };
+    });
+    setCat(result);
+  };
+
+  function handleCheckbox({ target }) {
+    var arr = category;
+    arr[target.value].isChecked = target.checked;
+    setCat(arr);
+    handleCategoryFilter(category);
+  }
+
+  React.useEffect(() => {
+    getAllTypes();
+  }, []);
   React.useEffect(() => {
     getPetitions();
   }, [getPetitions]);
-  const [category] = React.useState(["เรียน", "อาจารย์", "สถานที่", "อื่นๆ"]);
+
   return (
     <div className="cus-container">
       <NewRequest />
@@ -32,30 +69,47 @@ const Requests = ({ getPetitions, petitions }) => {
             CATEGORY
           </h1>
           <div className="flex-column">
-            {category.map((cat, idx) => (
-              <label className="checkbox" key={idx}>
-                <input type="checkbox" />
+            {category.map((cat) => (
+              <label className="checkbox" key={cat.id}>
+                <input
+                  value={cat.id}
+                  onChange={handleCheckbox}
+                  type="checkbox"
+                />
                 <span
                   style={{ fontFamily: "s-medium" }}
                   className="has-padding-left-10"
                 >
-                  {cat}
+                  {cat.name}
                 </span>
               </label>
             ))}
           </div>
         </div>
+
         <div className="container-cards">
           {petitions.length > 0 ? (
-            petitions.map((each) => (
-              <Card
-                header={each.detail.topic}
-                detail={each.detail.description}
-                voting={each.voteNum}
-                key={each._id}
-                petitionId={each._id}
-              />
-            ))
+            !isFilter ? (
+              petitions.map((each) => (
+                <Card
+                  header={each.detail.topic}
+                  detail={each.detail.description}
+                  voting={each.voteNum}
+                  key={each._id}
+                  petitionId={each._id}
+                />
+              ))
+            ) : (
+              filterdPetitions.map((each) => (
+                <Card
+                  header={each.detail.topic}
+                  detail={each.detail.description}
+                  voting={each.voteNum}
+                  key={each._id}
+                  petitionId={each._id}
+                />
+              ))
+            )
           ) : (
             <button className="is-loading button is-large"></button>
           )}

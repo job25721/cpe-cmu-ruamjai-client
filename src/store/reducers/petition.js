@@ -12,7 +12,8 @@ const initialState = {
   myPetitions: [],
   isLoading: false,
   currentPetition: [],
-  adminPetition : []
+  filter: false,
+  adminPetition: [],
 };
 
 export class petitionActionTypes {}
@@ -26,7 +27,10 @@ petitionActionTypes.LOADING = "LOADING";
 petitionActionTypes.LOADED = "LOADED";
 petitionActionTypes.SET_CERRENT_PETITION = "SET_CERRENT_PETITION";
 petitionActionTypes.resetAddPetitionData = "RESET_ADD_PETITION";
-petitionActionTypes.SET_ADMIN_PETITION = 'SET_ADMIN_PETITION'
+petitionActionTypes.setType = "SET_TYPE";
+petitionActionTypes.setCategoryFilter = "SET_CAT_FIL";
+petitionActionTypes.isFilter = "SET_IS_FILTER";
+petitionActionTypes.SET_ADMIN_PETITION = "SET_ADMIN_PETITION";
 
 export default function petitionReducer(state = initialState, action) {
   switch (action.type) {
@@ -103,11 +107,21 @@ export default function petitionReducer(state = initialState, action) {
         ...state,
         newPetiton: initialState.newPetiton,
       };
-    case petitionActionTypes.SET_ADMIN_PETITION :
+    case petitionActionTypes.setCategoryFilter:
       return {
         ...state,
-        adminPetition: action.payload
-      }
+        filterdPetitions: action.payload,
+      };
+    case petitionActionTypes.isFilter:
+      return {
+        ...state,
+        filter: action.payload,
+      };
+    case petitionActionTypes.SET_ADMIN_PETITION:
+      return {
+        ...state,
+        adminPetition: action.payload,
+      };
     default:
       return state;
   }

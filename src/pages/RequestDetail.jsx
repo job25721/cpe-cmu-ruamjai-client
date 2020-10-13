@@ -6,7 +6,13 @@ import { useState } from "react";
 import NewRequest from "../components/icons/NewRequest";
 // import { IonIcon } from "@ionic/react";
 // import { checkmarkOutline, closeOutline } from "ionicons/icons";
+import { connect } from "react-redux";
+import { votePetition } from "../store/actions/user";
 
+const mapStateToProps = (state) => ({
+  user: state.user.user,
+});
+const connector = connect(mapStateToProps, { votePetition });
 const RequestById = (props) => {
   const [isLoading, setLoading] = useState(false);
   const handleSetData = async () => {
@@ -15,7 +21,6 @@ const RequestById = (props) => {
     setLoading(true);
   };
   useEffect(() => {
-    // setData(getDetail(props.match.params.petitionId))
     handleSetData();
   }, []);
   const [data, setData] = useState({});
@@ -55,18 +60,35 @@ const RequestById = (props) => {
                 <p>{data.owner.code}</p>
               </div>
               <div className="detail-vote-button">
-                <button
-                  className="button-agree"
-                  style={{ cursor: "pointer" }}
-                  onClick={(e) => {
-                    e.currentTarget.disabled = true;
-                    e.currentTarget.classList.add("disabled");
-                    e.currentTarget.textContent = "VOTED";
-                    console.log(data.detail.topic);
-                  }}
-                >
-                  VOTE
-                </button>
+                {props.user.votedPetitoins !== undefined ? (
+                  props.user.votedPetitoins.find(
+                    (item) => item === props.match.params.petitionId
+                  ) !== undefined ? (
+                    <button
+                      className="button-agree"
+                      style={{ cursor: "pointer" }}
+                      disabled
+                    >
+                      VOTED
+                    </button>
+                  ) : (
+                    <button
+                      className="button-agree"
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) => {
+                        e.currentTarget.disabled = true;
+                        e.currentTarget.classList.add("disabled");
+                        e.currentTarget.textContent = "VOTED";
+                        props.votePetition(props.match.params.petitionId);
+                      }}
+                    >
+                      VOTE
+                    </button>
+                  )
+                ) : null}
+                {/* {props.user.votedPetitoins !== undefined ?  props.user.votedPetitoins.find(
+                  (item) => item === props.props.match.params.petitionId
+                ) !== undefined ? "Voted" : "not"} */}
               </div>
             </div>
             <div
@@ -116,7 +138,7 @@ const RequestById = (props) => {
               color: "#623688",
             }}
           >
-            <img src="/plane.gif" />
+            <img src="/plane.gif" alt="" />
           </div>
         </>
       )}
@@ -124,4 +146,4 @@ const RequestById = (props) => {
   );
 };
 
-export default RequestById;
+export default connector(RequestById);
