@@ -54,6 +54,22 @@ const Requests = ({
     getPetitions();
   }, [getPetitions]);
 
+  const [onSearch, setOnSearch] = React.useState(false);
+  const [searched, setSearch] = React.useState([]);
+  async function search({ target }) {
+    console.log(target.value);
+
+    if (target.value !== "") {
+      let res = await (
+        await api.post("/petitions/search", { keyword: target.value })
+      ).data;
+      setOnSearch(true);
+      setSearch(res.data.result);
+    } else {
+      setOnSearch(false);
+    }
+  }
+
   return (
     <div className="cus-container">
       <NewRequest />
@@ -92,21 +108,37 @@ const Requests = ({
                 </label>
               </div>
             ))}
+            <div className="has-margin-top-10">
+              <h1 className="subtitle is-4">Search</h1>
+              <input type="text" onChange={search} className="input" />
+            </div>
           </div>
         </div>
 
         <div className="container-cards">
           {petitions.length > 0 ? (
             !isFilter ? (
-              petitions.map((each) => (
-                <Card
-                  header={each.detail.topic}
-                  detail={each.detail.description}
-                  voting={each.voteNum}
-                  key={each._id}
-                  petitionId={each._id}
-                />
-              ))
+              onSearch ? (
+                searched.map((each) => (
+                  <Card
+                    header={each.detail.topic}
+                    detail={each.detail.description}
+                    voting={each.voteNum}
+                    key={each._id}
+                    petitionId={each._id}
+                  />
+                ))
+              ) : (
+                petitions.map((each) => (
+                  <Card
+                    header={each.detail.topic}
+                    detail={each.detail.description}
+                    voting={each.voteNum}
+                    key={each._id}
+                    petitionId={each._id}
+                  />
+                ))
+              )
             ) : (
               filterdPetitions.map((each) => (
                 <Card
